@@ -5,6 +5,7 @@ import Education from './components/Education';
 import Internships from './components/Internships';
 import Projects from './components/Projects';
 import Portfolio from './components/Portfolio';
+import AISection from './components/AISection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -18,6 +19,7 @@ function App() {
         <Internships />
         <Projects />
         <Portfolio />
+        <AISection />
         <Contact />
       </main>
       <Footer />

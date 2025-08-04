@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Calendar, Users, TrendingUp, Code, Database, Globe } from 'lucide-react';
+import { Calendar, Users, TrendingUp } from 'lucide-react';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -28,11 +28,7 @@ const Projects = () => {
       period: '2024.10 - 至今',
       team: '独立开发',
       company: '深圳数字经济研究院',
-      status: 'in-progress',
-      links: {
-        demo: '#',
-        github: '#'
-      }
+      status: 'in-progress'
     },
     {
       id: 2,
@@ -49,10 +45,7 @@ const Projects = () => {
       period: '2024.08 - 2024.12',
       team: '团队领导（3名实习生）',
       company: '深圳数字经济研究院',
-      status: 'completed',
-      links: {
-        demo: '#'
-      }
+      status: 'completed'
     },
     {
       id: 3,
@@ -69,10 +62,7 @@ const Projects = () => {
       period: '2024.11 - 进行中',
       team: '产学研合作项目',
       company: '香港中文大学（深圳）',
-      status: 'in-progress',
-      links: {
-        demo: '#'
-      }
+      status: 'in-progress'
     },
     {
       id: 4,
@@ -89,10 +79,7 @@ const Projects = () => {
       period: '2023.05 - 2024.05',
       team: '本科毕业设计',
       company: '哈尔滨工业大学威海校区',
-      status: 'completed',
-      links: {
-        paper: '#'
-      }
+      status: 'completed'
     },
     {
       id: 5,
@@ -109,10 +96,7 @@ const Projects = () => {
       period: '2024.03 - 2024.05',
       team: '独立开发',
       company: '深圳数字经济研究院',
-      status: 'completed',
-      links: {
-        demo: '#'
-      }
+      status: 'completed'
     }
   ];
 
@@ -251,40 +235,6 @@ const Projects = () => {
                   </ul>
                 </div>
 
-                {/* Action Links */}
-                <div className="flex gap-2">
-                  {project.links.demo && (
-                    <a
-                      href={project.links.demo}
-                      className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Globe size={14} />
-                      查看项目
-                    </a>
-                  )}
-                  {project.links.github && (
-                    <a
-                      href={project.links.github}
-                      className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github size={14} />
-                    </a>
-                  )}
-                  {project.links.paper && (
-                    <a
-                      href={project.links.paper}
-                      className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink size={14} />
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           ))}

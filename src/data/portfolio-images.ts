@@ -29,18 +29,18 @@ export const PORTFOLIO_IMAGES: Record<string, PortfolioImage[]> = {
   ],
   'data-visualization': [
     {
-      id: 'visualization-case-1',
-      title: '数据可视化报告案例1',
-      description: '专业数据分析报告，运用Tableau和BI工具制作，为B端客户提供投资分析支持',
-      src: '/images/portfolio/data-visualization/展示案例1.pdf',
+      id: 'esg-data-system',
+      title: 'ESG数据获取系统分析报告',
+      description: '专业ESG数据分析报告，运用先进的数据采集和可视化技术，为ESG投资决策提供数据支持',
+      src: '/images/portfolio/data-visualization/展示案例-ESG数据获取系统.pdf',
       type: 'pdf',
       category: '数据可视化'
     },
     {
-      id: 'visualization-case-2',
-      title: '数据可视化报告案例2',
-      description: '市场分析报告，结合金融专业知识，制作具有实际业务价值的分析内容',
-      src: '/images/portfolio/data-visualization/展示案例2.pdf',
+      id: 'bank-wealth-system',
+      title: '银行理财子费率自动更新系统开发企划书',
+      description: '银行理财产品费率管理系统企划书，结合金融科技专业知识，制作具有实际业务价值的系统设计方案',
+      src: '/images/portfolio/data-visualization/展示案例-银行理财子费率自动更新系统开发企划书.pdf',
       type: 'pdf',
       category: '数据可视化'
     }

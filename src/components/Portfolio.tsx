@@ -81,14 +81,14 @@ const Portfolio = () => {
       title: 'SVG艺术卡片设计',
       category: 'design',
       type: 'image',
-      description: 'AI辅助创作的精美学习卡片，SVG矢量格式，支持批量生成',
+      description: 'AI辅助创作的精美学习卡片，包含单词卡片、读书卡片、电影卡片等多种类型，采用优雅的渐变配色和排版设计',
       image: 'https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['SVG', 'Python', 'AI生成', 'JSON'],
+      technologies: ['SVG', 'AI设计', '渐变配色', '排版设计'],
       features: [
-        'SVG矢量格式',
-        '批量生成功能',
-        '多种卡片类型',
-        'PDF格式输出'
+        '单词学习卡片（含音标、释义、例句）',
+        '读书笔记卡片（含金句、感悟）',
+        '电影观影卡片（含评分、简介）',
+        '优雅渐变背景和精美排版'
       ],
       links: {
         demo: '#'
@@ -100,14 +100,14 @@ const Portfolio = () => {
       title: '数据可视化报告',
       category: 'design',
       type: 'image',
-      description: '专业级数据分析报告，结合金融专业知识制作',
+      description: '专业级数据分析报告，包含银行理财子费率自动更新系统开发企划书和ESG数据获取系统报告',
       image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['Tableau', 'BI工具', 'Excel', 'Python'],
       features: [
-        '专业数据可视化',
-        '金融分析报告',
-        '交互式图表',
-        'PDF格式输出'
+        '银行理财子费率自动更新系统企划书',
+        'ESG数据获取系统分析报告',
+        '专业数据可视化图表',
+        'PDF格式完整报告'
       ],
       links: {
         demo: EXTERNAL_LINKS.portfolio.dataVisualization
@@ -169,7 +169,7 @@ const Portfolio = () => {
             作品集
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            从AI工具到Web应用，从设计作品到研究成果，展示创新能力与技术实力
+            不要成为一个拥有完美简历却没有作品的人
           </p>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, Award } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -173,13 +173,22 @@ const Contact = () => {
               <p className="text-gray-600 mb-4 text-sm">
                 如需紧急联系或预约面谈，请直接发送邮件至学术邮箱，我会在24小时内回复。
               </p>
-              <a
-                href="mailto:224040166@link.cuhk.edu.cn"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
-              >
-                <Mail size={18} />
-                发送邮件
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="mailto:224040166@link.cuhk.edu.cn"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+                >
+                  <Mail size={18} />
+                  发送邮件
+                </a>
+                <button
+                  onClick={() => alert('奖项证书页面正在建设中，敬请期待！')}
+                  className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                >
+                  <Award size={18} />
+                  奖项证书
+                </button>
+              </div>
             </div>
           </div>
 

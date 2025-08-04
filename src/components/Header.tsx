@@ -18,6 +18,7 @@ const Header = () => {
     { href: '#internships', label: '实习经历' },
     { href: '#projects', label: '项目经历' },
     { href: '#portfolio', label: '作品集' },
+    { href: '#ai', label: '我与AI' },
     { href: '#contact', label: '联系方式' },
   ];
 
