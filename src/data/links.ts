@@ -24,7 +24,7 @@ export const EXTERNAL_LINKS = {
     academicDrawings: 'modal:academic-drawings', // 专业学术论文绘图作品集 - 弹窗展示
     dataVisualization: 'modal:data-visualization', // 数据可视化报告 - 弹窗展示
     wechatArticles: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkyMTM4MzQ5Mw==&action=getalbum&album_id=4105509608708521990#wechat_redirect', // 公众号文章合集
-    svgCards: '#', // SVG艺术卡片作品
+    svgCards: 'modal:svg-cards', // SVG艺术卡片作品 - 弹窗展示
   },
   
   // 学术和研究

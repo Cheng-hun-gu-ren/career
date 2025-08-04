@@ -45,6 +45,40 @@ export const PORTFOLIO_IMAGES: Record<string, PortfolioImage[]> = {
       category: '数据可视化'
     }
   ],
+  'svg-cards': [
+    {
+      id: 'word-card-example',
+      title: '单词学习卡片示例',
+      description: '精美的英语单词学习卡片，包含音标、释义、例句和记忆技巧，采用优雅的紫色渐变背景',
+      src: '/images/portfolio/svg-cards/单词卡片示例.png',
+      type: 'image',
+      category: 'SVG卡片设计'
+    },
+    {
+      id: 'book-card-example-1',
+      title: '读书笔记卡片示例1',
+      description: '《怦然心动的人生整理魔法》读书卡片，摘录书中金句和整理法则，温馨的粉色渐变设计',
+      src: '/images/portfolio/svg-cards/读书卡片示例.png',
+      type: 'image',
+      category: 'SVG卡片设计'
+    },
+    {
+      id: 'book-card-example-2',
+      title: '读书笔记卡片示例2',
+      description: '另一款读书笔记卡片设计，展示不同的排版风格和色彩搭配',
+      src: '/images/portfolio/svg-cards/读书卡片示例2.png',
+      type: 'image',
+      category: 'SVG卡片设计'
+    },
+    {
+      id: 'movie-card-example',
+      title: '电影观影卡片示例',
+      description: '电影观影记录卡片，包含评分、简介和观影感悟，优雅的渐变背景和精美排版',
+      src: '/images/portfolio/svg-cards/电影卡片示例.png',
+      type: 'image',
+      category: 'SVG卡片设计'
+    }
+  ],
   'competition-results': [
     // 待添加竞赛成果图片
     // {

@@ -91,7 +91,7 @@ const Portfolio = () => {
         '优雅渐变背景和精美排版'
       ],
       links: {
-        demo: '#'
+        demo: EXTERNAL_LINKS.portfolio.svgCards
       },
       status: 'featured'
     },
