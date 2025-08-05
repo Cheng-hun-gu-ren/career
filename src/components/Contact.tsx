@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, Award, X } from 'lucide-react';
+
+// 自定义X(Twitter)图标组件
+const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +18,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showWechatModal, setShowWechatModal] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -69,20 +77,24 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: '#',
-      color: 'hover:text-gray-900'
+      href: 'https://github.com/Cheng-hun-gu-ren',
+      color: 'hover:text-gray-900',
+      external: true
+    },
+    {
+      icon: TwitterXIcon,
+      label: 'X (Twitter)',
+      href: 'https://x.com/Gary_Chen9527',
+      color: 'hover:text-gray-900',
+      external: true
     },
     {
       icon: MessageCircle,
       label: '微信',
       href: '#',
-      color: 'hover:text-green-600'
-    },
-    {
-      icon: MessageCircle,
-      label: '推特',
-      href: '#',
-      color: 'hover:text-blue-400'
+      color: 'hover:text-green-600',
+      external: false,
+      onClick: () => setShowWechatModal(true)
     }
   ];
 
@@ -106,7 +118,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
@@ -149,18 +161,32 @@ const Contact = () => {
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      className={`w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                    >
-                      <IconComponent size={20} />
-                    </a>
-                  );
+                  
+                  if (social.external) {
+                    return (
+                      <a
+                        key={index}
+                        href={social.href}
+                        className={`w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                      >
+                        <IconComponent size={20} />
+                      </a>
+                    );
+                  } else {
+                    return (
+                      <button
+                        key={index}
+                        onClick={social.onClick}
+                        className={`w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
+                        aria-label={social.label}
+                      >
+                        <IconComponent size={20} />
+                      </button>
+                    );
+                  }
                 })}
               </div>
             </div>
@@ -192,131 +218,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              发送消息
-            </h3>
-
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle size={32} className="text-green-600" />
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  消息发送成功！
-                </h4>
-                <p className="text-gray-600">
-                  感谢您的联系，我会尽快回复您的消息。
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      姓名 *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="请输入您的姓名"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      邮箱 *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                      placeholder="请输入您的邮箱"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                    公司/机构
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    placeholder="请输入您的公司或机构名称"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    咨询类型 *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                  >
-                    <option value="">请选择咨询类型</option>
-                    {subjectOptions.map((option, index) => (
-                      <option key={index} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    消息内容 *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
-                    placeholder="请详细描述您的需求或问题..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      发送中...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      发送消息
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
         </div>
 
         {/* Additional Info */}
@@ -332,6 +233,41 @@ const Contact = () => {
             </p>
           </div>
         </div>
+
+        {/* 微信二维码弹窗 */}
+        {showWechatModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl p-8 max-w-sm w-full mx-auto relative">
+              <button
+                onClick={() => setShowWechatModal(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X size={24} />
+              </button>
+              
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">
+                  扫码添加微信
+                </h3>
+                
+                <div className="mb-6">
+                  <img
+                    src="/images/wechat.png"
+                    alt="微信二维码"
+                    className="w-64 h-64 mx-auto rounded-lg shadow-lg"
+                  />
+                </div>
+                
+                <p className="text-gray-600 text-sm mb-4">
+                  扫描二维码添加好友
+                </p>
+                <p className="text-gray-500 text-xs">
+                  请备注来意，谢谢！
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

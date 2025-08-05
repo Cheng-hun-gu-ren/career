@@ -186,31 +186,37 @@ export const aiJourney: AIJourney[] = [
   {
     period: '2024.03',
     milestone: '初识AI工具',
-    description: '开始使用Claude网页版，发现AI能够实际帮助完成工作',
+    description: '开始用在辅助论文代码构建上，发现AI能够实际帮助完成学术工作',
     impact: '改变了对AI的认知，从好奇转向实用'
   },
   {
-    period: '2024.06',
-    milestone: '深度使用Cursor',
-    description: '转向Cursor AI IDE，体验AI辅助编程的强大能力',
-    impact: '编程效率显著提升，开始思考AI与开发的结合'
-  },
-  {
-    period: '2024.09',
-    milestone: '掌握Claude Code',
-    description: '发现并深度使用Claude Code终端工具，成为主力AI助手',
-    impact: '工作流程全面AI化，形成独特的开发模式'
-  },
-  {
     period: '2024.11',
-    milestone: 'AI工程化应用',
-    description: '开始将AI集成到实际项目中，开发智能化系统',
-    impact: '从AI用户转向AI应用开发者'
+    milestone: '学习多种AI工具',
+    description: '深入了解多种AI工具，开始理解不同工具的能力边界和应用场景',
+    impact: '建立了AI工具生态的全面认知'
   },
   {
-    period: '2025.01',
-    milestone: 'AI理念成熟',
-    description: '形成完整的AI应用理念，开始分享AI使用经验',
-    impact: '建立个人AI技术品牌，影响他人使用AI'
+    period: '2025.03',
+    milestone: 'AI IDE成为主力',
+    description: '主力变为Cursor等AI IDE，用来协助自己画图、写文、代码等多种工作',
+    impact: '工作流程开始全面AI化，效率显著提升'
+  },
+  {
+    period: '2025.05',
+    milestone: '终端AI工具突破',
+    description: '了解和使用Claude Code这类终端命令行AI工具，大幅提升工作效率',
+    impact: '实现了更深度的AI集成，形成独特的开发模式'
+  },
+  {
+    period: '2025.07',
+    milestone: 'AI技术栈完善',
+    description: '持续跟进学习各种海内外AI工具，完善自身技术栈和知识库',
+    impact: '建立了完整的AI应用能力体系'
+  },
+  {
+    period: '至今',
+    milestone: '拥抱AI新时代',
+    description: '干中学、学中干，持续拥抱AI新时代的变化和机遇',
+    impact: '成为AI时代的积极实践者和推动者'
   }
 ];

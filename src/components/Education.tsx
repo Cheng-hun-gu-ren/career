@@ -11,7 +11,7 @@ const Education = () => {
       location: '深圳',
       description: '专注于AI技术在金融领域的创新应用，量化投资与机器学习研究',
       achievements: ['学业奖学金（覆盖率40%）', '阿里天池算法大赛复赛八强（600支队伍中脱颖而出）'],
-      image: 'https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/香港中文大学深圳.png',
       color: 'from-blue-500 to-indigo-600'
     },
     {
@@ -22,7 +22,7 @@ const Education = () => {
       location: '威海',
       description: '985高校本科教育，高考理科632分，全省排名前1-2%',
       achievements: ['二等人民奖学金（覆盖率10%）', 'ALBERT模型在A股市场应用研究（本科毕业设计）'],
-      image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/哈工大威海.png',
       color: 'from-emerald-500 to-teal-600'
     }
   ];

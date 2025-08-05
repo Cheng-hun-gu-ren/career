@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Brain, Lightbulb, Clock, Star, MessageCircle, Users } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Brain, Lightbulb, Clock, Star, MessageCircle, Users, Sparkles } from 'lucide-react';
 import { aiTools, aiPhilosophy, aiJourney } from '../data/ai-content';
 
 const AISection = () => {
   const [activeTab, setActiveTab] = useState('tools');
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const tabs = [
     { id: 'tools', label: 'AI工具箱', icon: Brain },
@@ -18,6 +20,28 @@ const AISection = () => {
       case '⚡': return '⚡';
       case '📈': return '📈';
       default: return '💡';
+    }
+  };
+
+  // 处理滚动条拖拽
+  const handleScrollbarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    const container = scrollContainerRef.current;
+    if (container) {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const scrollLeft = (value / 100) * maxScroll;
+      container.scrollLeft = scrollLeft;
+      setScrollPosition(value);
+    }
+  };
+
+  // 更新滚动位置
+  const updateScrollPosition = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const scrollPercent = maxScroll > 0 ? (container.scrollLeft / maxScroll) * 100 : 0;
+      setScrollPosition(scrollPercent);
     }
   };
 
@@ -61,57 +85,93 @@ const AISection = () => {
         {/* AI Tools */}
         {activeTab === 'tools' && (
           <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {aiTools.map((tool, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">{tool.icon}</span>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900">{tool.name}</h3>
-                      <p className="text-sm text-blue-600">{tool.category}</p>
+            {/* 横向滑动的AI工具卡片 */}
+            <div className="relative">
+              <div 
+                ref={scrollContainerRef}
+                className="overflow-x-auto scrollbar-hide"
+                onScroll={updateScrollPosition}
+              >
+                <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
+                  {aiTools.map((tool, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0 w-80"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-3xl">{tool.icon}</span>
+                        <div>
+                          <h3 className="text-lg font-bold text-gray-900">{tool.name}</h3>
+                          <p className="text-sm text-blue-600">{tool.category}</p>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                        {tool.description}
+                      </p>
+
+                      <div className="mb-4">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-sm font-medium text-gray-700">熟练度</span>
+                          <span className="text-sm font-bold text-blue-600">{tool.proficiency}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500"
+                            style={{ width: `${tool.proficiency}%` }}
+                          ></div>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <p className="text-sm font-medium text-gray-700 mb-2">主要用途</p>
+                        <p className="text-sm text-gray-600">{tool.usage}</p>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium text-gray-700 mb-2">核心功能</p>
+                        <div className="flex flex-wrap gap-1">
+                          {tool.features.map((feature, idx) => (
+                            <span
+                              key={idx}
+                              className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {tool.description}
-                  </p>
-
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-700">熟练度</span>
-                      <span className="text-sm font-bold text-blue-600">{tool.proficiency}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500"
-                        style={{ width: `${tool.proficiency}%` }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <p className="text-sm font-medium text-gray-700 mb-2">主要用途</p>
-                    <p className="text-sm text-gray-600">{tool.usage}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-sm font-medium text-gray-700 mb-2">核心功能</p>
-                    <div className="flex flex-wrap gap-1">
-                      {tool.features.map((feature, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs"
-                        >
-                          {feature}
-                        </span>
-                      ))}
+                  ))}
+                  
+                  {/* 省略号卡片 */}
+                  <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0 w-80 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl text-gray-300 mb-4">⋯</div>
+                      <h3 className="text-lg font-bold text-gray-600 mb-2">更多工具</h3>
+                      <p className="text-sm text-gray-500">持续探索AI新工具</p>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+              
+              {/* 滚动提示 */}
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-indigo-50 to-transparent pointer-events-none"></div>
+
+              {/* 自定义滚动条 */}
+              <div className="mt-4 px-4">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={scrollPosition}
+                  onChange={handleScrollbarChange}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${scrollPosition}%, #e5e7eb ${scrollPosition}%, #e5e7eb 100%)`
+                  }}
+                />
+              </div>
             </div>
 
             {/* AI Usage Stats */}
@@ -253,7 +313,7 @@ const AISection = () => {
           </div>
         )}
 
-        {/* CTA Section - 只保留两个按钮 */}
+        {/* CTA Section - 添加AI工具星云按钮 */}
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -263,6 +323,13 @@ const AISection = () => {
               基于深度的AI应用经验，为您提供专业的AI技术咨询和解决方案
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => window.open('https://starriver.chenggao.top', '_blank')}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              >
+                <Sparkles size={20} />
+                AI工具星云
+              </button>
               <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"

@@ -18,7 +18,7 @@ const Projects = () => {
       title: '银行理财子费率自动更新系统',
       category: 'fintech',
       description: '六大核心模块的企业级系统，将费率更新滞后时间从7-10天缩短至24小时内，效率提升90%',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/银行理财子费率自动更新系统.png',
       technologies: ['Python', 'MongoDB', 'MySQL', 'DeepSeek API'],
       achievements: [
         '效率提升90%，24小时内完成费率更新',
@@ -35,7 +35,7 @@ const Projects = () => {
       title: 'ESG银行报告智能爬虫系统',
       category: 'ai',
       description: 'AI驱动的智能化报告采集系统，成功率从15%提升至65%+，支持119+银行、300+报告入口',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/理财产品查询工具.png',
       technologies: ['Python', 'AI爬虫', 'DeepSeek API', 'Selenium'],
       achievements: [
         '成功率提升333%（15% → 65%+）',
@@ -52,7 +52,7 @@ const Projects = () => {
       title: '阿里通义千问大模型微调项目',
       category: 'ai',
       description: '作为高校代表与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/阿里通义千问大模型微调项目.png',
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
         '作为高校代表参与产学研合作',
@@ -69,7 +69,7 @@ const Projects = () => {
       title: 'ALBERT模型在A股市场应用研究',
       category: 'research',
       description: '利用150万余条股评文本数据对ALBERT模型进行领域内训练，构建情绪指数预测市场表现',
-      image: 'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/ALBERT模型在A股市场应用研究.png',
       technologies: ['Python', 'ALBERT', 'NLP', '深度学习'],
       achievements: [
         '处理150万+股评文本数据',
@@ -86,7 +86,7 @@ const Projects = () => {
       title: '理财产品查询工具',
       category: 'fintech',
       description: '专为金融行业设计的理财产品信息抓取工具，100个产品测试成功率98.8%',
-      image: 'https://images.pexels.com/photos/259200/pexels-photo-259200.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/images/理财产品查询工具.png',
       technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
       achievements: [
         '成功率98.8%，性能稳定可靠',

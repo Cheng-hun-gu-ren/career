@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">程高</h3>
             <p className="text-gray-400 leading-relaxed">
-              金融工程研究生 · AI技术专家 · 全栈开发者
+              金融工程研究生 · AI技术拥抱者 · 全栈开发者
             </p>
             <p className="text-gray-400 mt-2 text-sm">
               立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。
@@ -85,9 +85,8 @@ const Footer = () => {
               </div>
               <div className="mt-3">
                 <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/程高-网页版-简历.pdf"
+                  download="程高-网页版-简历.pdf"
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
                 >
                   📄 下载简历

@@ -19,8 +19,12 @@ const Hero = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Profile Image */}
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 flex items-center justify-center">
-            <GraduationCap size={48} className="text-white" />
+          <div className="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 overflow-hidden">
+            <img
+              src="/images/头像.png"
+              alt="程高的头像"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
@@ -28,7 +32,7 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
           程高
           <span className="block text-xl md:text-2xl font-normal mt-2 text-blue-100">
-            金融工程研究生 · AI技术专家 · 全栈开发者
+            金融工程研究生 · AI技术拥抱者 · 全栈开发者
           </span>
         </h1>
 
