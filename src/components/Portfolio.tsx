@@ -333,7 +333,7 @@ const Portfolio = () => {
               <div className="text-sm text-gray-600">作品类型</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">1000+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">5000+</div>
               <div className="text-sm text-gray-600">用户访问量</div>
             </div>
           </div>

@@ -35,7 +35,7 @@ const Projects = () => {
       title: 'ESG银行报告智能爬虫系统',
       category: 'ai',
       description: 'AI驱动的智能化报告采集系统，成功率从15%提升至65%+，支持119+银行、300+报告入口',
-      image: '/images/理财产品查询工具.png',
+      image: '/images/银行ESG.png',
       technologies: ['Python', 'AI爬虫', 'DeepSeek API', 'Selenium'],
       achievements: [
         '成功率提升333%（15% → 65%+）',
