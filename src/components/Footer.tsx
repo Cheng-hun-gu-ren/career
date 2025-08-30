@@ -107,8 +107,18 @@ const Footer = () => {
               <Coffee size={16} className="text-yellow-500" />
             </div>
             
-            <div className="mt-4 md:mt-0 text-gray-400 text-sm">
+            <div className="mt-4 md:mt-0 text-gray-400 text-sm flex flex-col md:items-end">
               <p>怕什么真理无穷，进一步有一步的惊喜</p>
+              <p className="mt-1">
+                <a 
+                  href="https://beian.miit.gov.cn/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 transition-colors duration-200"
+                >
+                  备案号：粤ICP备2025459432号
+                </a>
+              </p>
             </div>
           </div>
         </div>

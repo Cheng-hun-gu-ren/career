@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程高 - 个人职业展示网站</title>
+    <meta name="description" content="程高 - 金融工程研究生，AI技术专家，专注于AI技术在金融领域的创新应用。正在跳转至个人职业展示网站。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #030712;
+            --text-color: #f9fafb;
+            --text-muted-color: #d1d5db;
+            --glow-color: #60a5fa;
+            --accent-color: #8b5cf6;
+            --gradient-1: #3b82f6;
+            --gradient-2: #8b5cf6;
+            --gradient-3: #06b6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            transition: opacity 0.8s ease-in-out;
+            perspective: 1000px;
+        }
+        
+        body.fade-out {
+            opacity: 0;
+        }
+
+        /* 3D Canvas Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Aurora Background */
+        .background-aurora {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .aurora-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: aurora-float 30s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            top: 10%; left: 15%; width: 28rem; height: 28rem;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            animation-duration: 25s; animation-delay: 0s;
+        }
+
+        .shape-2 {
+            bottom: 10%; right: 15%; width: 32rem; height: 32rem;
+            background: linear-gradient(45deg, var(--gradient-2), var(--gradient-3));
+            animation-duration: 30s; animation-delay: -15s;
+        }
+        
+        .shape-3 {
+            bottom: 30%; left: 25%; width: 20rem; height: 20rem;
+            background: linear-gradient(45deg, var(--gradient-3), var(--gradient-1));
+            animation-duration: 35s; animation-delay: -5s;
+        }
+
+        /* Main Container - No Card Layout */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 2rem;
+            transition: transform 0.1s ease-out;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        /* Glowing Title with Enhanced Effects */
+        .title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-1));
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradientFlow 4s ease-in-out infinite, textGlow 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6));
+            position: relative;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            animation: fadeInScale 1.2s ease-out 0.5s forwards, textGradientFlow 4s ease-in-out infinite, textGlow 3s ease-in-out infinite;
+        }
+
+        .title::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, var(--glow-color) 50%, transparent 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            animation: textShimmer 3s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .title:hover::before {
+            opacity: 0.7;
+        }
+        
+        /* Enhanced Typewriter Effect */
+        .subtitle {
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-weight: 400;
+            color: var(--text-muted-color);
+            margin-bottom: 2.5rem;
+            height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+        }
+        
+        .typewriter {
+            border-right: 3px solid var(--glow-color);
+            animation: blink 1s infinite;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+        }
+        
+        .description {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            line-height: 1.7;
+            color: var(--text-muted-color);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2s forwards;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
+        
+        /* Enhanced Loading Section - No Card */
+        .loading-section {
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .loading-text {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+            background: linear-gradient(45deg, var(--text-color), var(--glow-color), var(--accent-color));
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 3s forwards, textGradientFlow 4s ease-in-out infinite;
+            opacity: 0;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+            filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.2));
+            margin: 0;
+        }
+        
+        /* Enhanced Progress Bar - Floating */
+        .progress-container {
+            width: 400px;
+            max-width: 80vw;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                0 8px 32px rgba(59, 130, 246, 0.3),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out 3.2s forwards, floatProgress 6s ease-in-out infinite;
+            opacity: 0;
+            margin: 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            background-size: 200% 100%;
+            border-radius: 4px;
+            animation: progressFlow 5s linear, gradientFlow 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            animation: progressShine 1.5s ease-in-out infinite;
+        }
+        
+        /* Enhanced Countdown - Floating Orb */
+        .countdown-display {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--glow-color);
+            text-shadow: 
+                0 0 20px rgba(96, 165, 250, 1),
+                0 0 40px rgba(96, 165, 250, 0.8),
+                0 0 60px rgba(96, 165, 250, 0.6),
+                0 0 80px rgba(96, 165, 250, 0.4);
+            animation: fadeInUp 1s ease-out 3.4s forwards, neonPulse 2s ease-in-out infinite, floatCountdown 8s ease-in-out infinite;
+            opacity: 0;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            margin: 0;
+        }
+        
+        /* Enhanced Action Buttons */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 3.6s forwards;
+        }
+        
+        .btn {
+            position: relative;
+            overflow: hidden;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 1.125rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 250px;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-30deg);
+            transition: left 0.7s ease-in-out;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.6);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+            animation: borderRotate 2s linear infinite;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--glow-color);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(96, 165, 250, 0.3);
+        }
+
+        /* Floating Particles */
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+            animation: floatParticle 12s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        /* Enhanced Animations */
+        @keyframes aurora-float {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(60px, -40px) rotate(180deg) scale(1.2); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.8));
+            }
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: var(--glow-color); opacity: 1; }
+            51%, 100% { border-color: transparent; opacity: 0.5; }
+        }
+        
+        @keyframes progressFlow {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes neonPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px rgba(96, 165, 250, 1),
+                    0 0 20px rgba(96, 165, 250, 0.8),
+                    0 0 30px rgba(96, 165, 250, 0.6),
+                    0 0 40px rgba(96, 165, 250, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 
+                    0 0 15px rgba(96, 165, 250, 1),
+                    0 0 25px rgba(96, 165, 250, 0.9),
+                    0 0 35px rgba(96, 165, 250, 0.7),
+                    0 0 45px rgba(96, 165, 250, 0.5);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes borderRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes floatParticle {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) scale(1) rotate(45deg);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) scale(1) rotate(315deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0vh) scale(0) rotate(360deg);
+            }
+        }
+
+        @keyframes floatProgress {
+            0%, 100% {
+                transform: translateY(0px);
+                box-shadow: 
+                    0 8px 32px rgba(59, 130, 246, 0.3),
+                    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: translateY(-8px);
+                box-shadow: 
+                    0 16px 40px rgba(59, 130, 246, 0.4),
+                    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @keyframes floatCountdown {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                border-color: rgba(96, 165, 250, 0.3);
+            }
+            33% {
+                transform: translateY(-15px) scale(1.05);
+                border-color: rgba(96, 165, 250, 0.5);
+            }
+            66% {
+                transform: translateY(8px) scale(0.95);
+                border-color: rgba(96, 165, 250, 0.4);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .loading-section {
+                gap: 1.5rem;
+            }
+            
+            .countdown-display {
+                font-size: 3rem;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .progress-container {
+                width: 300px;
+                max-width: 90vw;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                font-size: 1rem;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Aurora Background -->
+    <div class="background-aurora">
+        <div class="aurora-shape shape-1"></div>
+        <div class="aurora-shape shape-2"></div>
+        <div class="aurora-shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Enhanced Title -->
+        <h1 class="title" data-text="程高">程高</h1>
+        
+        <!-- Typewriter Subtitle -->
+        <div class="subtitle">
+            <span class="typewriter" id="typewriter"></span>
+        </div>
+        
+        <!-- Description -->
+        <p class="description">
+            立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。<br>
+            相信技术能赋能每个人成为"超级个体"，热衷于拥抱新科技，探索无限可能。
+        </p>
+        
+        <!-- Enhanced Loading Section -->
+        <div class="loading-section">
+            <p class="loading-text">正在进入个人职业展示网站</p>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="countdown-display" id="countdown">5</div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="buttons">
+            <a href="https://career.chenggao.top" class="btn btn-primary" id="redirectBtn">
+                <span>立即访问</span>
+                <span>→</span>
+            </a>
+            <button class="btn btn-secondary" onclick="cancelRedirect()">
+                <span>取消跳转</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Enhanced Typewriter Animation
+        const texts = [
+            "金融工程研究生",
+            "AI技术拥抱者", 
+            "全栈开发者",
+            "超级个体追梦人"
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+        
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Enhanced Floating Particles
+        function createFloatingParticles() {
+            const particleCount = 8;
+            const particles = ['✨', '⭐', '💫', '🌟'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                particle.innerHTML = particles[Math.floor(Math.random() * particles.length)];
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.fontSize = Math.random() * 15 + 15 + 'px';
+                particle.style.animationDelay = Math.random() * 12 + 's';
+                particle.style.animationDuration = (Math.random() * 6 + 12) + 's';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 15000);
+            }
+        }
+        
+        // Countdown Logic
+        let countdown = 5;
+        let redirectTimer;
+        let countdownInterval;
+        let cancelled = false;
+        
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            
+            countdownInterval = setInterval(() => {
+                if (cancelled) {
+                    clearInterval(countdownInterval);
+                    return;
+                }
+                
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // Enhanced fade out effect
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = 'https://career.chenggao.top';
+                    }, 800);
+                }
+            }, 1000);
+        }
+        
+        function cancelRedirect() {
+            cancelled = true;
+            clearInterval(countdownInterval);
+            clearTimeout(redirectTimer);
+            
+            const loadingSection = document.querySelector('.loading-section');
+            loadingSection.innerHTML = `
+                <div style="font-size: 3rem; color: #8b5cf6; filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6)); animation: neonPulse 2s ease-in-out infinite;">⏸️</div>
+                <p style="font-size: 1.5rem; font-weight: 500; background: linear-gradient(45deg, #f9fafb, #60a5fa, #8b5cf6); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textGradientFlow 4s ease-in-out infinite; margin: 0;">已取消自动跳转</p>
+                <p style="font-size: 1rem; opacity: 0.8; color: #d1d5db; margin: 0;">您可以手动点击按钮访问网站</p>
+            `;
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start typewriter effect
+            setTimeout(typeWriter, 1500);
+            
+            // Start particles
+            createFloatingParticles();
+            setInterval(createFloatingParticles, 8000);
+            
+            // Start countdown
+            setTimeout(startCountdown, 3000);
+
+            // 3D Parallax effect for container
+            const container = document.querySelector('.container');
+            if (window.innerWidth > 768) {
+                document.body.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { innerWidth, innerHeight } = window;
+                    const xRotation = (clientY / innerHeight - 0.5) * -5;
+                    const yRotation = (clientX / innerWidth - 0.5) * 5;
+                    container.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+                });
+            }
+
+            // Enhanced 3D Particle Background
+            let scene, camera, renderer, points, material;
+            let mouseX = 0, mouseY = 0;
+
+            function initParticles() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 5;
+
+                const canvas = document.getElementById('bg-canvas');
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+                const particlesCount = 8000;
+                const positions = new Float32Array(particlesCount * 3);
+                const colors = new Float32Array(particlesCount * 3);
+                
+                for (let i = 0; i < particlesCount * 3; i++) {
+                    positions[i] = (Math.random() - 0.5) * 12;
+                }
+                
+                // Enhanced color variation
+                for (let i = 0; i < particlesCount; i++) {
+                    const i3 = i * 3;
+                    const colorChoice = Math.random();
+                    if (colorChoice < 0.33) {
+                        // Blue tones
+                        colors[i3] = 0.2 + Math.random() * 0.3;
+                        colors[i3 + 1] = 0.5 + Math.random() * 0.3;
+                        colors[i3 + 2] = 1;
+                    } else if (colorChoice < 0.66) {
+                        // Purple tones
+                        colors[i3] = 0.5 + Math.random() * 0.3;
+                        colors[i3 + 1] = 0.2 + Math.random() * 0.3;
+                        colors[i3 + 2] = 1;
+                    } else {
+                        // Cyan tones
+                        colors[i3] = 0.1;
+                        colors[i3 + 1] = 0.7 + Math.random() * 0.3;
+                        colors[i3 + 2] = 1;
+                    }
+                }
+                
+                const particlesGeometry = new THREE.BufferGeometry();
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+                
+                material = new THREE.PointsMaterial({
+                    size: 0.02,
+                    sizeAttenuation: true,
+                    depthWrite: false,
+                    blending: THREE.AdditiveBlending,
+                    vertexColors: true
+                });
+                points = new THREE.Points(particlesGeometry, material);
+                scene.add(points);
+
+                window.addEventListener('resize', onWindowResize, false);
+                document.addEventListener('mousemove', onDocumentMouseMove, false);
+            }
+
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            function onDocumentMouseMove(event) {
+                mouseX = (event.clientX - window.innerWidth / 2) / 100;
+                mouseY = (event.clientY - window.innerHeight / 2) / 100;
+            }
+
+            function animateParticles() {
+                requestAnimationFrame(animateParticles);
+                const time = Date.now() * 0.0005;
+
+                points.rotation.y = time * 0.1;
+                points.rotation.x = time * 0.05;
+                
+                camera.position.x += (mouseX - camera.position.x) * 0.03;
+                camera.position.y += (-mouseY - camera.position.y) * 0.03;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            initParticles();
+            animateParticles();
+            
+            // Enhanced keyboard events
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = 'https://career.chenggao.top';
+                    }, 800);
+                } else if (e.key === 'Escape') {
+                    cancelRedirect();
+                }
+            });
+        });
+        
+        // Enhanced preloading
+        const link = document.createElement('link');
+        link.rel = 'dns-prefetch';
+        link.href = 'https://career.chenggao.top';
+        document.head.appendChild(link);
+        
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'https://career.chenggao.top';
+        preloadLink.as = 'document';
+        document.head.appendChild(preloadLink);
+    </script>
+</body>
+</html>
