@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calendar, Users, TrendingUp } from 'lucide-react';
+import { Calendar, Users, TrendingUp, ExternalLink } from 'lucide-react';
+import { EXTERNAL_LINKS } from '../data/links';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -12,7 +13,22 @@ const Projects = () => {
     { id: 'research', label: '学术研究' }
   ];
 
-  const projects = [
+  interface Project {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    technologies: string[];
+    achievements: string[];
+    period: string;
+    team: string;
+    company: string;
+    status: string;
+    link?: string;
+  }
+
+  const projects: Project[] = [
     {
       id: 1,
       title: '银行理财子费率自动更新系统',
@@ -96,7 +112,8 @@ const Projects = () => {
       period: '2024.03 - 2024.05',
       team: '独立开发',
       company: '深圳数字经济研究院',
-      status: 'completed'
+      status: 'completed',
+      link: EXTERNAL_LINKS.projects.productQuery
     }
   ];
 
@@ -175,7 +192,19 @@ const Projects = () => {
               {/* Project Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
-                  {project.title}
+                  {project.link && project.link !== '#' ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 hover:text-blue-600 transition-colors"
+                    >
+                      {project.title}
+                      <ExternalLink size={16} className="flex-shrink-0" />
+                    </a>
+                  ) : (
+                    project.title
+                  )}
                 </h3>
                 
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">

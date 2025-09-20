@@ -13,7 +13,7 @@ export const EXTERNAL_LINKS = {
     bankRateSystem: '#', // 银行理财子费率自动更新系统
     esgCrawler: '#', // ESG银行报告智能爬虫系统
     albertModel: '#', // ALBERT模型研究论文
-    productQuery: '#', // 理财产品查询工具
+    productQuery: 'https://licai.chenggao.top', // 理财产品查询工具
     aiCardTool: 'https://aicards.chenggao.top', // AI卡片制作网页工具
   },
   
