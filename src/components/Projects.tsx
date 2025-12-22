@@ -69,17 +69,17 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: '阿里通义千问大模型微调项目',
+      title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
       category: 'ai',
       description: '作为高校代表与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
       image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
-        '作为高校代表参与产学研合作',
+        '作为高校技术骨干参与产学研合作',
         '掌握大模型微调核心技术',
         '云端开发环境搭建与管理'
       ],
-      period: '2024.11 - 进行中',
+      period: '2025.08 - 进行中',
       team: '产学研合作项目',
       company: '香港中文大学（深圳）',
       status: 'in-progress',
@@ -131,7 +131,7 @@ const Projects = () => {
         '支持批量查询和单个产品查询',
         '人机协同验证码处理机制'
       ],
-      period: '2024.03 - 2024.05',
+      period: '2025.03 - 2025.05',
       team: '独立开发',
       company: '深圳数字经济研究院',
       status: 'completed',
