@@ -111,7 +111,8 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.dataVisualization
       },
-      status: 'normal'
+      status: 'normal',
+      visible: false
     },
     {
       id: 6,
@@ -135,9 +136,10 @@ const Portfolio = () => {
     }
   ];
 
+  const visibleItems = portfolioItems.filter((item) => item.visible !== false);
   const filteredItems = activeFilter === 'all' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeFilter);
+    ? visibleItems 
+    : visibleItems.filter(item => item.category === activeFilter);
 
   const getTypeIcon = (type: string) => {
     switch (type) {
