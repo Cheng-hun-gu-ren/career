@@ -27,6 +27,7 @@ const Projects = () => {
     company: string;
     status: string;
     link?: string;
+    visible?: boolean;
   }
 
   const projects: Project[] = [
@@ -45,7 +46,8 @@ const Projects = () => {
       period: '2024.10 - 至今',
       team: '独立开发',
       company: '深圳数字经济研究院',
-      status: 'in-progress'
+      status: 'in-progress',
+      visible: false
     },
     {
       id: 2,
@@ -62,14 +64,15 @@ const Projects = () => {
       period: '2024.08 - 2024.12',
       team: '团队领导（3名实习生）',
       company: '深圳数字经济研究院',
-      status: 'completed'
+      status: 'completed',
+      visible: false
     },
     {
       id: 3,
       title: '阿里通义千问大模型微调项目',
       category: 'ai',
       description: '作为高校代表与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
-      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
+      image: ossAsset('/images/阿里通义千问大模型微调项目-多agent协作架构图.gif'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
         '作为高校代表参与产学研合作',
@@ -79,7 +82,8 @@ const Projects = () => {
       period: '2024.11 - 进行中',
       team: '产学研合作项目',
       company: '香港中文大学（深圳）',
-      status: 'in-progress'
+      status: 'in-progress',
+      link: 'https://mp.weixin.qq.com/s/7s_2hkXQMYPSjGCnhfVYqQ'
     },
     {
       id: 4,
@@ -118,9 +122,10 @@ const Projects = () => {
     }
   ];
 
+  const visibleProjects = projects.filter((project) => project.visible !== false);
   const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+    ? visibleProjects 
+    : visibleProjects.filter(project => project.category === activeCategory);
 
   const getStatusColor = (status: string) => {
     switch (status) {

@@ -16,7 +16,7 @@ export const PORTFOLIO_IMAGES: Record<string, PortfolioImage[]> = {
       id: 'medical-ai-workflow',
       title: '医疗AI核心工作流程图',
       description: '展示医疗AI系统的完整工作流程，包括数据采集、模型训练、推理部署等核心环节',
-      src: ossAsset('/images/portfolio/academic-drawings/Medical-AI-Core-Workflow.png'),
+      src: ossAsset('/images/portfolio/academic-drawings/Medical-AI-Core-Workflow copy.png'),
       type: 'image',
       category: '学术绘图'
     },
@@ -24,7 +24,7 @@ export const PORTFOLIO_IMAGES: Record<string, PortfolioImage[]> = {
       id: 'textgrad-learning-cycle',
       title: 'TextGrad学习循环图',
       description: '文本梯度学习循环的可视化表示，展示了自然语言处理中的梯度优化过程',
-      src: ossAsset('/images/portfolio/academic-drawings/TextGrad-Learning-Cycle.png'),
+      src: ossAsset('/images/portfolio/academic-drawings/TextGrad-Learning-Cycle copy.png'),
       type: 'image',
       category: '学术绘图'
     }
