@@ -71,13 +71,12 @@ const Projects = () => {
       id: 3,
       title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
       category: 'ai',
-      description: '作为高校代表与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
+      description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
       image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
-        '作为高校技术骨干参与产学研合作',
-        '掌握大模型微调核心技术',
-        '云端开发环境搭建与管理'
+        '课题获中证协重点立项',
+        '大模型协助资讯高质量打标'
       ],
       period: '2025.08 - 进行中',
       team: '产学研合作项目',
@@ -104,6 +103,24 @@ const Projects = () => {
     },
     {
       id: 5,
+      title: '理财产品查询工具',
+      category: 'fintech',
+      description: '专为金融行业设计的理财产品信息抓取工具，缩短传统人工查询80%时间',
+      image: ossAsset('/images/理财产品查询工具.png'),
+      technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
+      achievements: [
+        '成功率98.8%，性能稳定可靠',
+        '支持批量查询和单个产品查询',
+        '人机协同验证码处理机制'
+      ],
+      period: '2025.03 - 2025.05',
+      team: '独立开发',
+      company: '深圳数字经济研究院',
+      status: 'completed',
+      link: EXTERNAL_LINKS.projects.productQuery
+    },
+    {
+      id: 6,
       title: 'ALBERT模型在A股市场应用研究',
       category: 'research',
       description: '利用150万余条股评文本数据对ALBERT模型进行领域内训练，构建情绪指数预测市场表现',
@@ -118,24 +135,6 @@ const Projects = () => {
       team: '本科毕业设计',
       company: '哈尔滨工业大学威海校区',
       status: 'completed'
-    },
-    {
-      id: 6,
-      title: '理财产品查询工具',
-      category: 'fintech',
-      description: '专为金融行业设计的理财产品信息抓取工具，100个产品测试成功率98.8%',
-      image: ossAsset('/images/理财产品查询工具.png'),
-      technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
-      achievements: [
-        '成功率98.8%，性能稳定可靠',
-        '支持批量查询和单个产品查询',
-        '人机协同验证码处理机制'
-      ],
-      period: '2025.03 - 2025.05',
-      team: '独立开发',
-      company: '深圳数字经济研究院',
-      status: 'completed',
-      link: EXTERNAL_LINKS.projects.productQuery
     }
   ];
 
