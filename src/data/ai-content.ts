@@ -56,10 +56,10 @@ export const aiTools: AITool[] = [
     proficiency: 88,
     icon: '🚀',
     features: [
-      'Agent-first 智能体协作',
-      '多模型集成（如 Gemini 3 Pro、Claude Sonnet 等）',
+      'Agent-first',
+      '多模型集成',
       '自动规划开发任务',
-      '编辑器 + 终端 + 浏览器的统一 AI 工作流',
+      '编辑器 + 终端 + 浏览器',
       '代码执行与验证'
     ]
   },

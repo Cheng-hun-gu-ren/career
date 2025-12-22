@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
 .env
 oss_upload_guide.md
+ENG_PAGE_PLAN.md
 
 # 中转文件夹 (Transfer folder)
 中转文件夹/
