@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, Award, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, X } from 'lucide-react';
 import { ossAsset } from '../data/oss';
 
 // 自定义X(Twitter)图标组件
@@ -208,13 +208,6 @@ const Contact = () => {
                   <Mail size={18} />
                   发送邮件
                 </a>
-                <button
-                  onClick={() => alert('奖项证书页面正在建设中，敬请期待！')}
-                  className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-colors duration-200"
-                >
-                  <Award size={18} />
-                  奖项证书
-                </button>
               </div>
             </div>
           </div>

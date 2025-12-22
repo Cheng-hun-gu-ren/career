@@ -84,13 +84,6 @@ const Footer = () => {
                 </a>
               </div>
               <div className="mt-3">
-                <a
-                  href="/程高-网页版-简历.pdf"
-                  download="程高-网页版-简历.pdf"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
-                >
-                  📄 下载简历
-                </a>
               </div>
             </div>
           </div>
