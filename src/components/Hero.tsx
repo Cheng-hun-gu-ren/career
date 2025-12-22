@@ -4,7 +4,7 @@ import { ossAsset } from '../data/oss';
 
 const Hero = () => {
   const scrollToNext = () => {
-    const element = document.querySelector('#education');
+    const element = document.querySelector('#projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
