@@ -196,30 +196,6 @@ const Internships = () => {
           ))}
         </div>
 
-        {/* Internship Summary */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            实习经历总结
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">18个月</div>
-              <div className="text-sm text-gray-600">累计实习时长</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">4个</div>
-              <div className="text-sm text-gray-600">覆盖金融领域</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">3名</div>
-              <div className="text-sm text-gray-600">AI团队管理</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">100%</div>
-              <div className="text-sm text-gray-600">雇主好评率</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
