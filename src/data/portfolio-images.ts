@@ -27,6 +27,14 @@ export const PORTFOLIO_IMAGES: Record<string, PortfolioImage[]> = {
       src: ossAsset('/images/portfolio/academic-drawings/TextGrad-Learning-Cycle copy.png'),
       type: 'image',
       category: '学术绘图'
+    },
+    {
+      id: 'multi-agent-architecture',
+      title: '多Agent协作架构图',
+      description: '展示多Agent协作流程与模块分工的架构动图，用于说明协同与任务编排逻辑',
+      src: ossAsset('/images/阿里通义千问大模型微调项目-多agent协作架构图.gif'),
+      type: 'image',
+      category: '学术绘图'
     }
   ],
   'data-visualization': [

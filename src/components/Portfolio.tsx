@@ -36,7 +36,7 @@ const Portfolio = () => {
         demo: EXTERNAL_LINKS.portfolio.aiCardTool,
         github: EXTERNAL_LINKS.projects.aiCardTool
       },
-      status: 'featured'
+      status: 'normal'
     },
     {
       id: 2,
@@ -55,7 +55,7 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.personalSite
       },
-      status: 'normal'
+      status: 'featured'
     },
     {
       id: 3,
@@ -74,7 +74,7 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.academicDrawings
       },
-      status: 'featured'
+      status: 'normal'
     },
     {
       id: 4,
@@ -93,7 +93,7 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.svgCards
       },
-      status: 'featured'
+      status: 'normal'
     },
     {
       id: 5,
@@ -112,7 +112,7 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.dataVisualization
       },
-      status: 'featured'
+      status: 'normal'
     },
     {
       id: 6,
@@ -131,7 +131,7 @@ const Portfolio = () => {
       links: {
         demo: EXTERNAL_LINKS.portfolio.wechatArticles
       },
-      status: 'normal'
+      status: 'featured'
     }
   ];
 

@@ -72,7 +72,7 @@ const Projects = () => {
       title: '阿里通义千问大模型微调项目',
       category: 'ai',
       description: '作为高校代表与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
-      image: ossAsset('/images/阿里通义千问大模型微调项目-多agent协作架构图.gif'),
+      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
         '作为高校代表参与产学研合作',
