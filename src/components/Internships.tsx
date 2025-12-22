@@ -1,5 +1,6 @@
 import React from 'react';
 import { Building2, Calendar, MapPin, TrendingUp } from 'lucide-react';
+import { ossAsset } from '../data/oss';
 
 const Internships = () => {
   const internships = [
@@ -22,7 +23,7 @@ const Internships = () => {
         '构建银行理财子费率自动更新系统',
         '开发ESG银行报告智能爬虫系统'
       ],
-      image: '/images/深圳数字经济研究院.png'
+      image: ossAsset('/images/深圳数字经济研究院.png')
     },
     {
       id: 2,
@@ -42,7 +43,7 @@ const Internships = () => {
         '熟悉债券基金投资逻辑及合规要求',
         '掌握金融数据分析和报告制作技能'
       ],
-      image: '/images/天弘基金管理有限公司实习.png'
+      image: ossAsset('/images/天弘基金管理有限公司实习.png')
     },
     {
       id: 3,
@@ -62,7 +63,7 @@ const Internships = () => {
         '提升信息检索和整理能力',
         '了解私募基金投资研究流程'
       ],
-      image: '/images/幂加和私募.png'
+      image: ossAsset('/images/幂加和私募.png')
     },
     {
       id: 4,
@@ -82,7 +83,7 @@ const Internships = () => {
         '掌握金融机构基础业务流程',
         '建立期货行业认知基础'
       ],
-      image: '/images/广发期货深圳分公司实习.png'
+      image: ossAsset('/images/广发期货深圳分公司实习.png')
     }
   ];
 

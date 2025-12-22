@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Play, Image as ImageIcon, Code, Palette, Database, Globe } from 'lucide-react';
 import { EXTERNAL_LINKS, getLinkConfig } from '../data/links';
+import { ossAsset } from '../data/oss';
 import ImageModal from './ImageModal';
 
 const Portfolio = () => {
@@ -23,7 +24,7 @@ const Portfolio = () => {
       category: 'web',
       type: 'web',
       description: 'AI驱动的智能卡片内容生成工具，支持多种卡片类型，现代化UI设计',
-      image: '/images/AI卡片制作网页工具.png',
+      image: ossAsset('/images/AI卡片制作网页工具.png'),
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'DeepSeek API'],
       features: [
         'AI驱动的智能内容生成',
@@ -43,7 +44,7 @@ const Portfolio = () => {
       category: 'web',
       type: 'web',
       description: '个人品牌展示网站，响应式设计，展示生活动态',
-      image: '/images/个人生活主页.png',
+      image: ossAsset('/images/个人生活主页.png'),
       technologies: ['HTML', 'CSS', 'JavaScript'],
       features: [
         '响应式设计',
@@ -62,7 +63,7 @@ const Portfolio = () => {
       category: 'design',
       type: 'image',
       description: '利用AI工具辅助制作专业技术架构图，提升学术研究和技术文档的可视化表达质量',
-      image: '/images/专业学术论文绘图.png',
+      image: ossAsset('/images/专业学术论文绘图.png'),
       technologies: ['AI工具', '技术绘图', '学术可视化', '架构设计'],
       features: [
         'Medical-AI-Core-Workflow绘图',
@@ -81,7 +82,7 @@ const Portfolio = () => {
       category: 'design',
       type: 'image',
       description: 'AI辅助创作的精美学习卡片，包含单词卡片、读书卡片、电影卡片等多种类型，采用优雅的渐变配色和排版设计',
-      image: '/images/SVG艺术卡片设计.png',
+      image: ossAsset('/images/SVG艺术卡片设计.png'),
       technologies: ['SVG', 'AI设计', '渐变配色', '排版设计'],
       features: [
         '单词学习卡片（含音标、释义、例句）',
@@ -100,7 +101,7 @@ const Portfolio = () => {
       category: 'design',
       type: 'image',
       description: '专业级数据分析报告，包含银行理财子费率自动更新系统开发企划书和ESG数据获取系统报告',
-      image: '/images/数据可视化报告.png',
+      image: ossAsset('/images/数据可视化报告.png'),
       technologies: ['Tableau', 'BI工具', 'Excel', 'Python'],
       features: [
         '银行理财子费率自动更新系统企划书',
@@ -119,7 +120,7 @@ const Portfolio = () => {
       category: 'design',
       type: 'document',
       description: 'AI教程分享与技术应用经验，建立个人技术品牌',
-      image: '/images/个人公众号运营.png',
+      image: ossAsset('/images/个人公众号运营.png'),
       technologies: ['内容创作', 'AI工具', '技术分享', '品牌建设'],
       features: [
         'AI技术教程分享',

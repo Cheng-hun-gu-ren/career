@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, Award, X } from 'lucide-react';
+import { ossAsset } from '../data/oss';
 
 // 自定义X(Twitter)图标组件
 const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
@@ -252,7 +253,7 @@ const Contact = () => {
                 
                 <div className="mb-6">
                   <img
-                    src="/images/wechat.png"
+                    src={ossAsset('/images/wechat.png')}
                     alt="微信二维码"
                     className="w-64 h-64 mx-auto rounded-lg shadow-lg"
                   />

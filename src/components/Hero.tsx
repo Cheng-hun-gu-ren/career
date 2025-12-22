@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown, MapPin, Calendar, GraduationCap } from 'lucide-react';
+import { ossAsset } from '../data/oss';
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 overflow-hidden">
             <img
-              src="/images/头像.png"
+              src={ossAsset('/images/头像.png')}
               alt="程高的头像"
               className="w-full h-full object-cover"
             />
