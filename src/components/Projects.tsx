@@ -294,30 +294,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Project Stats */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            项目成果统计
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">5个</div>
-              <div className="text-sm text-gray-600">主导项目</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">98.8%</div>
-              <div className="text-sm text-gray-600">系统成功率</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">90%</div>
-              <div className="text-sm text-gray-600">效率提升</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">6大</div>
-              <div className="text-sm text-gray-600">核心模块</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

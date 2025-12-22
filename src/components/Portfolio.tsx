@@ -317,31 +317,6 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Portfolio Stats */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            作品集统计
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">6</div>
-              <div className="text-sm text-gray-600">创作作品</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">10+</div>
-              <div className="text-sm text-gray-600">技术栈</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">4种</div>
-              <div className="text-sm text-gray-600">作品类型</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">5000+</div>
-              <div className="text-sm text-gray-600">用户访问量</div>
-            </div>
-          </div>
-        </div>
-
         {/* Call to Action */}
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">
