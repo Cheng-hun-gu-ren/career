@@ -87,6 +87,23 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: '金融机构ESG信息提取工作台',
+      category: 'fintech',
+      description: '为学校以及研究院打造全栈金融机构ESG信息提取工作台，截至2025年底，已解析2200+份报告，涵盖国内上市金融机构近十年的年报、可持续发展报告等，累计提取近80000条指标，助力国内ESG信息披露公开化规范化。类别：全栈开发 / 明星课题',
+      image: ossAsset('/images/ESG.png'),
+      technologies: ['全栈开发', '提示词工程', '数据库', '网络安全'],
+      achievements: [
+        '构造高质量ESG数据库',
+        '可复用可扩展的AI智能信息提取体系'
+      ],
+      period: '2025.09 - 进行中',
+      team: '全栈开发主导',
+      company: '深圳数据经济研究院',
+      status: 'in-progress',
+      link: 'https://esg.chenggao.top/dashboards/esg-dashboard-modern.html'
+    },
+    {
+      id: 5,
       title: 'ALBERT模型在A股市场应用研究',
       category: 'research',
       description: '利用150万余条股评文本数据对ALBERT模型进行领域内训练，构建情绪指数预测市场表现',
@@ -103,7 +120,7 @@ const Projects = () => {
       status: 'completed'
     },
     {
-      id: 5,
+      id: 6,
       title: '理财产品查询工具',
       category: 'fintech',
       description: '专为金融行业设计的理财产品信息抓取工具，100个产品测试成功率98.8%',
