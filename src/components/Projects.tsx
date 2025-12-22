@@ -106,7 +106,7 @@ const Projects = () => {
       title: '理财产品查询工具',
       category: 'fintech',
       description: '专为金融行业设计的理财产品信息抓取工具，缩短传统人工查询80%时间',
-      image: ossAsset('/images/理财产品查询工具.png'),
+      image: ossAsset('/images/理财产品查询工具-1.png'),
       technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
       achievements: [
         '成功率98.8%，性能稳定可靠',
