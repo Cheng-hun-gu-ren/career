@@ -89,7 +89,7 @@ const Projects = () => {
       id: 4,
       title: '金融机构ESG信息提取工作台',
       category: 'fintech',
-      description: '为学校以及研究院打造全栈金融机构ESG信息提取工作台，涵盖国内上市金融机构近十年的年报、可持续发展报告等，助力国内ESG信息披露公开化规范化。类别：全栈开发 / 明星课题',
+      description: '为学校以及研究院打造全栈金融机构ESG信息提取工作台，涵盖国内上市金融机构近十年的年报、可持续发展报告等，助力国内ESG信息披露公开化规范化。',
       image: ossAsset('/images/ESG.png'),
       technologies: ['全栈开发', '提示词工程', '数据库', '网络安全'],
       achievements: [
@@ -97,7 +97,7 @@ const Projects = () => {
         '可复用可扩展的AI智能信息提取体系'
       ],
       period: '2025.09 - 进行中',
-      team: '全栈开发主导',
+      team: '全栈开发·明星课题',
       company: '深圳数据经济研究院',
       status: 'in-progress',
       link: 'https://esg.chenggao.top/dashboards/esg-dashboard-modern.html'

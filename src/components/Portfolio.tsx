@@ -20,23 +20,22 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'AI卡片制作网页工具',
-      category: 'web',
-      type: 'web',
-      description: 'AI驱动的智能卡片内容生成工具，支持多种卡片类型，现代化UI设计',
-      image: ossAsset('/images/AI卡片制作网页工具.png'),
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'DeepSeek API'],
+      title: '个人公众号运营',
+      category: 'design',
+      type: 'document',
+      description: 'AI教程分享与技术应用经验，建立个人技术品牌',
+      image: ossAsset('/images/个人公众号运营.png'),
+      technologies: ['内容创作', 'AI工具', '技术分享', '品牌建设'],
       features: [
-        'AI驱动的智能内容生成',
-        '支持多种卡片类型',
-        '实时预览和编辑功能',
-        '响应式设计'
+        'AI技术教程分享',
+        '从想法到作品的实践',
+        '技术工具测评',
+        '个人品牌建设'
       ],
       links: {
-        demo: EXTERNAL_LINKS.portfolio.aiCardTool,
-        github: EXTERNAL_LINKS.projects.aiCardTool
+        demo: EXTERNAL_LINKS.portfolio.wechatArticles
       },
-      status: 'normal'
+      status: 'featured'
     },
     {
       id: 2,
@@ -116,22 +115,23 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: '个人公众号运营',
-      category: 'design',
-      type: 'document',
-      description: 'AI教程分享与技术应用经验，建立个人技术品牌',
-      image: ossAsset('/images/个人公众号运营.png'),
-      technologies: ['内容创作', 'AI工具', '技术分享', '品牌建设'],
+      title: 'AI卡片制作网页工具',
+      category: 'web',
+      type: 'web',
+      description: 'AI驱动的智能卡片内容生成工具，支持多种卡片类型，现代化UI设计',
+      image: ossAsset('/images/AI卡片制作网页工具.png'),
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'DeepSeek API'],
       features: [
-        'AI技术教程分享',
-        '从想法到作品的实践',
-        '技术工具测评',
-        '个人品牌建设'
+        'AI驱动的智能内容生成',
+        '支持多种卡片类型',
+        '实时预览和编辑功能',
+        '响应式设计'
       ],
       links: {
-        demo: EXTERNAL_LINKS.portfolio.wechatArticles
+        demo: EXTERNAL_LINKS.portfolio.aiCardTool,
+        github: EXTERNAL_LINKS.projects.aiCardTool
       },
-      status: 'featured'
+      status: 'normal'
     }
   ];
 

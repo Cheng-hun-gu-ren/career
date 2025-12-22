@@ -15,10 +15,10 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Education />
-        <Internships />
         <Projects />
         <Portfolio />
+        <Education />
+        <Internships />
         <AISection />
         <Contact />
       </main>
