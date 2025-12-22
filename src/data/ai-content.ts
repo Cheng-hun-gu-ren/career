@@ -51,7 +51,7 @@ export const aiTools: AITool[] = [
     id: 'antigravity',
     name: 'Antigravity',
     category: 'AI编程环境',
-    description: '智能体优先 AI 编程环境 / IDE，维基百科 +1',
+    description: '智能体优先 AI 编程环境',
     usage: 'AI 发起式编程空间：任务规划、代码自动编写、测试执行、结果验证、项目工件管理。',
     proficiency: 88,
     icon: '🚀',
