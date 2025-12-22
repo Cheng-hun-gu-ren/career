@@ -17,7 +17,7 @@ const Projects = () => {
   interface Project {
     id: number;
     title: string;
-    category: string;
+    category: string | string[];
     description: string;
     image: string;
     technologies: string[];
@@ -70,7 +70,7 @@ const Projects = () => {
     {
       id: 3,
       title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
-      category: 'ai',
+      category: ['ai', 'research'],
       description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
       image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
@@ -87,7 +87,7 @@ const Projects = () => {
     {
       id: 4,
       title: '金融机构ESG信息提取工作台',
-      category: 'fintech',
+      category: ['ai', 'web'],
       description: '为学校以及研究院打造全栈金融机构ESG信息提取工作台，涵盖国内上市金融机构近十年的年报、可持续发展报告等，助力国内ESG信息披露公开化规范化。',
       image: ossAsset('/images/ESG.png'),
       technologies: ['全栈开发', '提示词工程', '数据库', '网络安全'],
@@ -141,7 +141,10 @@ const Projects = () => {
   const visibleProjects = projects.filter((project) => project.visible !== false);
   const filteredProjects = activeCategory === 'all' 
     ? visibleProjects 
-    : visibleProjects.filter(project => project.category === activeCategory);
+    : visibleProjects.filter((project) => {
+        const categories = Array.isArray(project.category) ? project.category : [project.category];
+        return categories.includes(activeCategory);
+      });
 
   const getStatusColor = (status: string) => {
     switch (status) {

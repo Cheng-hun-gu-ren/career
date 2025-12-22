@@ -38,6 +38,32 @@ export const aiTools: AITool[] = [
     features: ['命令行集成', '代码生成', '系统诊断', '工作流优化']
   },
   {
+    id: 'codex',
+    name: 'Codex',
+    category: 'AI编程引擎',
+    description: 'AI 编程与代码理解引擎',
+    usage: '代码生成、代码理解、函数级重构、技术方案实现',
+    proficiency: 90,
+    icon: '🧠',
+    features: ['代码生成', '代码补全', '代码解释', '逻辑重构', '多语言支持']
+  },
+  {
+    id: 'antigravity',
+    name: 'Antigravity',
+    category: 'AI编程环境',
+    description: '智能体优先 AI 编程环境 / IDE，维基百科 +1',
+    usage: 'AI 发起式编程空间：任务规划、代码自动编写、测试执行、结果验证、项目工件管理。',
+    proficiency: 88,
+    icon: '🚀',
+    features: [
+      'Agent-first 智能体协作',
+      '多模型集成（如 Gemini 3 Pro、Claude Sonnet 等）',
+      '自动规划开发任务',
+      '编辑器 + 终端 + 浏览器的统一 AI 工作流',
+      '代码执行与验证'
+    ]
+  },
+  {
     id: 'claude-web',
     name: 'Claude (网页版)',
     category: '对话AI',
@@ -212,6 +238,12 @@ export const aiJourney: AIJourney[] = [
     milestone: 'AI技术栈完善',
     description: '持续跟进学习各种海内外AI工具，完善自身技术栈和知识库',
     impact: '建立了完整的AI应用能力体系'
+  },
+  {
+    period: '2025.09',
+    milestone: '全栈学习之路',
+    description: '利用AI辅助学习前后端开发、服务器运维等，磨练从想法到落地实现的全栈技术',
+    impact: '熟练掌握现代网页开发流程，可针对需求独立快速上线产品'
   },
   {
     period: '至今',
