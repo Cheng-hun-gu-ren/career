@@ -137,6 +137,10 @@ export const EXTERNAL_LINKS = {
    - 外链跳转：`https://example.com`
    - 邮件链接：`mailto:email@example.com`
 
+## ☁️ OSS 上传指南
+
+如需将资源上传到阿里云 OSS，请参考 `oss_upload_guide.md`。该文件包含上传流程与配置说明，**可能涉及敏感信息**，已加入 `.gitignore`，请勿提交到仓库或在 README 中粘贴密钥内容。使用时建议改为环境变量或后端配置。
+
 ## 🎨 设计特色
 
 ### 响应式设计
