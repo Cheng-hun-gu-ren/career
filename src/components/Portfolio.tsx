@@ -231,7 +231,7 @@ const Portfolio = () => {
                                 className="bg-white/90 text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-white transition-colors duration-200 flex items-center gap-2"
                               >
                                 {getTypeIcon(item.type)}
-                                查看
+                                {language === 'zh' ? '查看' : 'View'}
                               </button>
                             );
                           } else {
@@ -243,7 +243,7 @@ const Portfolio = () => {
                                 rel="noopener noreferrer"
                               >
                                 {getTypeIcon(item.type)}
-                                查看
+                                {language === 'zh' ? '查看' : 'View'}
                               </a>
                             );
                           }
@@ -257,7 +257,7 @@ const Portfolio = () => {
                           rel="noopener noreferrer"
                         >
                           <Github size={16} />
-                          代码
+                          {language === 'zh' ? '代码' : 'Code'}
                         </a>
                       )}
                       {item.links.paper && (
@@ -268,7 +268,7 @@ const Portfolio = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink size={16} />
-                          论文
+                          {language === 'zh' ? '论文' : 'Paper'}
                         </a>
                       )}
                     </div>

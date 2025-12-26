@@ -163,7 +163,7 @@ const Projects = () => {
       case 'completed': return t.projects.status.completed;
       case 'in-progress': return t.projects.status['in-progress'];
       case 'planning': return t.projects.status.planning;
-      default: return '未知';
+      default: return language === 'zh' ? '未知' : 'Unknown';
     }
   };
 
@@ -280,7 +280,7 @@ const Projects = () => {
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-900 mb-2 text-sm flex items-center gap-2">
                     <TrendingUp size={14} className="text-green-500" />
-                    核心成果
+                    {t.projects.coreAchievements}
                   </h4>
                   <ul className="space-y-1">
                     {project.achievements.slice(0, 2).map((achievement, index) => (

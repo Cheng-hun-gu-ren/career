@@ -6,89 +6,76 @@ import { useLanguage, translations } from '../i18n';
 const Internships = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const internships = [
+  
+  // 准备实习数据，根据是否有experiences数据使用翻译或本地硬编码
+  const internshipDataSource = t.internships.experiences ? t.internships.experiences : [
     {
       id: 1,
-      company: '深圳数字经济研究院',
-      department: '可持续金融研究中心',
-      position: '实习生',
-      period: '2025年至今',
-      location: '深圳',
-      status: 'current',
-      responsibilities: [
-        '为B端客户开发软件，优化数据获取和处理工作流',
-        '与头部券商以及金融财经媒体合作，',
-        '搭建全栈AI信息提取工作台',
-        '带领和培养五名实习生协助开发项目'
-      ],
-      achievements: [
-        '独立开发理财产品查询工具，成功率98.8%',
-        '开辟ESG智能信息提取与解析新业务方向',
-        '课题获得中证协重点立项'
-      ],
-      image: ossAsset('/images/深圳数字经济研究院.png')
+      company: language === 'zh' ? '深圳数字经济研究院' : 'Shenzhen Digital Economy Research Institute',
+      department: language === 'zh' ? '可持续金融研究中心' : 'Sustainable Finance Research Center',
+      position: language === 'zh' ? '实习生' : 'Intern',
+      period: language === 'zh' ? '2025年至今' : 'Present',
+      location: language === 'zh' ? '深圳' : 'Shenzhen',
+      status: 'current'
     },
     {
       id: 2,
-      company: '天弘基金管理有限公司',
-      department: '机构中台',
-      position: '实习生',
+      company: language === 'zh' ? '天弘基金管理有限公司' : 'Tianhong Fund Management Co., Ltd',
+      department: language === 'zh' ? '机构中台' : 'Institutional Mid-Office',
+      position: language === 'zh' ? '实习生' : 'Intern',
       period: '2024.07 - 2025.01',
-      location: '深圳',
-      status: 'completed',
-      responsibilities: [
-        '对接银行机构客户，制作投资相关报表和分析',
-        '制作公募基金市场月报，进行债基产品竞品分析',
-        '构建债基久期分析模型，利用机器学习技术进行收益率拆解'
-      ],
-      achievements: [
-        '了解公募基金机构业务线',
-        '熟悉债券基金投资逻辑及合规要求',
-        '掌握金融数据分析和报告制作技能'
-      ],
-      image: ossAsset('/images/天弘基金管理有限公司实习.png')
+      location: language === 'zh' ? '深圳' : 'Shenzhen',
+      status: 'completed'
     },
     {
       id: 3,
-      company: '幂加和私募基金管理有限责任公司',
-      department: '研究部',
-      position: '助理研究员',
+      company: language === 'zh' ? '幂加和私募基金管理有限责任公司' : 'Mijiahe Private Fund Management Co., Ltd',
+      department: language === 'zh' ? '研究部' : 'Research Department',
+      position: language === 'zh' ? '助理研究员' : 'Research Assistant',
       period: '2024.01 - 2024.03',
-      location: '深圳',
-      status: 'completed',
-      responsibilities: [
-        '监测外媒财经新闻（彭博、路透社、华尔街日报等）',
-        '整理市场信息辅助投资决策',
-        '协助研究团队进行市场分析'
-      ],
-      achievements: [
-        '提高英文读写能力',
-        '提升信息检索和整理能力',
-        '了解私募基金投资研究流程'
-      ],
-      image: ossAsset('/images/幂加和私募.png')
+      location: language === 'zh' ? '深圳' : 'Shenzhen',
+      status: 'completed'
     },
     {
       id: 4,
-      company: '广发期货有限公司深圳分公司',
-      department: '业务部',
-      position: '金融实习生',
+      company: language === 'zh' ? '广发期货有限公司深圳分公司' : 'Guangfa Futures Co., Ltd Shenzhen Branch',
+      department: language === 'zh' ? '业务部' : 'Business Department',
+      position: language === 'zh' ? '金融实习生' : 'Finance Intern',
       period: '2023.07 - 2023.08',
-      location: '深圳',
-      status: 'completed',
-      responsibilities: [
-        '协助私募尽调、报告整理等工作',
-        '学习期货市场基础知识',
-        '参与客户服务和业务支持'
-      ],
-      achievements: [
-        '了解中国期货市场及相关交易制度',
-        '掌握金融机构基础业务流程',
-        '建立期货行业认知基础'
-      ],
-      image: ossAsset('/images/广发期货深圳分公司实习.png')
+      location: language === 'zh' ? '深圳' : 'Shenzhen',
+      status: 'completed'
     }
   ];
+  
+  const internships = internshipDataSource.map(exp => ({
+    ...exp,
+    image: exp.id === 1 ? ossAsset('/images/深圳数字经济研究院.png') :
+           exp.id === 2 ? ossAsset('/images/天弘基金管理有限公司实习.png') :
+           exp.id === 3 ? ossAsset('/images/幂加和私募.png') :
+           ossAsset('/images/广发期货深圳分公司实习.png'),
+    responsibilities: [
+      language === 'zh' ? 
+        (exp.id === 1 ? '为B端客户开发软件，优化数据获取和处理工作流' : 
+         exp.id === 2 ? '对接银行机构客户，制作投资相关报表和分析' :
+         exp.id === 3 ? '监测外媒财经新闻（彭博、路透社、华尔街日报等）' :
+         '协助私募尽调、报告整理等工作') :
+        (exp.id === 1 ? 'Develop software for B-end clients, optimize data acquisition and processing workflow' :
+         exp.id === 2 ? 'Connect with banking institution clients, create investment-related reports and analysis' :
+         exp.id === 3 ? 'Monitor foreign financial news (Bloomberg, Reuters, Wall Street Journal, etc.)' :
+         'Assist with due diligence for private equity, report organization and other work')
+    ],
+    achievements: [
+      language === 'zh' ?
+        (exp.id === 1 ? '独立开发理财产品查询工具，成功率98.8%' :
+         exp.id === 2 ? '了解公募基金机构业务线' :
+         exp.id === 3 ? '提高英文读写能力' :
+         '了解中国期货市场及相关交易制度') :
+        (exp.id === 1 ? 'Independently developed financial product inquiry tool with 98.8% success rate' :
+         exp.id === 2 ? 'Gained understanding of public fund institutional business lines' :
+         exp.id === 3 ? 'Improved English reading and writing skills' :
+         'Understood China\'s futures market and related trading systems')
+    ]
+  }));
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -102,7 +89,7 @@ const Internships = () => {
     switch (status) {
       case 'current': return t.internships.status.current;
       case 'completed': return t.internships.status.completed;
-      default: return '未知';
+      default: return language === 'zh' ? '未知' : 'Unknown';
     }
   };
 

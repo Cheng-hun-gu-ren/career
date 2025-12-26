@@ -43,7 +43,8 @@ export const translations = {
         completed: '已完成',
         'in-progress': '进行中',
         planning: '规划中'
-      }
+      },
+      coreAchievements: '核心成果'
     },
 
     // 作品集
@@ -65,8 +66,9 @@ export const translations = {
     // 教育背景
     education: {
       title: '教育背景',
-      subtitle: '从985高校到香港名校，持续追求学术卓越与专业成长',
+      subtitle: '从985高校到香港名校，持续追求学术卓越与专业成長',
       skills: '核心技能与特长',
+      achievementLabel: '主要成就',
       skillsList: {
         engineering: {
           title: '工程能力',
@@ -80,7 +82,27 @@ export const translations = {
           title: '国际视野',
           desc: '中外合办求学经历，雅思6.5分，国际化背景'
         }
-      }
+      },
+      schools: [
+        {
+          id: 1,
+          degree: '金融工程硅士',
+          school: '香港中文大学（深圳）',
+          period: '2024 - 在读',
+          location: '深圳',
+          description: '专注于AI技术在金融领域的创新应用，量化投资与机器学习研究',
+          achievements: ['学业奖学金（覆盖率９５%）', '阿里天池算法大赛复赛八强（600支队伍中脊颈而出）']
+        },
+        {
+          id: 2,
+          degree: '国际经济与贸易学士',
+          school: '哈尔滨工业大学威海校区',
+          period: '2020 - 2024',
+          location: '威海',
+          description: '985高校本科教育，高考理科632分，全省排名前1-2%',
+          achievements: ['二等人民奖学金（覆盖率９％）', 'ALBERT模型在A股市场应用研究（本科毕业设计）']
+        }
+      ]
     },
 
     // 实习经历
@@ -213,7 +235,8 @@ export const translations = {
         completed: 'Completed',
         'in-progress': 'In Progress',
         planning: 'Planning'
-      }
+      },
+      coreAchievements: 'Core Achievements'
     },
 
     // Portfolio Section
@@ -237,6 +260,7 @@ export const translations = {
       title: 'Education',
       subtitle: 'From a 985 university to a Hong Kong prestigious school, continuously pursuing academic excellence and professional growth',
       skills: 'Core Skills & Strengths',
+      achievementLabel: 'Key Achievements',
       skillsList: {
         engineering: {
           title: 'Engineering Excellence',
@@ -250,7 +274,27 @@ export const translations = {
           title: 'Global Vision',
           desc: 'Sino-foreign combined study experience, IELTS 6.5, international background'
         }
-      }
+      },
+      schools: [
+        {
+          id: 1,
+          degree: 'Master of Financial Engineering',
+          school: 'The Chinese University of Hong Kong, Shenzhen',
+          period: '2024 - Present',
+          location: 'Shenzhen',
+          description: 'Focus on innovative applications of AI technology in finance, quantitative investment and machine learning research',
+          achievements: ['Academic Scholarship (40% coverage)', 'Alibaba Tianchi Algorithm Competition Semifinals Top 8 (Outstanding among 600 teams)']
+        },
+        {
+          id: 2,
+          degree: 'Bachelor of International Economics and Trade',
+          school: 'Harbin Institute of Technology, Weihai',
+          period: '2020 - 2024',
+          location: 'Weihai',
+          description: '985 University undergraduate education, College Entrance Exam Science Score: 632, Top 1-2% in province',
+          achievements: ['Second-class National Scholarship (10% coverage)', 'ALBERT Model Application Research in A-Stock Market (Undergraduate Thesis)']
+        }
+      ]
     },
 
     // Internships Section
@@ -262,7 +306,45 @@ export const translations = {
         completed: 'Completed'
       },
       responsibilities: 'Key Responsibilities',
-      achievements: 'Achievements'
+      achievements: 'Achievements',
+      experiences: [
+        {
+          id: 1,
+          company: 'Shenzhen Digital Economy Research Institute',
+          department: 'Sustainable Finance Research Center',
+          position: 'Intern',
+          period: 'Present',
+          location: 'Shenzhen',
+          status: 'current'
+        },
+        {
+          id: 2,
+          company: 'Tianhong Fund Management Co., Ltd',
+          department: 'Institutional Mid-Office',
+          position: 'Intern',
+          period: '2024.07 - 2025.01',
+          location: 'Shenzhen',
+          status: 'completed'
+        },
+        {
+          id: 3,
+          company: 'Mijiahe Private Fund Management Co., Ltd',
+          department: 'Research Department',
+          position: 'Research Assistant',
+          period: '2024.01 - 2024.03',
+          location: 'Shenzhen',
+          status: 'completed'
+        },
+        {
+          id: 4,
+          company: 'Guangfa Futures Co., Ltd Shenzhen Branch',
+          department: 'Business Department',
+          position: 'Finance Intern',
+          period: '2023.07 - 2023.08',
+          location: 'Shenzhen',
+          status: 'completed'
+        }
+      ]
     },
 
     // AI Section

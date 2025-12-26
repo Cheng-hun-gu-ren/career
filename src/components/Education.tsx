@@ -6,30 +6,13 @@ import { useLanguage, translations } from '../i18n';
 const Education = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const educationData = [
-    {
-      id: 1,
-      degree: '金融工程硕士',
-      school: '香港中文大学（深圳）',
-      period: '2024 - 在读',
-      location: '深圳',
-      description: '专注于AI技术在金融领域的创新应用，量化投资与机器学习研究',
-      achievements: ['学业奖学金（覆盖率40%）', '阿里天池算法大赛复赛八强（600支队伍中脱颖而出）'],
-      image: ossAsset('/images/香港中文大学深圳.png'),
-      color: 'from-blue-500 to-indigo-600'
-    },
-    {
-      id: 2,
-      degree: '国际经济与贸易学士',
-      school: '哈尔滨工业大学威海校区',
-      period: '2020 - 2024',
-      location: '威海',
-      description: '985高校本科教育，高考理科632分，全省排名前1-2%',
-      achievements: ['二等人民奖学金（覆盖率10%）', 'ALBERT模型在A股市场应用研究（本科毕业设计）'],
-      image: ossAsset('/images/哈工大威海.png'),
-      color: 'from-emerald-500 to-teal-600'
-    }
-  ];
+  const educationData = t.education.schools.map(school => ({
+    ...school,
+    image: language === 'zh' 
+      ? (school.id === 1 ? ossAsset('/images/香港中文大学深圳.png') : ossAsset('/images/哈工大威海.png'))
+      : (school.id === 1 ? ossAsset('/images/香港中文大学深圳.png') : ossAsset('/images/哈工大威海.png')),
+    color: school.id === 1 ? 'from-blue-500 to-indigo-600' : 'from-emerald-500 to-teal-600'
+  }));
 
   return (
     <section id="education" className="py-20 bg-gray-50">
@@ -97,7 +80,7 @@ const Education = () => {
                       <div className="space-y-2">
                         <h5 className="font-semibold text-gray-900 flex items-center gap-2">
                           <Award size={16} className="text-yellow-500" />
-                          主要成就
+                          {t.education.achievementLabel}
                         </h5>
                         <ul className="space-y-1">
                           {edu.achievements.map((achievement, idx) => (
