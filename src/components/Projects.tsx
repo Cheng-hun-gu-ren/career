@@ -15,37 +15,49 @@ const Projects = () => {
       title: 'Bank Wealth Management Sub-Fee Auto-Update System',
       description: 'Enterprise-level system for 6 core modules, reducing fee update lag from 7-10 days to within 24 hours, 90% efficiency improvement',
       technologies: ['Python', 'MongoDB', 'MySQL', 'DeepSeek API'],
-      achievements: ['90% efficiency gain, fee updates within 24 hours', 'Support for all-market bank wealth products analysis', 'Modular design with plug-in extension support']
+      achievements: ['90% efficiency gain, fee updates within 24 hours', 'Support for all-market bank wealth products analysis', 'Modular design with plug-in extension support'],
+      team: 'Solo Development',
+      company: 'Shenzhen Digital Economy Research Institute'
     },
     2: {
       title: 'ESG Bank Report Intelligent Web Crawler System',
       description: 'AI-driven intelligent report collection system, improving success rate from 15% to 65%+, supporting 119+ banks and 300+ report entry points',
       technologies: ['Python', 'AI Crawling', 'DeepSeek API', 'Selenium'],
-      achievements: ['333% success improvement (15% → 65%+)', 'Batch collection for 119+ banks', 'HTML intelligent preprocessing with 85%+ compression']
+      achievements: ['333% success improvement (15% → 65%+)', 'Batch collection for 119+ banks', 'HTML intelligent preprocessing with 85%+ compression'],
+      team: 'Team Lead (3 Interns)',
+      company: 'Shenzhen Digital Economy Research Institute'
     },
     3: {
       title: 'Research on Vertical Domain Financial Large Models for Overseas Information Processing with Multi-Agent Technology',
       description: 'As a university technical leader collaborating with top brokers and financial media, conducting large model fine-tuning research, exploring AI applications in finance',
       technologies: ['Large Model Fine-tuning', 'JupyterLab Cloud Development', 'Data Processing', 'Python'],
-      achievements: ['Project received China Securities Association key project approval', 'Large models assist in high-quality information annotation']
+      achievements: ['Project received China Securities Association key project approval', 'Large models assist in high-quality information annotation'],
+      team: 'Industry-University-Research Cooperation',
+      company: 'The Chinese University of Hong Kong, Shenzhen'
     },
     4: {
       title: 'Financial Institution ESG Information Extraction Workbench',
       description: 'Building a full-stack ESG information extraction workbench for school and research institute, covering nearly a decade of annual reports and sustainability reports of domestic listed financial institutions, promoting standardization of ESG information disclosure.',
       technologies: ['Full-stack Development', 'Prompt Engineering', 'Database', 'Cybersecurity'],
-      achievements: ['2200+ reports, 70000+ metrics, high-quality ESG database', 'Reusable and scalable AI intelligent information extraction system']
+      achievements: ['2200+ reports, 70000+ metrics, high-quality ESG database', 'Reusable and scalable AI intelligent information extraction system'],
+      team: 'Full-Stack Development • Featured Project',
+      company: 'Shenzhen Digital Economy Research Institute'
     },
     5: {
       title: 'Financial Product Query Tool',
       description: 'Financial product information extraction tool designed specifically for the finance industry, reducing traditional manual query time by 80%',
       technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
-      achievements: ['98.8% success rate, stable and reliable performance', 'Support for batch query and single product query', 'Human-machine collaborative CAPTCHA handling mechanism']
+      achievements: ['98.8% success rate, stable and reliable performance', 'Support for batch query and single product query', 'Human-machine collaborative CAPTCHA handling mechanism'],
+      team: 'Solo Development',
+      company: 'Shenzhen Digital Economy Research Institute'
     },
     6: {
       title: 'ALBERT Model Application Research in A-Stock Market',
       description: 'Domain training of ALBERT model using 1.5+ million stock review text data, constructing sentiment indices to predict market performance',
       technologies: ['Python', 'ALBERT', 'NLP', 'Deep Learning'],
-      achievements: ['Processed 1.5M+ stock review texts', 'Built effective market sentiment index', 'Prediction results significant with practical application value']
+      achievements: ['Processed 1.5M+ stock review texts', 'Built effective market sentiment index', 'Prediction results significant with practical application value'],
+      team: 'Undergraduate Thesis',
+      company: 'Harbin Institute of Technology, Weihai'
     }
   } : null;
 
@@ -295,14 +307,14 @@ const Projects = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Users size={14} />
-                    <span>{project.team}</span>
+                    <span>{getProjectData(project.id, 'team', project.team)}</span>
                   </div>
                   {project.company && (
                     <div className="flex items-center gap-2">
                       <span className="w-3.5 h-3.5 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                       </span>
-                      <span>{project.company}</span>
+                      <span>{getProjectData(project.id, 'company', project.company)}</span>
                     </div>
                   )}
                 </div>
