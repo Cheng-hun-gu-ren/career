@@ -114,7 +114,8 @@ export const translations = {
         completed: '已完成'
       },
       responsibilities: '主要职责',
-      achievements: '收获成果'
+      achievements: '收获成果',
+      experiences: []
     },
 
     // AI部分

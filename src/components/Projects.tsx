@@ -9,6 +9,54 @@ const Projects = () => {
   const t = translations[language];
   const [activeCategory, setActiveCategory] = useState('all');
 
+  // Translation helper for project data
+  const projectTranslations = language === 'en' ? {
+    1: {
+      title: 'Bank Wealth Management Sub-Fee Auto-Update System',
+      description: 'Enterprise-level system for 6 core modules, reducing fee update lag from 7-10 days to within 24 hours, 90% efficiency improvement',
+      technologies: ['Python', 'MongoDB', 'MySQL', 'DeepSeek API'],
+      achievements: ['90% efficiency gain, fee updates within 24 hours', 'Support for all-market bank wealth products analysis', 'Modular design with plug-in extension support']
+    },
+    2: {
+      title: 'ESG Bank Report Intelligent Web Crawler System',
+      description: 'AI-driven intelligent report collection system, improving success rate from 15% to 65%+, supporting 119+ banks and 300+ report entry points',
+      technologies: ['Python', 'AI Crawling', 'DeepSeek API', 'Selenium'],
+      achievements: ['333% success improvement (15% → 65%+)', 'Batch collection for 119+ banks', 'HTML intelligent preprocessing with 85%+ compression']
+    },
+    3: {
+      title: 'Research on Vertical Domain Financial Large Models for Overseas Information Processing with Multi-Agent Technology',
+      description: 'As a university technical leader collaborating with top brokers and financial media, conducting large model fine-tuning research, exploring AI applications in finance',
+      technologies: ['Large Model Fine-tuning', 'JupyterLab Cloud Development', 'Data Processing', 'Python'],
+      achievements: ['Project received China Securities Association key project approval', 'Large models assist in high-quality information annotation']
+    },
+    4: {
+      title: 'Financial Institution ESG Information Extraction Workbench',
+      description: 'Building a full-stack ESG information extraction workbench for school and research institute, covering nearly a decade of annual reports and sustainability reports of domestic listed financial institutions, promoting standardization of ESG information disclosure.',
+      technologies: ['Full-stack Development', 'Prompt Engineering', 'Database', 'Cybersecurity'],
+      achievements: ['2200+ reports, 70000+ metrics, high-quality ESG database', 'Reusable and scalable AI intelligent information extraction system']
+    },
+    5: {
+      title: 'Financial Product Query Tool',
+      description: 'Financial product information extraction tool designed specifically for the finance industry, reducing traditional manual query time by 80%',
+      technologies: ['Python', 'Selenium', 'Firefox', 'Excel'],
+      achievements: ['98.8% success rate, stable and reliable performance', 'Support for batch query and single product query', 'Human-machine collaborative CAPTCHA handling mechanism']
+    },
+    6: {
+      title: 'ALBERT Model Application Research in A-Stock Market',
+      description: 'Domain training of ALBERT model using 1.5+ million stock review text data, constructing sentiment indices to predict market performance',
+      technologies: ['Python', 'ALBERT', 'NLP', 'Deep Learning'],
+      achievements: ['Processed 1.5M+ stock review texts', 'Built effective market sentiment index', 'Prediction results significant with practical application value']
+    }
+  } : null;
+
+  const getProjectData = (projectId: number, key: string, defaultValue: string) => {
+    if (language === 'en' && projectTranslations && projectTranslations[projectId as keyof typeof projectTranslations]) {
+      const translated = projectTranslations[projectId as keyof typeof projectTranslations];
+      return translated[key as keyof typeof translated] || defaultValue;
+    }
+    return defaultValue;
+  };
+
   const categories = [
     { id: 'all', label: t.projects.filters.all },
     { id: 'ai', label: t.projects.filters.ai },
@@ -227,16 +275,16 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 hover:text-blue-600 transition-colors"
                     >
-                      {project.title}
+                      {getProjectData(project.id, 'title', project.title)}
                       <ExternalLink size={16} className="flex-shrink-0" />
                     </a>
                   ) : (
-                    project.title
+                    getProjectData(project.id, 'title', project.title)
                   )}
                 </h3>
                 
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
-                  {project.description}
+                  {getProjectData(project.id, 'description', project.description)}
                 </p>
 
                 {/* Project Meta */}
@@ -261,14 +309,19 @@ const Projects = () => {
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 3).map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {(() => {
+                    const techs = language === 'en' && projectTranslations && projectTranslations[project.id as keyof typeof projectTranslations]
+                      ? projectTranslations[project.id as keyof typeof projectTranslations].technologies
+                      : project.technologies;
+                    return techs.slice(0, 3).map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ));
+                  })()}
                   {project.technologies.length > 3 && (
                     <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded-md text-xs">
                       +{project.technologies.length - 3}
@@ -283,12 +336,17 @@ const Projects = () => {
                     {t.projects.coreAchievements}
                   </h4>
                   <ul className="space-y-1">
-                    {project.achievements.slice(0, 2).map((achievement, index) => (
-                      <li key={index} className="text-xs text-gray-600 flex items-start gap-2">
-                        <span className="w-1 h-1 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                        <span className="line-clamp-1">{achievement}</span>
-                      </li>
-                    ))}
+                    {(() => {
+                      const achievements = language === 'en' && projectTranslations && projectTranslations[project.id as keyof typeof projectTranslations]
+                        ? projectTranslations[project.id as keyof typeof projectTranslations].achievements
+                        : project.achievements;
+                      return achievements.slice(0, 2).map((achievement, index) => (
+                        <li key={index} className="text-xs text-gray-600 flex items-start gap-2">
+                          <span className="w-1 h-1 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                          <span className="line-clamp-1">{achievement}</span>
+                        </li>
+                      ));
+                    })()}
                   </ul>
                 </div>
 

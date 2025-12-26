@@ -12,6 +12,54 @@ const Portfolio = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalCategory, setModalCategory] = useState('');
 
+  // Translation helper for portfolio data
+  const portfolioTranslations = language === 'en' ? {
+    1: {
+      title: 'Personal WeChat Official Account',
+      description: 'AI tutorial sharing and technical application experience to establish personal tech brand',
+      technologies: ['Content Creation', 'AI Tools', 'Tech Sharing', 'Brand Building'],
+      features: ['AI technology tutorials sharing', 'From ideas to works practice', 'Tech tool reviews', 'Personal brand building']
+    },
+    2: {
+      title: 'Personal Life Website',
+      description: 'Personal brand showcase website with responsive design, displaying life updates',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      features: ['Responsive design', 'Personal brand building', 'Life updates showcase', 'Portfolio showcase']
+    },
+    3: {
+      title: 'Professional Academic Paper Diagrams',
+      description: 'Creating professional technical architecture diagrams using AI tools to enhance visualization quality of academic research and technical documentation',
+      technologies: ['AI Tools', 'Technical Drawing', 'Academic Visualization', 'Architecture Design'],
+      features: ['Medical-AI-Core-Workflow diagrams', 'TextGrad-Learning-Cycle charts', 'Professional technical architecture diagrams', 'Academic research visualization']
+    },
+    4: {
+      title: 'SVG Art Card Design',
+      description: 'Beautiful learning cards created with AI assistance, including word cards, reading cards, movie cards and more, with elegant gradient coloring and typography design',
+      technologies: ['SVG', 'AI Design', 'Gradient Coloring', 'Typography Design'],
+      features: ['Word study cards (with phonetic symbols, definitions, examples)', 'Reading note cards (with quotes, insights)', 'Movie review cards (with ratings, summaries)', 'Elegant gradient backgrounds and beautiful typography']
+    },
+    5: {
+      title: 'Data Visualization Reports',
+      description: 'Professional-grade data analysis reports including Bank Wealth Management Sub-Fee Auto-Update System planning document and ESG Data Collection System report',
+      technologies: ['Tableau', 'BI Tools', 'Excel', 'Python'],
+      features: ['Bank wealth sub-fee auto-update system planning document', 'ESG data collection system analysis report', 'Professional data visualization charts', 'Complete PDF format reports']
+    },
+    6: {
+      title: 'AI Card Creation Web Tool',
+      description: 'AI-driven intelligent card content generation tool supporting multiple card types with modern UI design',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'DeepSeek API'],
+      features: ['AI-powered intelligent content generation', 'Support for multiple card types', 'Real-time preview and editing features', 'Responsive design']
+    }
+  } : null;
+
+  const getPortfolioData = (itemId: number, key: string, defaultValue: any) => {
+    if (language === 'en' && portfolioTranslations && portfolioTranslations[itemId as keyof typeof portfolioTranslations]) {
+      const translated = portfolioTranslations[itemId as keyof typeof portfolioTranslations];
+      return translated[key as keyof typeof translated] || defaultValue;
+    }
+    return defaultValue;
+  };
+
   const filters = [
     { id: 'all', label: t.portfolio.filters.all, icon: Globe },
     { id: 'web', label: t.portfolio.filters.web, icon: Code },
@@ -282,23 +330,26 @@ const Portfolio = () => {
               {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200">
-                  {item.title}
+                  {getPortfolioData(item.id, 'title', item.title)}
                 </h3>
                 
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-2">
-                  {item.description}
+                  {getPortfolioData(item.id, 'description', item.description)}
                 </p>
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {item.technologies.slice(0, 3).map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {(() => {
+                    const techs = getPortfolioData(item.id, 'technologies', item.technologies);
+                    return techs.slice(0, 3).map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ));
+                  })()}
                   {item.technologies.length > 3 && (
                     <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded-md text-xs">
                       +{item.technologies.length - 3}
@@ -308,12 +359,15 @@ const Portfolio = () => {
 
                 {/* Features */}
                 <div className="space-y-1">
-                  {item.features.slice(0, 2).map((feature, index) => (
-                    <div key={index} className="flex items-start gap-2 text-xs text-gray-600">
-                      <span className="w-1 h-1 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                      <span className="line-clamp-1">{feature}</span>
-                    </div>
-                  ))}
+                  {(() => {
+                    const features = getPortfolioData(item.id, 'features', item.features);
+                    return features.slice(0, 2).map((feature, index) => (
+                      <div key={index} className="flex items-start gap-2 text-xs text-gray-600">
+                        <span className="w-1 h-1 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                        <span className="line-clamp-1">{feature}</span>
+                      </div>
+                    ));
+                  })()}
                 </div>
               </div>
             </div>
