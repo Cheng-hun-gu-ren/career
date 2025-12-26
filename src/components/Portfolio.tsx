@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, Play, Image as ImageIcon, Code, Palette, Database, Globe } from 'lucide-react';
 import { EXTERNAL_LINKS, getLinkConfig } from '../data/links';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 import ImageModal from './ImageModal';
 
 const Portfolio = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [activeFilter, setActiveFilter] = useState('all');
   const [modalOpen, setModalOpen] = useState(false);
   const [modalCategory, setModalCategory] = useState('');
 
   const filters = [
-    { id: 'all', label: '全部作品', icon: Globe },
-    { id: 'web', label: 'Web应用', icon: Code },
-    { id: 'ai', label: 'AI工具', icon: Database },
-    { id: 'design', label: '设计作品', icon: Palette },
-    { id: 'research', label: '研究成果', icon: ImageIcon }
+    { id: 'all', label: t.portfolio.filters.all, icon: Globe },
+    { id: 'web', label: t.portfolio.filters.web, icon: Code },
+    { id: 'ai', label: t.portfolio.filters.ai, icon: Database },
+    { id: 'design', label: t.portfolio.filters.design, icon: Palette },
+    { id: 'research', label: t.portfolio.filters.research, icon: ImageIcon }
   ];
 
   const portfolioItems = [
@@ -156,7 +159,7 @@ const Portfolio = () => {
     if (status === 'featured') {
       return (
         <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-          精选作品
+          {t.portfolio.featured}
         </div>
       );
     }
@@ -168,10 +171,10 @@ const Portfolio = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            作品集
+            {t.portfolio.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            不要成为一个拥有完美简历却没有作品的人
+            {t.portfolio.subtitle}
           </p>
         </div>
 
@@ -320,13 +323,13 @@ const Portfolio = () => {
         {/* Call to Action */}
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">
-            想了解更多项目详情或讨论合作机会？
+            {t.portfolio.more}
           </p>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            联系我
+            {t.portfolio.cta}
           </button>
         </div>
       </div>
