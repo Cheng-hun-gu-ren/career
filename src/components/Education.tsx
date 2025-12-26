@@ -1,8 +1,11 @@
 import React from 'react';
 import { GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 
 const Education = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const educationData = [
     {
       id: 1,
@@ -33,10 +36,10 @@ const Education = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            教育背景
+            {t.education.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            从985高校到香港名校，持续追求学术卓越与专业成长
+            {t.education.subtitle}
           </p>
         </div>
 
@@ -119,29 +122,29 @@ const Education = () => {
         {/* Skills Summary */}
         <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-            核心技能与特长
+            {t.education.skills}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <GraduationCap size={32} className="text-blue-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">工程能力</h4>
-              <p className="text-sm text-gray-600">全栈开发、系统架构、AI工程化应用</p>
+              <h4 className="font-semibold text-gray-900 mb-2">{t.education.skillsList.engineering.title}</h4>
+              <p className="text-sm text-gray-600">{t.education.skillsList.engineering.desc}</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award size={32} className="text-emerald-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">竞赛获奖</h4>
-              <p className="text-sm text-gray-600">研究生阶段阿里天池算法大赛复赛八强，多项奖学金</p>
+              <h4 className="font-semibold text-gray-900 mb-2">{t.education.skillsList.competition.title}</h4>
+              <p className="text-sm text-gray-600">{t.education.skillsList.competition.desc}</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin size={32} className="text-purple-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">国际视野</h4>
-              <p className="text-sm text-gray-600">中外合办求学经历，雅思6.5分，国际化背景</p>
+              <h4 className="font-semibold text-gray-900 mb-2">{t.education.skillsList.vision.title}</h4>
+              <p className="text-sm text-gray-600">{t.education.skillsList.vision.desc}</p>
             </div>
           </div>
         </div>

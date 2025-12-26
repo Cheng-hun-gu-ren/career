@@ -1,8 +1,11 @@
 import React from 'react';
 import { Building2, Calendar, MapPin, TrendingUp } from 'lucide-react';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 
 const Internships = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const internships = [
     {
       id: 1,
@@ -97,8 +100,8 @@ const Internships = () => {
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case 'current': return '在职';
-      case 'completed': return '已完成';
+      case 'current': return t.internships.status.current;
+      case 'completed': return t.internships.status.completed;
       default: return '未知';
     }
   };
@@ -108,10 +111,10 @@ const Internships = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            实习经历
+            {t.internships.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            在多家知名金融机构的实习经历，积累了丰富的行业经验和专业技能
+            {t.internships.subtitle}
           </p>
         </div>
 
@@ -162,7 +165,7 @@ const Internships = () => {
                     <div>
                       <h5 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                         <Building2 size={16} className="text-blue-500" />
-                        主要职责
+                        {t.internships.responsibilities}
                       </h5>
                       <ul className="space-y-2">
                         {internship.responsibilities.map((responsibility, idx) => (
@@ -178,7 +181,7 @@ const Internships = () => {
                     <div>
                       <h5 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                         <TrendingUp size={16} className="text-green-500" />
-                        收获成果
+                        {t.internships.achievements}
                       </h5>
                       <ul className="space-y-2">
                         {internship.achievements.map((achievement, idx) => (

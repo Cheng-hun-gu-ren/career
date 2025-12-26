@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, X } from 'lucide-react';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 
 // 自定义X(Twitter)图标组件
 const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
@@ -10,6 +11,8 @@ const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 const Contact = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -112,10 +115,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            联系方式
+            {t.contact.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            欢迎与我联系，讨论工作机会、项目合作或技术交流
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -124,7 +127,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                联系信息
+                {t.contact.info}
               </h3>
               
               <div className="space-y-4">
@@ -157,7 +160,7 @@ const Contact = () => {
             {/* Social Links */}
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                社交媒体
+                {t.contact.social}
               </h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => {
@@ -195,10 +198,10 @@ const Contact = () => {
             {/* Quick Contact */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6">
               <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                快速联系
+                {t.contact.quick}
               </h4>
               <p className="text-gray-600 mb-4 text-sm">
-                如需紧急联系或预约面谈，请直接发送邮件至学术邮箱，我会在24小时内回复。
+                {t.contact.quickDesc}
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
@@ -206,7 +209,7 @@ const Contact = () => {
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
                 >
                   <Mail size={18} />
-                  发送邮件
+                  {t.contact.sendEmail}
                 </a>
               </div>
             </div>
@@ -218,12 +221,10 @@ const Contact = () => {
         <div className="mt-16 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8">
           <div className="text-center">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
-              期待与您的合作
+              {t.contact.expectation}
             </h3>
             <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。
-              无论是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。
-              让我们一起在AI时代创造更多可能性！
+              {t.contact.expectationText}
             </p>
           </div>
         </div>
@@ -241,22 +242,22 @@ const Contact = () => {
               
               <div className="text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">
-                  扫码添加微信
+                  {t.contact.wechat}
                 </h3>
                 
                 <div className="mb-6">
                   <img
                     src={ossAsset('/images/wechat.png')}
-                    alt="微信二维码"
+                    alt="WeChat QR Code"
                     className="w-64 h-64 mx-auto rounded-lg shadow-lg"
                   />
                 </div>
                 
                 <p className="text-gray-600 text-sm mb-4">
-                  扫描二维码添加好友
+                  {t.contact.wechatTip}
                 </p>
                 <p className="text-gray-500 text-xs">
-                  请备注来意，谢谢！
+                  {t.contact.wechatNote}
                 </p>
               </div>
             </div>

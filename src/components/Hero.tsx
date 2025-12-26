@@ -1,8 +1,11 @@
 import React from 'react';
 import { ChevronDown, MapPin, Calendar, GraduationCap } from 'lucide-react';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const scrollToNext = () => {
     const element = document.querySelector('#projects');
     if (element) {
@@ -31,30 +34,29 @@ const Hero = () => {
 
         {/* Main Content */}
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-          程高
+          {t.hero.name}
           <span className="block text-xl md:text-2xl font-normal mt-2 text-blue-100">
-            金融工程研究生 · AI技术拥抱者 · 全栈开发者
+            {t.hero.subtitle}
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-          立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。
-          相信技术能赋能每个人成为"超级个体"，热衷于拥抱新科技，探索无限可能。
+          {t.hero.description}
         </p>
 
         {/* Key Info */}
         <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm md:text-base">
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
             <GraduationCap size={16} />
-            <span>香港中文大学（深圳）</span>
+            <span>{t.hero.school}</span>
           </div>
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
             <MapPin size={16} />
-            <span>深圳</span>
+            <span>{t.hero.location}</span>
           </div>
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
             <Calendar size={16} />
-            <span>研究生在读</span>
+            <span>{t.hero.status}</span>
           </div>
         </div>
 
@@ -64,13 +66,13 @@ const Hero = () => {
             onClick={() => scrollToNext()}
             className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            了解更多
+            {t.hero.learnMore}
           </button>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:scale-105"
           >
-            联系我
+            {t.hero.contact}
           </button>
         </div>
 

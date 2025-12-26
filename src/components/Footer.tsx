@@ -1,7 +1,10 @@
 import React from 'react';
 import { Heart, Code, Coffee } from 'lucide-react';
+import { useLanguage, translations } from '../i18n';
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const currentYear = new Date().getFullYear();
 
   return (
@@ -10,25 +13,25 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-4">程高</h3>
+            <h3 className="text-xl font-bold mb-4">{t.footer.brand}</h3>
             <p className="text-gray-400 leading-relaxed">
-              金融工程研究生 · AI技术拥抱者 · 全栈开发者
+              {t.footer.tagline}
             </p>
             <p className="text-gray-400 mt-2 text-sm">
-              立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。
+              {t.footer.motto}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">快速导航</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
               <li>
-                <button
+              <button
                   onClick={() => document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  教育背景
+                  {t.nav.education}
                 </button>
               </li>
               <li>
@@ -36,7 +39,7 @@ const Footer = () => {
                   onClick={() => document.querySelector('#internships')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  实习经历
+                  {t.nav.internships}
                 </button>
               </li>
               <li>
@@ -44,7 +47,7 @@ const Footer = () => {
                   onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  项目经历
+                  {t.nav.projects}
                 </button>
               </li>
               <li>
@@ -52,7 +55,7 @@ const Footer = () => {
                   onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  作品集
+                  {t.nav.portfolio}
                 </button>
               </li>
               <li>
@@ -60,7 +63,7 @@ const Footer = () => {
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  联系方式
+                  {t.nav.contact}
                 </button>
               </li>
             </ul>
@@ -68,11 +71,11 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">联系信息</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.footer.contactInfo}</h4>
             <div className="space-y-2 text-gray-400">
-              <p>📧 224040166@link.cuhk.edu.cn</p>
-              <p>📍 深圳市</p>
-              <p>🎓 香港中文大学（深圳）</p>
+              <p>{t.footer.email}</p>
+              <p>{t.footer.location}</p>
+              <p>{t.footer.school}</p>
               <div className="mt-4">
                 <a
                   href="https://life.chenggao.top"
@@ -80,7 +83,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
                 >
-                  个人生活网站 →
+                  {t.footer.personalSite}
                 </a>
               </div>
               <div className="mt-3">
@@ -92,7 +95,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>© {currentYear} 程高. Made with</span>
+              <span>{t.footer.copyright.replace('{{year}}', currentYear.toString())}</span>
               <Heart size={16} className="text-red-500" />
               <span>and</span>
               <Code size={16} className="text-blue-500" />
@@ -101,7 +104,7 @@ const Footer = () => {
             </div>
             
             <div className="mt-4 md:mt-0 text-gray-400 text-sm flex flex-col md:items-end">
-              <p>怕什么真理无穷，进一步有一步的惊喜</p>
+              <p>{t.footer.motto2}</p>
               <p className="mt-1">
                 <a 
                   href="https://beian.miit.gov.cn/" 
@@ -109,7 +112,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-gray-300 transition-colors duration-200"
                 >
-                  备案号：粤ICP备2025459432号
+                  {t.footer.icp}
                 </a>
               </p>
             </div>

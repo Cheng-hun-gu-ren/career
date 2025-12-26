@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { Calendar, Users, TrendingUp, ExternalLink } from 'lucide-react';
 import { EXTERNAL_LINKS } from '../data/links';
 import { ossAsset } from '../data/oss';
+import { useLanguage, translations } from '../i18n';
 
 const Projects = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
-    { id: 'all', label: '全部项目' },
-    { id: 'ai', label: 'AI应用' },
-    { id: 'fintech', label: '金融科技' },
-    { id: 'web', label: 'Web开发' },
-    { id: 'research', label: '学术研究' }
+    { id: 'all', label: t.projects.filters.all },
+    { id: 'ai', label: t.projects.filters.ai },
+    { id: 'fintech', label: t.projects.filters.fintech },
+    { id: 'web', label: t.projects.filters.web },
+    { id: 'research', label: t.projects.filters.research }
   ];
 
   interface Project {
@@ -157,9 +160,9 @@ const Projects = () => {
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case 'completed': return '已完成';
-      case 'in-progress': return '进行中';
-      case 'planning': return '规划中';
+      case 'completed': return t.projects.status.completed;
+      case 'in-progress': return t.projects.status['in-progress'];
+      case 'planning': return t.projects.status.planning;
       default: return '未知';
     }
   };
@@ -169,10 +172,10 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            项目经历
+            {t.projects.title}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            从AI应用到金融科技，从学术研究到实际产品，展示技术实力与创新能力
+            {t.projects.subtitle}
           </p>
         </div>
 
