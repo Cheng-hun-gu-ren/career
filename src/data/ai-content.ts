@@ -108,7 +108,11 @@ export const aiTools: AITool[] = [
     usage: '代码编写、重构、调试',
     proficiency: 85,
     icon: '⚡',
-    features: ['智能补全', '代码解释', '自动重构', '错误修复']
+    features: ['智能补完', '代码解預', '自动重构', '错误修复'],
+    categoryEn: 'Development Tool',
+    descriptionEn: 'AI-powered code editor to improve programming efficiency',
+    usageEn: 'Code writing, refactoring, debugging',
+    featuresEn: ['Intelligent completion', 'Code explanation', 'Automatic refactoring', 'Error fixing']
   },
   {
     id: 'deepseek-api',
@@ -118,7 +122,11 @@ export const aiTools: AITool[] = [
     usage: '系统集成、数据处理、智能分析',
     proficiency: 80,
     icon: '🔗',
-    features: ['API集成', '批量处理', '智能识别', '自动化流程']
+    features: ['API集成', '批量处理', '智能识别', '自动化流程'],
+    categoryEn: 'API Service',
+    descriptionEn: 'AI capabilities integrated into projects for intelligent system development',
+    usageEn: 'System integration, data processing, intelligent analysis',
+    featuresEn: ['API integration', 'Batch processing', 'Intelligent recognition', 'Automated workflows']
   },
   {
     id: 'gemini',
@@ -128,7 +136,11 @@ export const aiTools: AITool[] = [
     usage: '图像分析、内容生成、多模态交互',
     proficiency: 75,
     icon: '🌟',
-    features: ['图像理解', '多模态输入', '创意生成', '内容优化']
+    features: ['图像理解', '多模态输入', '创意生成', '内容优化'],
+    categoryEn: 'Multimodal AI',
+    descriptionEn: 'Used for multimedia content processing and creation',
+    usageEn: 'Image analysis, content generation, multimodal interaction',
+    featuresEn: ['Image understanding', 'Multimodal input', 'Creative generation', 'Content optimization']
   },
   {
     id: 'bolt',
@@ -138,17 +150,25 @@ export const aiTools: AITool[] = [
     usage: 'MVP快速发布、内部工具开发、AI应用原型',
     proficiency: 70,
     icon: '⚡',
-    features: ['快速原型设计', '全栈应用开发', 'AI/ML项目实验', '编程教育学习']
+    features: ['快速原型设计', '全栈应用开发', 'AI/ML项目实验', '编程教育学习'],
+    categoryEn: 'Development Tool',
+    descriptionEn: 'AI-powered rapid application development platform capable of quickly building full-stack applications',
+    usageEn: 'MVP rapid release, internal tool development, AI/ML project experimentation',
+    featuresEn: ['Rapid prototyping', 'Full-stack application development', 'AI/ML project experimentation', 'Programming education learning']
   },
   {
     id: 'n8n',
     name: 'n8n',
     category: '自动化工具',
     description: '混合无代码/低代码工作流自动化平台，拥有400多个原生集成',
-    usage: '潜在客户生成、客户支持自动化、内容管理',
+    usage: '潜在客户上求人生成、客户支持自动化、内容管理',
     proficiency: 65,
     icon: '🔄',
-    features: ['400+原生集成', '内置AI节点', '自定义代码支持', '自托管或云端']
+    features: ['400+原生集成', '内置AI节点', '自定义代码支持', '自托管或云端'],
+    categoryEn: 'Automation Tool',
+    descriptionEn: 'Hybrid no-code/low-code workflow automation platform with 400+ native integrations',
+    usageEn: 'Lead generation, customer support automation, content management',
+    featuresEn: ['400+ native integrations', 'Built-in AI nodes', 'Custom code support', 'Self-hosted or cloud']
   },
   {
     id: 'gamma',
@@ -157,8 +177,12 @@ export const aiTools: AITool[] = [
     description: 'AI演示文稿、文档和网页生成器，快速创建设计精美的内容',
     usage: '销售演示、产品概述、教育材料',
     proficiency: 75,
-    icon: '🎨',
-    features: ['文本提示生成', '专业模板库', '嵌入丰富媒体', '响应式设计']
+    icon: '🎎',
+    features: ['文档提示生成', '专业模板库', '嵌入丰富媒体', '响应式设计'],
+    categoryEn: 'Design Tool',
+    descriptionEn: 'AI presentation, document and web generator to quickly create beautifully designed content',
+    usageEn: 'Sales presentations, product overviews, educational materials',
+    featuresEn: ['Text prompt generation', 'Professional template library', 'Embed rich media', 'Responsive design']
   },
   {
     id: 'wispr-flow',
@@ -167,8 +191,12 @@ export const aiTools: AITool[] = [
     description: '语音驱动的听写工具，具备上下文感知能力，比打字快4倍',
     usage: '撰写邮件报告、编程听写、快速捕捉想法',
     proficiency: 60,
-    icon: '🎤',
-    features: ['跨应用语音听写', '上下文感知', '实时自动编辑', '支持100+语言']
+    icon: '🎙️',
+    features: ['跨应用语音听写', '上下文感知', '实时自动编辑', '支持100+語言'],
+    categoryEn: 'Productivity Tool',
+    descriptionEn: 'Voice-driven dictation tool with context awareness capability, 4x faster than typing',
+    usageEn: 'Writing emails and reports, programming dictation, quickly capturing ideas',
+    featuresEn: ['Cross-app voice dictation', 'Context awareness', 'Real-time auto-editing', 'Support 100+ languages']
   },
   {
     id: 'notebookllm',
@@ -178,7 +206,11 @@ export const aiTools: AITool[] = [
     usage: '文档分析、研究整理、知识提取',
     proficiency: 70,
     icon: '📖',
-    features: ['文档理解', '智能摘要', '问答系统', '知识图谱']
+    features: ['文档理解', '智能摘要', '问答系统', '知识图谱'],
+    categoryEn: 'Knowledge Management',
+    descriptionEn: "Google's AI-powered note-taking and research assistant that can understand and analyze documents",
+    usageEn: 'Document analysis, research organization, knowledge extraction',
+    featuresEn: ['Document understanding', 'Intelligent summarization', 'Question-answering system', 'Knowledge graph']
   }
 ];
 
@@ -188,12 +220,20 @@ export const aiPhilosophy: AIPhilosophy[] = [
     id: 'programming-view',
     title: 'AI时代的编程观',
     description: '传统编程是写代码，AI时代的编程更像是写文档',
-    icon: '💻',
+    icon: '📋',
     details: [
       '通过自然语言描述需求和逻辑',
       '让AI理解意图并生成代码',
       '人类专注于架构设计和业务逻辑',
       'AI负责具体实现和优化细节'
+    ],
+    titleEn: 'Programming Perspective in the AI Era',
+    descriptionEn: 'Traditional programming is writing code, while programming in the AI era is more like writing documentation',
+    detailsEn: [
+      'Describe requirements and logic using natural language',
+      'Let AI understand intent and generate code',
+      'Humans focus on architecture design and business logic',
+      'AI is responsible for concrete implementation and optimization of details'
     ]
   },
   {
