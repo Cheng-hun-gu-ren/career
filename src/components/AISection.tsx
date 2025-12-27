@@ -180,7 +180,7 @@ const AISection = () => {
             {/* AI Usage Stats */}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                {language === 'zh' ? 'AI使用统计' : 'AI Usage Stats'}
+                {language === 'zh' ? t.ai.tools.statsTitle : 'AI Usage Stats'}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
@@ -272,7 +272,7 @@ const AISection = () => {
                       </p>
                       <div className="bg-blue-50 rounded-lg p-3">
                         <p className="text-sm text-blue-800 font-medium">
-                          <strong>{language === 'zh' ? '影响：' : 'Impact: '}</strong>{item.impact}
+                          <strong>{language === 'zh' ? t.ai.journey.impact : t.ai.journey.impact}</strong>{item.impact}
                         </p>
                       </div>
                     </div>
@@ -291,22 +291,22 @@ const AISection = () => {
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Brain size={32} className="text-blue-600" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? 'AI咨询服务' : 'AI Consulting'}</h4>
-                  <p className="text-sm text-gray-600">{language === 'zh' ? '为企业和个人提供AI应用咨询和培训' : 'Provide AI application consulting and training for businesses and individuals'}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? t.ai.futureVision.consulting : t.ai.futureVision.consulting}</h4>
+                  <p className="text-sm text-gray-600">{language === 'zh' ? t.ai.futureVision.consultingDesc : t.ai.futureVision.consultingDesc}</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">🛠️</span>
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? 'AI工具开发' : 'AI Tool Development'}</h4>
-                  <p className="text-sm text-gray-600">{language === 'zh' ? '开发更多实用的AI辅助工具和系统' : 'Develop more practical AI-assisted tools and systems'}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? t.ai.futureVision.tools : t.ai.futureVision.tools}</h4>
+                  <p className="text-sm text-gray-600">{language === 'zh' ? t.ai.futureVision.toolsDesc : t.ai.futureVision.toolsDesc}</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users size={32} className="text-purple-600" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? '知识分享' : 'Knowledge Sharing'}</h4>
-                  <p className="text-sm text-gray-600">{language === 'zh' ? '通过公众号和技术社区分享AI应用经验' : 'Share AI application experience through public accounts and tech communities'}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{language === 'zh' ? t.ai.futureVision.sharing : t.ai.futureVision.sharing}</h4>
+                  <p className="text-sm text-gray-600">{language === 'zh' ? t.ai.futureVision.sharingDesc : t.ai.futureVision.sharingDesc}</p>
                 </div>
               </div>
             </div>
@@ -317,10 +317,10 @@ const AISection = () => {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              {language === 'zh' ? 'AI合作与咨询' : 'AI Collaboration & Consulting'}
+              {language === 'zh' ? t.ai.collaboration : t.ai.collaboration}
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              {language === 'zh' ? '基于深度的AI应用经验，为您提供专业的AI技术咨询和解决方案' : 'Based on extensive AI application experience, provide professional AI technology consulting and solutions'}
+              {language === 'zh' ? t.ai.collaborationDesc : t.ai.collaborationDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button

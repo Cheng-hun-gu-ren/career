@@ -138,7 +138,9 @@ export const translations = {
           count: '常用AI工具',
           projects: 'AI辅助项目',
           workflow: '工作流AI化'
-        }
+        },
+        statsTitle: 'AI使用统计',
+        duration: '深度使用时间'
       },
       philosophy: {
         core: '核心理念',
@@ -146,8 +148,19 @@ export const translations = {
         motto: '怕什么真理无穷，进一步有一步的惊喜'
       },
       journey: {
-        futureVision: '未来展望'
+        futureVision: '未来展望',
+        impact: '影响：'
       },
+      futureVision: {
+        consulting: 'AI咨询服务',
+        consultingDesc: '为企业和个人提供AI应用咨询和培训',
+        tools: 'AI工具开发',
+        toolsDesc: '开发更多实用的AI辅助工具和系统',
+        sharing: '知识分享',
+        sharingDesc: '通过公众号和技术社区分享AI应用经验'
+      },
+      collaboration: 'AI合作与咨询',
+      collaborationDesc: '基于深度的AI应用经验，为您提供专业的AI技术咨询和解决方案',
       cta: {
         tools: 'AI工具星云',
         consult: '预约AI咨询',
@@ -170,10 +183,25 @@ export const translations = {
       quickDesc: '如需紧急联系或预约面谈，请直接发送邮件至学术邮箱，我会在24小时内回复。',
       sendEmail: '发送邮件',
       expectation: '期待与您的合作',
-      expectationText: '作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。\n无论是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。\n让我们一起在AI时代创造更多可能性！',
+      expectationText: '作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。\n不订是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。\n让我们一起在AI时代创造更多可能性！',
       wechat: '扫码添加微信',
       wechatTip: '扫描二维码添加好友',
-      wechatNote: '请备注来意，谢谢！'
+      wechatNote: '请备注来意，谢谢！',
+      contactItems: {
+        email: '学术邮箱',
+        location: '现居地',
+        available: '可约时间',
+        locationValue: '深圳市',
+        availableValue: '工作日 9:00-18:00'
+      },
+      subjectOptions: [
+        '工作机会咨询',
+        '项目合作',
+        '技术交流',
+        '学术讨论',
+        '其他咨询'
+      ],
+      socialWeChat: '微信'
     },
 
     // 页脚
@@ -376,8 +404,19 @@ export const translations = {
         motto: 'Fear nothing about infinite truth; each step forward brings a pleasant surprise'
       },
       journey: {
-        futureVision: 'Future Vision'
+        futureVision: 'Future Vision',
+        impact: 'Impact: '
       },
+      futureVision: {
+        consulting: 'AI Consulting',
+        consultingDesc: 'Provide AI application consulting and training for businesses and individuals',
+        tools: 'AI Tool Development',
+        toolsDesc: 'Develop more practical AI-assisted tools and systems',
+        sharing: 'Knowledge Sharing',
+        sharingDesc: 'Share AI application experience through public accounts and tech communities'
+      },
+      collaboration: 'AI Collaboration & Consulting',
+      collaborationDesc: 'Based on extensive AI application experience, provide professional AI technology consulting and solutions',
       cta: {
         tools: 'AI Tool Constellation',
         consult: 'Schedule AI Consultation',
@@ -403,7 +442,22 @@ export const translations = {
       expectationText: 'As a passionate fintech professional, I maintain curiosity about new technologies and enthusiasm for learning.\nWhether it\'s job opportunities, project collaborations, or technical discussions, I\'m happy to explore further with you.\nLet\'s create more possibilities together in the AI era!',
       wechat: 'Scan to Add WeChat',
       wechatTip: 'Scan QR code to add friend',
-      wechatNote: 'Please note your purpose, thank you!'
+      wechatNote: 'Please note your purpose, thank you!',
+      contactItems: {
+        email: 'Academic Email',
+        location: 'Current Location',
+        available: 'Available Hours',
+        locationValue: 'Shenzhen',
+        availableValue: 'Weekdays 9:00-18:00'
+      },
+      subjectOptions: [
+        'Job Inquiry',
+        'Project Collaboration',
+        'Technical Discussion',
+        'Academic Discussion',
+        'Other Inquiry'
+      ],
+      socialWeChat: 'WeChat'
     },
 
     // Footer

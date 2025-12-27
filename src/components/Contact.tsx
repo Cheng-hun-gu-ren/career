@@ -58,21 +58,21 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: '学术邮箱',
+      label: language === 'zh' ? t.contact.contactItems.email : t.contact.contactItems.email,
       value: '224040166@link.cuhk.edu.cn',
       href: 'mailto:224040166@link.cuhk.edu.cn',
       color: 'text-blue-600'
     },
     {
       icon: MapPin,
-      label: '现居地',
-      value: '深圳市',
+      label: language === 'zh' ? t.contact.contactItems.location : t.contact.contactItems.location,
+      value: language === 'zh' ? t.contact.contactItems.locationValue : t.contact.contactItems.locationValue,
       color: 'text-green-600'
     },
     {
       icon: Calendar,
-      label: '可约时间',
-      value: '工作日 9:00-18:00',
+      label: language === 'zh' ? t.contact.contactItems.available : t.contact.contactItems.available,
+      value: language === 'zh' ? t.contact.contactItems.availableValue : t.contact.contactItems.availableValue,
       color: 'text-purple-600'
     }
   ];
@@ -94,7 +94,7 @@ const Contact = () => {
     },
     {
       icon: MessageCircle,
-      label: '微信',
+      label: language === 'zh' ? t.contact.socialWeChat : t.contact.socialWeChat,
       href: '#',
       color: 'hover:text-green-600',
       external: false,
@@ -102,12 +102,12 @@ const Contact = () => {
     }
   ];
 
-  const subjectOptions = [
-    '工作机会咨询',
-    '项目合作',
-    '技术交流',
-    '学术讨论',
-    '其他咨询'
+  const subjectOptions = language === 'zh' ? t.contact.subjectOptions : [
+    'Job Inquiry',
+    'Project Collaboration',
+    'Technical Discussion',
+    'Academic Discussion',
+    'Other Inquiry'
   ];
 
   return (
