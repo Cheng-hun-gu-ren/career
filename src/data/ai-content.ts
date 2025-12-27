@@ -8,6 +8,11 @@ export interface AITool {
   proficiency: number;
   icon: string;
   features: string[];
+  nameEn?: string;
+  categoryEn?: string;
+  descriptionEn?: string;
+  usageEn?: string;
+  featuresEn?: string[];
 }
 
 export interface AIPhilosophy {
@@ -16,6 +21,9 @@ export interface AIPhilosophy {
   description: string;
   icon: string;
   details: string[];
+  titleEn?: string;
+  descriptionEn?: string;
+  detailsEn?: string[];
 }
 
 export interface AIJourney {
@@ -23,6 +31,9 @@ export interface AIJourney {
   milestone: string;
   description: string;
   impact: string;
+  milestoneEn?: string;
+  descriptionEn?: string;
+  impactEn?: string;
 }
 
 // AI工具数据（基于参考文件，添加新工具）
@@ -35,7 +46,11 @@ export const aiTools: AITool[] = [
     usage: '日常编程、系统管理、问题解决',
     proficiency: 95,
     icon: '🤖',
-    features: ['命令行集成', '代码生成', '系统诊断', '工作流优化']
+    features: ['命令行集成', '代码生成', '系统诊断', '工作流优化'],
+    categoryEn: 'Terminal AI Tool',
+    descriptionEn: 'Primary AI tool, terminal command-line AI assistant with deep integration into development workflow',
+    usageEn: 'Daily programming, system management, problem-solving',
+    featuresEn: ['Command line integration', 'Code generation', 'System diagnostics', 'Workflow optimization']
   },
   {
     id: 'codex',
@@ -45,7 +60,11 @@ export const aiTools: AITool[] = [
     usage: '代码生成、代码理解、函数级重构、技术方案实现',
     proficiency: 90,
     icon: '🧠',
-    features: ['代码生成', '代码补全', '代码解释', '逻辑重构', '多语言支持']
+    features: ['代码生成', '代码补完', '代码解預', '逻辑重构', '多語言支持'],
+    categoryEn: 'AI Programming Engine',
+    descriptionEn: 'AI programming and code understanding engine',
+    usageEn: 'Code generation, code understanding, function-level refactoring, technical solution implementation',
+    featuresEn: ['Code generation', 'Code completion', 'Code explanation', 'Logic refactoring', 'Multi-language support']
   },
   {
     id: 'antigravity',
@@ -61,17 +80,25 @@ export const aiTools: AITool[] = [
       '自动规划开发任务',
       '编辑器 + 终端 + 浏览器',
       '代码执行与验证'
-    ]
+    ],
+    categoryEn: 'AI Programming Environment',
+    descriptionEn: 'Agent-first AI programming environment',
+    usageEn: 'AI-initiated programming space: task planning, automatic code writing, test execution, result verification, project artifact management',
+    featuresEn: ['Agent-first', 'Multi-model integration', 'Automatic development task planning', 'Editor + Terminal + Browser', 'Code execution and verification']
   },
   {
     id: 'claude-web',
-    name: 'Claude (网页版)',
-    category: '对话AI',
+    name: 'Claude (Web)',
+    category: '对话 AI',
     description: '最早接触的AI工具，用于学习、研究和内容创作',
     usage: '学术研究、文档写作、思维整理',
     proficiency: 90,
     icon: '💬',
-    features: ['长文本处理', '逻辑推理', '创意写作', '学术讨论']
+    features: ['长文本处理', '逻辑推理', '创意写作', '学术讨论'],
+    categoryEn: 'Conversational AI',
+    descriptionEn: 'The first AI tool I encountered, used for learning, research and content creation',
+    usageEn: 'Academic research, document writing, thought organization',
+    featuresEn: ['Long text processing', 'Logical reasoning', 'Creative writing', 'Academic discussion']
   },
   {
     id: 'cursor',

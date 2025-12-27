@@ -10,6 +10,15 @@ const AISection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  // Get translated content helper
+  const getAIToolText = (tool: any, field: string) => {
+    if (language === 'en') {
+      const enField = `${field}En`;
+      return tool[enField] || tool[field];
+    }
+    return tool[field];
+  };
+
   const tabs = [
     { id: 'tools', label: t.ai.tabs.tools, icon: Brain },
     { id: 'philosophy', label: t.ai.tabs.philosophy, icon: Lightbulb },
@@ -104,13 +113,13 @@ const AISection = () => {
                       <div className="flex items-center gap-3 mb-4">
                         <span className="text-3xl">{tool.icon}</span>
                         <div>
-                          <h3 className="text-lg font-bold text-gray-900">{tool.name}</h3>
-                          <p className="text-sm text-blue-600">{tool.category}</p>
+                          <h3 className="text-lg font-bold text-gray-900">{getAIToolText(tool, 'name')}</h3>
+                          <p className="text-sm text-blue-600">{getAIToolText(tool, 'category')}</p>
                         </div>
                       </div>
 
                       <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                        {tool.description}
+                        {getAIToolText(tool, 'description')}
                       </p>
 
                       <div className="mb-4">
@@ -128,20 +137,23 @@ const AISection = () => {
 
                       <div className="mb-4">
                         <p className="text-sm font-medium text-gray-700 mb-2">{t.ai.tools.usage}</p>
-                        <p className="text-sm text-gray-600">{tool.usage}</p>
+                        <p className="text-sm text-gray-600">{getAIToolText(tool, 'usage')}</p>
                       </div>
 
                       <div>
                         <p className="text-sm font-medium text-gray-700 mb-2">{t.ai.tools.features}</p>
                         <div className="flex flex-wrap gap-1">
-                          {tool.features.map((feature, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs"
-                            >
-                              {feature}
-                            </span>
-                          ))}
+                          {(() => {
+                            const features = getAIToolText(tool, 'features');
+                            return features.map((feature: string, idx: number) => (
+                              <span
+                                key={idx}
+                                className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs"
+                              >
+                                {feature}
+                              </span>
+                            ));
+                          })()}
                         </div>
                       </div>
                     </div>
