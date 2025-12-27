@@ -10,13 +10,22 @@ const AISection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Get translated content helper
+  // Get translated content helper for AI tools
   const getAIToolText = (tool: any, field: string) => {
     if (language === 'en') {
       const enField = `${field}En`;
       return tool[enField] || tool[field];
     }
     return tool[field];
+  };
+
+  // Get translated content helper for philosophy and journey
+  const getTranslatedText = (item: any, field: string) => {
+    if (language === 'en') {
+      const enField = `${field}En`;
+      return item[enField] || item[field];
+    }
+    return item[field];
   };
 
   const tabs = [
@@ -220,27 +229,30 @@ const AISection = () => {
         {activeTab === 'philosophy' && (
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {aiPhilosophy.map((item, index) => (
+            {aiPhilosophy.map((item, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">{getIconForPhilosophy(item.icon)}</span>
-                    <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900">{getTranslatedText(item, 'title')}</h3>
                   </div>
                   
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    {item.description}
+                    {getTranslatedText(item, 'description')}
                   </p>
 
                   <ul className="space-y-2">
-                    {item.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                        {detail}
-                      </li>
-                    ))}
+                    {(() => {
+                      const details = getTranslatedText(item, 'details');
+                      return details.map((detail: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                          {detail}
+                        </li>
+                      ));
+                    })()}
                   </ul>
                 </div>
               ))}
@@ -277,14 +289,14 @@ const AISection = () => {
                     {/* Content */}
                     <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                       <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {item.milestone}
+                        {getTranslatedText(item, 'milestone')}
                       </h3>
                       <p className="text-gray-600 mb-3 leading-relaxed">
-                        {item.description}
+                        {getTranslatedText(item, 'description')}
                       </p>
                       <div className="bg-blue-50 rounded-lg p-3">
                         <p className="text-sm text-blue-800 font-medium">
-                          <strong>{language === 'zh' ? t.ai.journey.impact : t.ai.journey.impact}</strong>{item.impact}
+                          <strong>{t.ai.journey.impact}</strong>{getTranslatedText(item, 'impact')}
                         </p>
                       </div>
                     </div>
