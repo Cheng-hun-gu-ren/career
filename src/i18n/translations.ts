@@ -86,12 +86,12 @@ export const translations = {
       schools: [
         {
           id: 1,
-          degree: '金融工程硅士',
+          degree: '金融工程硕士',
           school: '香港中文大学（深圳）',
           period: '2024 - 在读',
           location: '深圳',
           description: '专注于AI技术在金融领域的创新应用，量化投资与机器学习研究',
-          achievements: ['学业奖学金（覆盖率９５%）', '阿里天池算法大赛复赛八强（600支队伍中脊颈而出）']
+          achievements: ['学业奖学金（覆盖率30%）', '阿里天池算法大赛复赛八强（600支队伍中脱颖而出）']
         },
         {
           id: 2,
@@ -100,7 +100,7 @@ export const translations = {
           period: '2020 - 2024',
           location: '威海',
           description: '985高校本科教育，高考理科632分，全省排名前1-2%',
-          achievements: ['二等人民奖学金（覆盖率９％）', 'ALBERT模型在A股市场应用研究（本科毕业设计）']
+          achievements: ['二等人民奖学金（覆盖率12.5%）', 'ALBERT模型在A股市场应用研究（本科毕业设计）']
         }
       ]
     },
@@ -183,7 +183,7 @@ export const translations = {
       quickDesc: '如需紧急联系或预约面谈，请直接发送邮件至学术邮箱，我会在24小时内回复。',
       sendEmail: '发送邮件',
       expectation: '期待与您的合作',
-      expectationText: '作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。\n不订是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。\n让我们一起在AI时代创造更多可能性！',
+      expectationText: '作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。\n不论是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。\n让我们一起在AI时代创造更多可能性！',
       wechat: '扫码添加微信',
       wechatTip: '扫描二维码添加好友',
       wechatNote: '请备注来意，谢谢！',
@@ -312,7 +312,7 @@ export const translations = {
           period: '2024 - Present',
           location: 'Shenzhen',
           description: 'Focus on innovative applications of AI technology in finance, quantitative investment and machine learning research',
-          achievements: ['Academic Scholarship (40% coverage)', 'Alibaba Tianchi Algorithm Competition Semifinals Top 8 (Outstanding among 600 teams)']
+          achievements: ['Academic Scholarship (30% coverage)', 'Alibaba Tianchi Algorithm Competition Semifinals Top 8 (Outstanding among 600 teams)']
         },
         {
           id: 2,
@@ -321,7 +321,7 @@ export const translations = {
           period: '2020 - 2024',
           location: 'Weihai',
           description: '985 University undergraduate education, College Entrance Exam Science Score: 632, Top 1-2% in province',
-          achievements: ['Second-class National Scholarship (10% coverage)', 'ALBERT Model Application Research in A-Stock Market (Undergraduate Thesis)']
+          achievements: ['Second-class National Scholarship (12.5% coverage)', 'ALBERT Model Application Research in A-Stock Market (Undergraduate Thesis)']
         }
       ]
     },
