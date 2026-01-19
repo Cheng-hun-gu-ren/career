@@ -108,7 +108,7 @@ export const translations = {
     // 实习经历
     internships: {
       title: '实习经历',
-      subtitle: '在多家知名金融机构的实习经历，积累了丰富的行业经验和专业技能',
+      subtitle: '在多家知名金融机构以及研究单位的实习经历，积累了丰富的行业经验和专业技能',
       status: {
         current: '在职',
         completed: '已完成'
@@ -329,51 +329,53 @@ export const translations = {
     // Internships Section
     internships: {
       title: 'Internships',
-      subtitle: 'Internship experience at multiple renowned financial institutions, accumulating rich industry experience and professional skills',
+      subtitle: 'Internship experience at multiple renowned financial institutions and research institutes, accumulating rich industry experience and professional skills',
       status: {
         current: 'Current',
         completed: 'Completed'
       },
       responsibilities: 'Key Responsibilities',
       achievements: 'Achievements',
-      experiences: [
-        {
-          id: 1,
-          company: 'Shenzhen Digital Economy Research Institute',
-          department: 'Sustainable Finance Research Center',
-          position: 'Intern',
-          period: 'Present',
-          location: 'Shenzhen',
-          status: 'current'
-        },
-        {
-          id: 2,
-          company: 'Tianhong Fund Management Co., Ltd',
-          department: 'Institutional Mid-Office',
-          position: 'Intern',
-          period: '2024.07 - 2025.01',
-          location: 'Shenzhen',
-          status: 'completed'
-        },
-        {
-          id: 3,
-          company: 'Mijiahe Private Fund Management Co., Ltd',
-          department: 'Research Department',
-          position: 'Research Assistant',
-          period: '2024.01 - 2024.03',
-          location: 'Shenzhen',
-          status: 'completed'
-        },
-        {
-          id: 4,
-          company: 'Guangfa Futures Co., Ltd Shenzhen Branch',
-          department: 'Business Department',
-          position: 'Finance Intern',
-          period: '2023.07 - 2023.08',
-          location: 'Shenzhen',
-          status: 'completed'
-        }
-      ]
+      experiences: []
+      // 暂时隐藏实习细节（隐藏日期：2025-01-19）
+      // [
+      //   {
+      //     id: 1,
+      //     company: 'Shenzhen Digital Economy Research Institute',
+      //     department: 'Sustainable Finance Research Center',
+      //     position: 'Intern',
+      //     period: 'Present',
+      //     location: 'Shenzhen',
+      //     status: 'current'
+      //   },
+      //   {
+      //     id: 2,
+      //     company: 'Tianhong Fund Management Co., Ltd',
+      //     department: 'Institutional Mid-Office',
+      //     position: 'Intern',
+      //     period: '2024.07 - 2025.01',
+      //     location: 'Shenzhen',
+      //     status: 'completed'
+      //   },
+      //   {
+      //     id: 3,
+      //     company: 'Mijiahe Private Fund Management Co., Ltd',
+      //     department: 'Research Department',
+      //     position: 'Research Assistant',
+      //     period: '2024.01 - 2024.03',
+      //     location: 'Shenzhen',
+      //     status: 'completed'
+      //   },
+      //   {
+      //     id: 4,
+      //     company: 'Guangfa Futures Co., Ltd Shenzhen Branch',
+      //     department: 'Business Department',
+      //     position: 'Finance Intern',
+      //     period: '2023.07 - 2023.08',
+      //     location: 'Shenzhen',
+      //     status: 'completed'
+      //   }
+      // ]
     },
 
     // AI Section
