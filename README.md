@@ -1,6 +1,6 @@
 # 程高 - 个人职业展示网站
 
-> **🌐 在线访问**: [https://career.chenggao.top](https://career.chenggao.top) ✅ **部署成功**
+> **🌐 在线访问**: [https://chenggao.top](https://chenggao.top) ✅ **部署成功**
 
 一个现代化的个人职业展示网站，专为金融工程研究生程高量身打造，展示AI技术能力、项目经验和职业成就。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到自定义域名。
 
