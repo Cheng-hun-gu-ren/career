@@ -9,23 +9,26 @@ import Portfolio from './components/Portfolio';
 import AISection from './components/AISection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import VisibilityGate from './components/VisibilityGate';
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <main>
-          <Hero />
-          <Projects />
-          <Portfolio />
-          <Education />
-          <Internships />
-          <AISection />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <VisibilityGate>
+        <div className="min-h-screen bg-white">
+          <Header />
+          <main>
+            <Hero />
+            <Projects />
+            <Portfolio />
+            <Education />
+            <Internships />
+            <AISection />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </VisibilityGate>
     </LanguageProvider>
   );
 }

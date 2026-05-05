@@ -4,6 +4,8 @@
 
 一个现代化的个人职业展示网站，专为金融工程研究生程高量身打造，展示AI技术能力、项目经验和职业成就。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到自定义域名。
 
+页面展示受 `https://career.chenhun.me/settings` 中的“公开职业主页展示”开关控制。站点启动时会先读取 `https://career.chenhun.me/api/public/career-home-visibility`，关闭或接口失败时显示 `网站主关闭了职业主页展示`，不渲染完整主页内容。
+
 ## ⚠️ 重要说明
 
 这是一个 **Vite + React** 项目，**不能直接打开 index.html 文件**！
@@ -55,6 +57,7 @@ project/
 │   ├── components/         # React组件
 │   │   ├── Header.tsx      # 网站头部
 │   │   ├── Hero.tsx        # 英雄区块
+│   │   ├── VisibilityGate.tsx # 中控台展示开关校验
 │   │   ├── Portfolio.tsx   # 作品集展示
 │   │   ├── Projects.tsx    # 项目展示
 │   │   ├── Education.tsx   # 教育背景
@@ -248,6 +251,15 @@ jobs:
 - ✅ 技能标签优化
 
 ## 🛠️ 开发指南
+
+### 职业主页展示开关
+
+- 控制入口：`https://career.chenhun.me/settings`
+- 默认接口：`https://career.chenhun.me/api/public/career-home-visibility`
+- 本地覆盖：设置 `VITE_CAREER_HOME_VISIBILITY_URL`
+- 关闭态提示：`网站主关闭了职业主页展示`
+
+这是前端渲染层展示控制，不是 GitHub Pages 静态资源强鉴权。
 
 ### 添加新的作品项目
 1. 在 `src/components/Portfolio.tsx` 的 `portfolioItems` 数组中添加新项目
