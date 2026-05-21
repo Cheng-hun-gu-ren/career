@@ -19,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { href: '#projects', label: t[lang].nav.projects },
     { href: '#portfolio', label: t[lang].nav.portfolio },
+    { href: '#projects', label: t[lang].nav.projects },
+    { href: '#ai', label: t[lang].nav.ai },
     { href: '#education', label: t[lang].nav.education },
     { href: '#internships', label: t[lang].nav.internships },
-    { href: '#ai', label: t[lang].nav.ai },
     { href: '#contact', label: t[lang].nav.contact },
   ];
 

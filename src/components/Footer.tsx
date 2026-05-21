@@ -27,19 +27,11 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
               <li>
-              <button
-                  onClick={() => document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  {t.nav.education}
-                </button>
-              </li>
-              <li>
                 <button
-                  onClick={() => document.querySelector('#internships')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  {t.nav.internships}
+                  {t.nav.portfolio}
                 </button>
               </li>
               <li>
@@ -52,10 +44,26 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.querySelector('#ai')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  {t.nav.portfolio}
+                  {t.nav.ai}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  {t.nav.education}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => document.querySelector('#internships')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  {t.nav.internships}
                 </button>
               </li>
               <li>

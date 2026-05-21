@@ -3,12 +3,12 @@ export const translations = {
   zh: {
     // 导航和通用
     nav: {
-      projects: '项目经历',
-      portfolio: '作品集',
+      projects: '项目案例',
+      portfolio: '精选作品',
       education: '教育背景',
-      internships: '实习经历',
-      ai: '我与AI',
-      contact: '联系方式'
+      internships: '履历背景',
+      ai: 'AI实践',
+      contact: '联系交流'
     },
 
     // 头部
@@ -19,19 +19,19 @@ export const translations = {
     // 英雄区块
     hero: {
       name: '程高',
-      subtitle: '金融工程研究生 · AI技术拥抱者 · 全栈开发者',
-      description: '立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。\n相信技术能赋能每个人成为"超级个体"，热衷于拥抱新科技，探索无限可能。',
-      school: '香港中文大学（深圳）',
+      subtitle: 'AI应用开发工程师 · 金融科技实践者 · 全栈作品集',
+      description: '聚焦金融科技、AI工程化与数据产品建设，把研究、业务理解和全栈开发落到可运行的系统与可展示的作品。\n这里集中呈现我长期维护的产品、项目案例与技术实践。',
+      school: '金融科技 / AI应用',
       location: '深圳',
-      status: '研究生在读',
-      learnMore: '了解更多',
-      contact: '联系我'
+      status: '作品集主页',
+      learnMore: '查看作品',
+      contact: '联系交流'
     },
 
     // 项目部分
     projects: {
-      title: '项目经历',
-      subtitle: '从AI应用到金融科技，从学术研究到实际产品，展示技术实力与创新能力',
+      title: '项目案例',
+      subtitle: '围绕金融数据、AI应用与全栈产品的代表性实践，强调可落地系统、业务价值与工程质量',
       filters: {
         all: '全部项目',
         ai: 'AI应用',
@@ -49,8 +49,8 @@ export const translations = {
 
     // 作品集
     portfolio: {
-      title: '作品集',
-      subtitle: '不要成为一个拥有完美简历却没有作品的人',
+      title: '精选作品',
+      subtitle: '公开可访问的作品、工具和内容资产，集中展示从想法到上线的执行能力',
       filters: {
         all: '全部作品',
         web: 'Web应用',
@@ -59,14 +59,14 @@ export const translations = {
         research: '研究成果'
       },
       featured: '精选作品',
-      cta: '联系我',
-      more: '想了解更多项目详情或讨论合作机会？'
+      cta: '联系交流',
+      more: '想了解项目细节、技术实现或合作方式？'
     },
 
     // 教育背景
     education: {
       title: '教育背景',
-      subtitle: '从985高校到香港名校，持续追求学术卓越与专业成長',
+      subtitle: '教育背景作为能力底座，支撑金融、数据与工程的交叉实践',
       skills: '核心技能与特长',
       achievementLabel: '主要成就',
       skillsList: {
@@ -76,7 +76,7 @@ export const translations = {
         },
         competition: {
           title: '竞赛获奖',
-          desc: '研究生阶段阿里天池算法大赛复赛八强，多项奖学金'
+          desc: '硕士阶段阿里天池算法大赛复赛八强，多项奖学金'
         },
         vision: {
           title: '国际视野',
@@ -88,7 +88,7 @@ export const translations = {
           id: 1,
           degree: '金融工程硕士',
           school: '香港中文大学（深圳）',
-          period: '2024 - 在读',
+          period: '2024.09 - 2025.03',
           location: '深圳',
           description: '专注于AI技术在金融领域的创新应用，量化投资与机器学习研究',
           achievements: ['学业奖学金（覆盖率30%）', '阿里天池算法大赛复赛八强（600支队伍中脱颖而出）']
@@ -107,8 +107,8 @@ export const translations = {
 
     // 实习经历
     internships: {
-      title: '实习经历',
-      subtitle: '在多家知名金融机构以及研究单位的实习经历，积累了丰富的行业经验和专业技能',
+      title: '履历背景',
+      subtitle: '早期金融机构与研究单位经历，为金融科技和AI应用开发提供业务理解与场景积累',
       status: {
         current: '在职',
         completed: '已完成'
@@ -120,8 +120,8 @@ export const translations = {
 
     // AI部分
     ai: {
-      title: '我与AI',
-      subtitle: '从2024年3月开始深度使用AI工具，探索AI时代的工作方式和技术理念',
+      title: 'AI实践',
+      subtitle: '从2024年3月开始深度使用AI工具，将模型能力融入开发、研究、内容生产和项目交付',
       tabs: {
         tools: 'AI工具箱',
         philosophy: 'AI理念',
@@ -170,35 +170,35 @@ export const translations = {
 
     // 联系方式
     contact: {
-      title: '联系方式',
-      subtitle: '欢迎与我联系，讨论工作机会、项目合作或技术交流',
+      title: '联系交流',
+      subtitle: '欢迎围绕作品、项目合作、技术交流或AI应用实践与我联系',
       info: '联系信息',
       labels: {
-        email: '学术邮箱',
+        email: '邮箱',
         location: '现居地',
         available: '可约时间'
       },
       social: '社交媒体',
       quick: '快速联系',
-      quickDesc: '如需紧急联系或预约面谈，请直接发送邮件至学术邮箱，我会在24小时内回复。',
+      quickDesc: '如需交流作品细节、项目背景或合作可能，请直接发送邮件，我会尽快回复。',
       sendEmail: '发送邮件',
-      expectation: '期待与您的合作',
-      expectationText: '作为一名充满热情的金融科技专业人士，我始终保持对新技术的好奇心和学习热情。\n不论是工作机会、项目合作还是技术交流，我都非常乐意与您深入探讨。\n让我们一起在AI时代创造更多可能性！',
+      expectation: '保持长期建设',
+      expectationText: '我会持续把金融场景、AI能力和工程实现沉淀为可使用、可验证、可展示的作品。\n如果你关注金融科技、AI应用开发或数据产品建设，欢迎进一步交流。',
       wechat: '扫码添加微信',
       wechatTip: '扫描二维码添加好友',
       wechatNote: '请备注来意，谢谢！',
       contactItems: {
-        email: '学术邮箱',
+        email: '邮箱',
         location: '现居地',
         available: '可约时间',
         locationValue: '深圳市',
         availableValue: '工作日 9:00-18:00'
       },
       subjectOptions: [
-        '工作机会咨询',
+        '作品查看',
         '项目合作',
         '技术交流',
-        '学术讨论',
+        'AI应用讨论',
         '其他咨询'
       ],
       socialWeChat: '微信'
@@ -207,8 +207,8 @@ export const translations = {
     // 页脚
     footer: {
       brand: '程高',
-      tagline: '金融工程研究生 · AI技术拥抱者 · 全栈开发者',
-      motto: '立志成为全栈开发工程师的追梦人，专注于AI技术在金融领域的创新应用。',
+      tagline: 'AI应用开发工程师 · 金融科技实践者 · 全栈作品集',
+      motto: '聚焦金融科技、AI工程化与数据产品建设，持续把想法落成可运行的作品。',
       quickLinks: '快速导航',
       contactInfo: '联系信息',
       email: '📧 224040166@link.cuhk.edu.cn',
@@ -224,12 +224,12 @@ export const translations = {
   en: {
     // Navigation and Common
     nav: {
-      projects: 'Projects',
-      portfolio: 'Portfolio',
+      projects: 'Project Cases',
+      portfolio: 'Selected Works',
       education: 'Education',
-      internships: 'Internships',
-      ai: 'AI & Me',
-      contact: 'Contact'
+      internships: 'Background',
+      ai: 'AI Practice',
+      contact: 'Connect'
     },
 
     // Header
@@ -240,19 +240,19 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Cheng Gao',
-      subtitle: 'Fintech Graduate · AI Enthusiast · Full Stack Developer',
-      description: 'A dreamer aspiring to be a full-stack development engineer, dedicated to innovative applications of AI technology in finance.\nBelieve that technology empowers everyone to become a "super individual", passionate about embracing new technologies and exploring endless possibilities.',
-      school: 'The Chinese University of Hong Kong, Shenzhen',
+      subtitle: 'AI Application Developer · FinTech Builder · Full-Stack Portfolio',
+      description: 'Focused on fintech, AI engineering, and data product development, turning research, domain insight, and full-stack engineering into working systems and visible products.\nThis site collects selected products, project cases, and technical practice I continue to maintain.',
+      school: 'FinTech / AI Applications',
       location: 'Shenzhen',
-      status: 'Graduate Student',
-      learnMore: 'Learn More',
-      contact: 'Contact Me'
+      status: 'Portfolio Site',
+      learnMore: 'View Works',
+      contact: 'Connect'
     },
 
     // Projects Section
     projects: {
-      title: 'Projects',
-      subtitle: 'From AI applications to fintech, from academic research to practical products, showcasing technical expertise and innovation',
+      title: 'Project Cases',
+      subtitle: 'Representative work across financial data, AI applications, and full-stack products, with emphasis on usable systems, business value, and engineering quality',
       filters: {
         all: 'All Projects',
         ai: 'AI Applications',
@@ -270,8 +270,8 @@ export const translations = {
 
     // Portfolio Section
     portfolio: {
-      title: 'Portfolio',
-      subtitle: "Don't be someone with a perfect resume but no work",
+      title: 'Selected Works',
+      subtitle: 'Publicly accessible works, tools, and content assets that show execution from idea to launch',
       filters: {
         all: 'All Works',
         web: 'Web Applications',
@@ -280,14 +280,14 @@ export const translations = {
         research: 'Research'
       },
       featured: 'Featured',
-      cta: 'Contact Me',
-      more: 'Want to know more project details or discuss collaboration opportunities?'
+      cta: 'Connect',
+      more: 'Want to discuss project details, implementation, or collaboration?'
     },
 
     // Education Section
     education: {
       title: 'Education',
-      subtitle: 'From a 985 university to a Hong Kong prestigious school, continuously pursuing academic excellence and professional growth',
+      subtitle: 'An interdisciplinary foundation supporting financial, data, and engineering practice',
       skills: 'Core Skills & Strengths',
       achievementLabel: 'Key Achievements',
       skillsList: {
@@ -309,7 +309,7 @@ export const translations = {
           id: 1,
           degree: 'Master of Financial Engineering',
           school: 'The Chinese University of Hong Kong, Shenzhen',
-          period: '2024 - Present',
+          period: '2024.09 - 2025.03',
           location: 'Shenzhen',
           description: 'Focus on innovative applications of AI technology in finance, quantitative investment and machine learning research',
           achievements: ['Academic Scholarship (30% coverage)', 'Alibaba Tianchi Algorithm Competition Semifinals Top 8 (Outstanding among 600 teams)']
@@ -328,8 +328,8 @@ export const translations = {
 
     // Internships Section
     internships: {
-      title: 'Internships',
-      subtitle: 'Internship experience at multiple renowned financial institutions and research institutes, accumulating rich industry experience and professional skills',
+      title: 'Background',
+      subtitle: 'Early experience in financial institutions and research settings that shaped my domain understanding for fintech and AI application development',
       status: {
         current: 'Current',
         completed: 'Completed'
@@ -380,8 +380,8 @@ export const translations = {
 
     // AI Section
     ai: {
-      title: 'AI & Me',
-      subtitle: 'Deep use of AI tools since March 2024, exploring work methods and technical philosophies in the AI era',
+      title: 'AI Practice',
+      subtitle: 'Deep use of AI tools since March 2024, integrating model capabilities into development, research, content production, and project delivery',
       tabs: {
         tools: 'AI Toolbox',
         philosophy: 'AI Philosophy',
@@ -428,36 +428,36 @@ export const translations = {
 
     // Contact Section
     contact: {
-      title: 'Contact',
-      subtitle: 'Feel free to reach out to discuss opportunities, collaborations, or technical exchanges',
+      title: 'Connect',
+      subtitle: 'Feel free to reach out about works, collaboration, technical discussion, or AI application practice',
       info: 'Contact Information',
       labels: {
-        email: 'Academic Email',
+        email: 'Email',
         location: 'Current Location',
         available: 'Available Hours'
       },
       social: 'Social Media',
       quick: 'Quick Contact',
-      quickDesc: 'For urgent contact or appointment, please email directly. I\'ll reply within 24 hours.',
+      quickDesc: 'For details about works, project background, or possible collaboration, please email me directly.',
       sendEmail: 'Send Email',
-      expectation: 'Looking Forward to Collaboration',
-      expectationText: 'As a passionate fintech professional, I maintain curiosity about new technologies and enthusiasm for learning.\nWhether it\'s job opportunities, project collaborations, or technical discussions, I\'m happy to explore further with you.\nLet\'s create more possibilities together in the AI era!',
+      expectation: 'Building in Public',
+      expectationText: 'I continue to turn financial scenarios, AI capabilities, and engineering execution into usable, verifiable, and presentable work.\nIf you care about fintech, AI application development, or data products, I am open to further discussion.',
       wechat: 'Scan to Add WeChat',
       wechatTip: 'Scan QR code to add friend',
       wechatNote: 'Please note your purpose, thank you!',
       contactItems: {
-        email: 'Academic Email',
+        email: 'Email',
         location: 'Current Location',
         available: 'Available Hours',
         locationValue: 'Shenzhen',
         availableValue: 'Weekdays 9:00-18:00'
       },
       subjectOptions: [
-        'Job Inquiry',
+        'Portfolio Review',
         'Project Collaboration',
         'Technical Discussion',
-        'Academic Discussion',
-        'Other Inquiry'
+        'AI Application Discussion',
+        'Other'
       ],
       socialWeChat: 'WeChat'
     },
@@ -465,8 +465,8 @@ export const translations = {
     // Footer
     footer: {
       brand: 'Cheng Gao',
-      tagline: 'Fintech Graduate · AI Enthusiast · Full Stack Developer',
-      motto: 'A dreamer aspiring to be a full-stack development engineer, dedicated to innovative applications of AI in finance.',
+      tagline: 'AI Application Developer · FinTech Builder · Full-Stack Portfolio',
+      motto: 'Focused on fintech, AI engineering, and data products, continuously turning ideas into working software.',
       quickLinks: 'Quick Links',
       contactInfo: 'Contact Info',
       email: '📧 224040166@link.cuhk.edu.cn',

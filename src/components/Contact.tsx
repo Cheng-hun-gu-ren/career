@@ -103,11 +103,11 @@ const Contact = () => {
   ];
 
   const subjectOptions = language === 'zh' ? t.contact.subjectOptions : [
-    'Job Inquiry',
+    'Portfolio Review',
     'Project Collaboration',
     'Technical Discussion',
-    'Academic Discussion',
-    'Other Inquiry'
+    'AI Application Discussion',
+    'Other'
   ];
 
   return (

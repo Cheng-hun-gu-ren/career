@@ -1,10 +1,10 @@
-# 程高 - 个人职业展示网站
+# 程高 - 作品集主页
 
 > **🌐 在线访问**: [https://chenggao.top](https://chenggao.top) ✅ **部署成功**
 
-一个现代化的个人职业展示网站，专为金融工程研究生程高量身打造，展示AI技术能力、项目经验和职业成就。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到自定义域名。
+一个现代化的个人作品集主页，集中展示金融科技、AI应用开发、全栈项目和公开作品。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到自定义域名。
 
-页面展示受 `https://career.chenhun.me/settings` 中的“公开职业主页展示”开关控制。站点启动时会先读取 `https://career.chenhun.me/api/public/career-home-visibility`，关闭或接口失败时显示 `网站主关闭了职业主页展示`，不渲染完整主页内容。
+页面展示受 `https://career.chenhun.me/settings` 中的公开展示开关控制。站点启动时会先读取 `https://career.chenhun.me/api/public/career-home-visibility`，关闭或接口失败时显示 `网站主关闭了作品集展示`，不渲染完整主页内容。
 
 ## ⚠️ 重要说明
 
@@ -252,12 +252,12 @@ jobs:
 
 ## 🛠️ 开发指南
 
-### 职业主页展示开关
+### 作品集展示开关
 
 - 控制入口：`https://career.chenhun.me/settings`
 - 默认接口：`https://career.chenhun.me/api/public/career-home-visibility`
 - 本地覆盖：设置 `VITE_CAREER_HOME_VISIBILITY_URL`
-- 关闭态提示：`网站主关闭了职业主页展示`
+- 关闭态提示：`网站主关闭了作品集展示`
 
 这是前端渲染层展示控制，不是 GitHub Pages 静态资源强鉴权。
 
@@ -368,7 +368,7 @@ npm run type-check
 - **🔄 自动化**: 完整的CI/CD部署流程
 
 ### **业务价值**
-- **💼 职业展示**: 完整的个人品牌建设
+- **💼 作品集展示**: 面向外部访问的个人作品与项目案例沉淀
 - **🤖 AI能力**: 深度AI应用经验展示
 - **📈 项目成果**: 5个核心项目，6大作品集
 - **🎓 教育背景**: 985+港校双重学历展示

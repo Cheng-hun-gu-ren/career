@@ -19,11 +19,11 @@ function App() {
           <Header />
           <main>
             <Hero />
-            <Projects />
             <Portfolio />
+            <Projects />
+            <AISection />
             <Education />
             <Internships />
-            <AISection />
             <Contact />
           </main>
           <Footer />

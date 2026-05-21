@@ -54,14 +54,14 @@ export default function VisibilityGate({ children }: VisibilityGateProps) {
       <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col justify-center px-6 py-16">
         <div className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-[#cfc7b8] bg-white/70 px-4 py-2 text-sm font-medium text-[#526158] shadow-sm">
           <ShieldCheck size={16} />
-          <span>{state === 'checking' ? '正在校验职业主页展示状态' : '职业主页暂不公开'}</span>
+          <span>{state === 'checking' ? '正在校验作品集展示状态' : '作品集暂不公开'}</span>
         </div>
         <div className="max-w-3xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#8b6a3b]">
-            Career Home
+            Portfolio
           </p>
           <h1 className="text-4xl font-semibold leading-tight text-[#18211d] md:text-6xl">
-            {state === 'checking' ? '请稍候' : '网站主关闭了职业主页展示'}
+            {state === 'checking' ? '请稍候' : '网站主关闭了作品集展示'}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[#60716a]">
             {state === 'checking'

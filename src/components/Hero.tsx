@@ -7,7 +7,7 @@ const Hero = () => {
   const { language } = useLanguage();
   const t = translations[language];
   const scrollToNext = () => {
-    const element = document.querySelector('#projects');
+    const element = document.querySelector('#portfolio');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
