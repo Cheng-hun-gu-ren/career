@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, MapPin, Calendar, GraduationCap } from 'lucide-react';
+import { Briefcase, ChevronDown, MapPin, Calendar } from 'lucide-react';
 import { ossAsset } from '../data/oss';
 import { useLanguage, translations } from '../i18n';
 
@@ -7,7 +7,7 @@ const Hero = () => {
   const { language } = useLanguage();
   const t = translations[language];
   const scrollToNext = () => {
-    const element = document.querySelector('#portfolio');
+    const element = document.querySelector('#projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -47,8 +47,8 @@ const Hero = () => {
         {/* Key Info */}
         <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm md:text-base">
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-            <GraduationCap size={16} />
-            <span>{t.hero.school}</span>
+            <Briefcase size={16} />
+            <span>{t.hero.company}</span>
           </div>
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
             <MapPin size={16} />

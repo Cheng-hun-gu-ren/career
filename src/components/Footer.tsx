@@ -28,14 +28,6 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  {t.nav.portfolio}
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
@@ -44,26 +36,10 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => document.querySelector('#ai')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  {t.nav.ai}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  {t.nav.education}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => document.querySelector('#internships')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  {t.nav.internships}
+                  {t.nav.portfolio}
                 </button>
               </li>
               <li>
@@ -83,7 +59,7 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <p>{t.footer.email}</p>
               <p>{t.footer.location}</p>
-              <p>{t.footer.school}</p>
+              <p>{t.footer.organization}</p>
               <div className="mt-4">
                 <a
                   href="https://life.chenggao.top"

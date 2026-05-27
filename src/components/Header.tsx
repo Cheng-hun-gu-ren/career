@@ -19,11 +19,8 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { href: '#portfolio', label: t[lang].nav.portfolio },
     { href: '#projects', label: t[lang].nav.projects },
-    { href: '#ai', label: t[lang].nav.ai },
-    { href: '#education', label: t[lang].nav.education },
-    { href: '#internships', label: t[lang].nav.internships },
+    { href: '#portfolio', label: t[lang].nav.portfolio },
     { href: '#contact', label: t[lang].nav.contact },
   ];
 
