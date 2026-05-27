@@ -1,13 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, Users, TrendingUp, ExternalLink } from 'lucide-react';
 import { EXTERNAL_LINKS } from '../data/links';
 import { ossAsset } from '../data/oss';
 import { useLanguage, translations } from '../i18n';
 
+const scrollRestoreKey = 'career-home:project-return-scroll';
+const scrollRestoreMaxAge = 30 * 60 * 1000;
+
+const clearProjectScrollRestore = () => {
+  try {
+    sessionStorage.removeItem(scrollRestoreKey);
+    localStorage.removeItem(scrollRestoreKey);
+  } catch {
+    // Ignore restricted storage environments.
+  }
+};
+
+const readProjectScrollRestore = () => {
+  try {
+    const raw = sessionStorage.getItem(scrollRestoreKey) || localStorage.getItem(scrollRestoreKey);
+    if (!raw) return null;
+
+    const saved = JSON.parse(raw) as {
+      pathname?: string;
+      scrollY?: number;
+      activeCategory?: string;
+      timestamp?: number;
+    };
+
+    const isExpired = !saved.timestamp || Date.now() - saved.timestamp > scrollRestoreMaxAge;
+    const isSamePage = saved.pathname === window.location.pathname;
+    const hasScroll = typeof saved.scrollY === 'number' && saved.scrollY >= 0;
+
+    if (isExpired || !isSamePage || !hasScroll) {
+      clearProjectScrollRestore();
+      return null;
+    }
+
+    return saved;
+  } catch {
+    clearProjectScrollRestore();
+    return null;
+  }
+};
+
 const Projects = () => {
   const { language } = useLanguage();
   const t = translations[language];
   const [activeCategory, setActiveCategory] = useState('all');
+  const [pendingScrollRestore, setPendingScrollRestore] = useState<number | null>(null);
+
+  const saveProjectScrollPosition = () => {
+    try {
+      const payload = JSON.stringify({
+        pathname: window.location.pathname,
+        scrollY: window.scrollY,
+        activeCategory,
+        timestamp: Date.now()
+      });
+
+      sessionStorage.setItem(scrollRestoreKey, payload);
+      localStorage.setItem(scrollRestoreKey, payload);
+    } catch {
+      // The normal browser back-forward cache still handles supported cases.
+    }
+  };
 
   // Translation helper for project data
   const projectTranslations = language === 'en' ? {
@@ -309,6 +366,59 @@ const Projects = () => {
         return categories.includes(activeCategory);
       });
 
+  useEffect(() => {
+    const saved = readProjectScrollRestore();
+    if (!saved) return;
+
+    if (saved.activeCategory) {
+      setActiveCategory(saved.activeCategory);
+    }
+
+    setPendingScrollRestore(saved.scrollY ?? null);
+    clearProjectScrollRestore();
+  }, []);
+
+  useEffect(() => {
+    if (pendingScrollRestore === null) return;
+
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        window.scrollTo({ top: pendingScrollRestore, behavior: 'auto' });
+        setPendingScrollRestore(null);
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      if (secondFrame) {
+        window.cancelAnimationFrame(secondFrame);
+      }
+    };
+  }, [activeCategory, filteredProjects.length, pendingScrollRestore]);
+
+  useEffect(() => {
+    const clearStaleRestore = () => {
+      if (document.visibilityState === 'visible') {
+        clearProjectScrollRestore();
+      }
+    };
+
+    const clearBfcacheRestore = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        clearProjectScrollRestore();
+      }
+    };
+
+    document.addEventListener('visibilitychange', clearStaleRestore);
+    window.addEventListener('pageshow', clearBfcacheRestore);
+
+    return () => {
+      document.removeEventListener('visibilitychange', clearStaleRestore);
+      window.removeEventListener('pageshow', clearBfcacheRestore);
+    };
+  }, []);
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed': return 'bg-green-100 text-green-800';
@@ -385,6 +495,7 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={saveProjectScrollPosition}
                       className="flex items-center gap-2 hover:text-blue-600 transition-colors"
                     >
                       {getProjectData(project.id, 'title', project.title)}
