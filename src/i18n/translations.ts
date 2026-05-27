@@ -40,7 +40,7 @@ export const translations = {
       },
       status: {
         completed: '已完成',
-        'in-progress': '进行中',
+        'in-progress': '建设中',
         planning: '规划中'
       },
       coreAchievements: '核心成果'
@@ -244,7 +244,7 @@ export const translations = {
       },
       status: {
         completed: 'Completed',
-        'in-progress': 'In Progress',
+        'in-progress': 'Building',
         planning: 'Planning'
       },
       coreAchievements: 'Core Achievements'

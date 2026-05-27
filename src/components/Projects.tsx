@@ -66,6 +66,30 @@ const Projects = () => {
       achievements: ['Maintained as a public personal content site', 'Responsive presentation for writing and life updates'],
       team: 'Solo Development',
       company: 'Personal Project'
+    },
+    8: {
+      title: 'A-Share Industry Graph',
+      description: 'An A-share industry graph for labeling workflows, integrating company ecosystem chains, upstream/downstream industry chains, market hot-topic chains, and resident concept chains.',
+      technologies: ['AI', 'A-Share Research', 'Industry Graph', 'Data Visualization'],
+      achievements: ['Parent project recognized as a 2025 Outstanding Research Project by the Securities Association of China', 'Integrated company ecosystem, industry-chain, hot-topic, and resident concept graphs'],
+      team: 'Product Development',
+      company: 'Shenzhen Digital Economy Research Institute'
+    },
+    9: {
+      title: 'BetaPlus Website',
+      description: 'Companion website for the book Factor Investing, synchronizing updates from the WeChat accounts Chuan Zong Writes Quant and Factor Zoo.',
+      technologies: ['Content Platform', 'Factor Investing', 'WordPress', 'Finance'],
+      achievements: ['Companion site for Factor Investing', 'Content platform for multi-factor models and anomaly research'],
+      team: 'Content Platform',
+      company: 'BetaPlus'
+    },
+    10: {
+      title: 'Simple Financial Asset Allocation Simulator',
+      description: 'A classroom demo tool for financial engineering courses, helping lower-year university and high-school students explore historical asset allocation behavior.',
+      technologies: ['Web Development', 'Financial Education', 'Data Visualization', 'Simulation'],
+      achievements: ['Classroom-oriented historical asset allocation simulator', 'Supports adjusting equity weights and observing risk-return changes'],
+      team: 'Teaching Demo',
+      company: 'The Chinese University of Hong Kong, Shenzhen'
     }
   } : null;
 
@@ -139,21 +163,21 @@ const Projects = () => {
       visible: false
     },
     {
-      id: 3,
-      title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
-      category: ['ai', 'research'],
-      description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
-      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
-      technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
+      id: 8,
+      title: 'A股产业图谱',
+      category: ['ai', 'fintech'],
+      description: '赋能打标业务的A股产业图谱，集成企业生态链、行业上下游链、市场热点链和常驻概念链，赋能事件因子到底层资产的传导。',
+      image: '/images/a-share-industry-map.png',
+      technologies: ['AI', '股票', '产业链研究', '数据可视化'],
       achievements: [
-        '课题获中证协2025年度优秀课题',
-        '大模型协助资讯高质量打标'
+        '母项目获中证协2025年度优秀课题',
+        '企业生态链/行业链/热点链/常驻概念链集成'
       ],
-      period: '2025.08 - 2026.05',
-      team: '产学研合作项目',
-      company: '香港中文大学（深圳）',
-      status: 'completed',
-      link: 'https://mp.weixin.qq.com/s?__biz=MzI4MTU2OTM1MQ==&mid=2247522871&idx=1&sn=57da402bda0c39bf494055bfa7b6a159&chksm=eac2567e1c5ec97d4f78c4942f1027e5492010399d461ea3483afb7c1a449576c489b78f4d39&mpshare=1&scene=1&srcid=0527NRQyYkjNsW8U6FxhgszW&sharer_shareinfo=10d346f3bddbac3e81c6011534a3e7a7&sharer_shareinfo_first=10d346f3bddbac3e81c6011534a3e7a7#rd'
+      period: '2026.04 - 建设中',
+      team: '产品开发',
+      company: '深圳数据经济研究院',
+      status: 'in-progress',
+      link: 'https://industrymap.chenhun.me/'
     },
     {
       id: 4,
@@ -171,6 +195,57 @@ const Projects = () => {
       company: '香港中文大学（深圳）× 深圳数据经济研究院',
       status: 'completed',
       link: 'https://side-esg.cuhk.edu.cn/'
+    },
+    {
+      id: 3,
+      title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
+      category: ['ai', 'research'],
+      description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
+      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
+      technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
+      achievements: [
+        '课题获中证协2025年度优秀课题',
+        '大模型协助资讯高质量打标'
+      ],
+      period: '2025.08 - 2026.05',
+      team: '产学研合作项目',
+      company: '香港中文大学（深圳）',
+      status: 'completed',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzI4MTU2OTM1MQ==&mid=2247522871&idx=1&sn=57da402bda0c39bf494055bfa7b6a159&chksm=eac2567e1c5ec97d4f78c4942f1027e5492010399d461ea3483afb7c1a449576c489b78f4d39&mpshare=1&scene=1&srcid=0527NRQyYkjNsW8U6FxhgszW&sharer_shareinfo=10d346f3bddbac3e81c6011534a3e7a7&sharer_shareinfo_first=10d346f3bddbac3e81c6011534a3e7a7#rd'
+    },
+    {
+      id: 9,
+      title: 'BetaPlus 网页',
+      category: ['fintech', 'web'],
+      description: '《因子投资》一书的配套网站。同步更新公众号「川总写量化」和「因子动物园」的相关推文，沉淀多因子模型与异象研究内容。',
+      image: '/images/betaplus-factor-site.png',
+      technologies: ['内容平台', '金融', '因子投资', 'WordPress'],
+      achievements: [
+        '《因子投资》配套网站',
+        '同步承载量化投资公众号内容'
+      ],
+      period: '2026.04 - 已发布',
+      team: '内容平台',
+      company: 'BetaPlus',
+      status: 'completed',
+      link: 'https://www.factorwar.com/'
+    },
+    {
+      id: 10,
+      title: '简单的金融资产配置模拟器',
+      category: ['web', 'research'],
+      description: '用于港中深金融工程相关课程演示，主要面向大学低年级学生以及高中生，帮助理解资产配置权重、历史收益和风险变化。',
+      image: '/images/asset-allocation-simulator.png',
+      technologies: ['Web开发', '金融教育', '数据可视化', '模拟器'],
+      achievements: [
+        '面向课堂演示的资产配置历史模拟',
+        '支持调节股票组合权重并观察风险收益变化'
+      ],
+      period: '2026.05 - 已发布',
+      team: '教学演示',
+      company: '香港中文大学（深圳）',
+      status: 'completed',
+      link: 'https://portfolio.chenhun.me/'
     },
     {
       id: 5,
