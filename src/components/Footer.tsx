@@ -36,14 +36,6 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                >
-                  {t.nav.portfolio}
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-gray-400 hover:text-white transition-colors duration-200"
                 >

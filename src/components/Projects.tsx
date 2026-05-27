@@ -58,6 +58,14 @@ const Projects = () => {
       achievements: ['Processed 1.5M+ stock review texts', 'Built effective market sentiment index', 'Prediction results significant with practical application value'],
       team: 'Undergraduate Thesis',
       company: 'Harbin Institute of Technology, Weihai'
+    },
+    7: {
+      title: 'Personal Life Homepage',
+      description: 'A public personal site for long-term writing, life records, and AI-assisted content interaction, maintained as an independent static web project.',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      achievements: ['Maintained as a public personal content site', 'Responsive presentation for writing and life updates'],
+      team: 'Solo Development',
+      company: 'Personal Project'
     }
   } : null;
 
@@ -158,10 +166,10 @@ const Projects = () => {
         '2200+报告，70000+指标，高质量ESG数据库',
         '可复用可扩展的AI智能信息提取体系'
       ],
-      period: '2025.09 - 进行中',
+      period: '2025.09 - 2026.05',
       team: '全栈开发·明星课题',
       company: '香港中文大学（深圳）× 深圳数据经济研究院',
-      status: 'in-progress',
+      status: 'completed',
       link: 'https://side-esg.cuhk.edu.cn/'
     },
     {
@@ -198,6 +206,23 @@ const Projects = () => {
       team: '本科毕业设计',
       company: '哈尔滨工业大学威海校区',
       status: 'completed'
+    },
+    {
+      id: 7,
+      title: '个人生活主页',
+      category: 'web',
+      description: '长期维护的公开个人生活主页，用于承载写作、生活记录与AI助手交互，作为独立静态站点持续更新。',
+      image: ossAsset('/images/个人生活主页.png'),
+      technologies: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      achievements: [
+        '公开个人内容站点长期维护',
+        '支持生活记录与个人品牌展示'
+      ],
+      period: '2024.05 - 至今',
+      team: '独立开发',
+      company: '个人项目',
+      status: 'in-progress',
+      link: 'https://chenhun.me/'
     }
   ];
 

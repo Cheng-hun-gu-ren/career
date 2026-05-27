@@ -20,7 +20,6 @@ const Header = () => {
 
   const navItems = [
     { href: '#projects', label: t[lang].nav.projects },
-    { href: '#portfolio', label: t[lang].nav.portfolio },
     { href: '#contact', label: t[lang].nav.contact },
   ];
 

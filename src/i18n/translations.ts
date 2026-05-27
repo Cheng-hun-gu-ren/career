@@ -3,8 +3,7 @@ export const translations = {
   zh: {
     // 导航和通用
     nav: {
-      projects: '项目案例',
-      portfolio: '精选作品',
+      projects: '项目与作品',
       education: '教育背景',
       internships: '履历背景',
       ai: 'AI实践',
@@ -30,8 +29,8 @@ export const translations = {
 
     // 项目部分
     projects: {
-      title: '项目案例',
-      subtitle: '围绕金融数据、AI应用与全栈产品的代表性实践，强调可落地系统、业务价值与工程质量',
+      title: '项目与作品',
+      subtitle: '围绕金融数据、AI应用、全栈产品与个人网站的代表性实践，强调可落地系统、业务价值与工程质量',
       filters: {
         all: '全部项目',
         ai: 'AI应用',
@@ -45,22 +44,6 @@ export const translations = {
         planning: '规划中'
       },
       coreAchievements: '核心成果'
-    },
-
-    // 作品集
-    portfolio: {
-      title: '精选作品',
-      subtitle: '公开可访问的作品、工具和内容资产，集中展示从想法到上线的执行能力',
-      filters: {
-        all: '全部作品',
-        web: 'Web应用',
-        ai: 'AI工具',
-        design: '设计作品',
-        research: '研究成果'
-      },
-      featured: '精选作品',
-      cta: '联系交流',
-      more: '想了解项目细节、技术实现或合作方式？'
     },
 
     // 教育背景
@@ -195,7 +178,7 @@ export const translations = {
         availableValue: '工作日 9:00-18:00'
       },
       subjectOptions: [
-        '作品查看',
+        '项目查看',
         '项目合作',
         '技术交流',
         'AI应用讨论',
@@ -224,8 +207,7 @@ export const translations = {
   en: {
     // Navigation and Common
     nav: {
-      projects: 'Project Cases',
-      portfolio: 'Selected Works',
+      projects: 'Projects & Works',
       education: 'Education',
       internships: 'Background',
       ai: 'AI Practice',
@@ -251,8 +233,8 @@ export const translations = {
 
     // Projects Section
     projects: {
-      title: 'Project Cases',
-      subtitle: 'Representative work across financial data, AI applications, and full-stack products, with emphasis on usable systems, business value, and engineering quality',
+      title: 'Projects & Works',
+      subtitle: 'Representative work across financial data, AI applications, full-stack products, and personal web projects, with emphasis on usable systems, business value, and engineering quality',
       filters: {
         all: 'All Projects',
         ai: 'AI Applications',
@@ -266,22 +248,6 @@ export const translations = {
         planning: 'Planning'
       },
       coreAchievements: 'Core Achievements'
-    },
-
-    // Portfolio Section
-    portfolio: {
-      title: 'Selected Works',
-      subtitle: 'Publicly accessible works, tools, and content assets that show execution from idea to launch',
-      filters: {
-        all: 'All Works',
-        web: 'Web Applications',
-        ai: 'AI Tools',
-        design: 'Design Works',
-        research: 'Research'
-      },
-      featured: 'Featured',
-      cta: 'Connect',
-      more: 'Want to discuss project details, implementation, or collaboration?'
     },
 
     // Education Section
@@ -453,7 +419,7 @@ export const translations = {
         availableValue: 'Weekdays 9:00-18:00'
       },
       subjectOptions: [
-        'Portfolio Review',
+        'Project Review',
         'Project Collaboration',
         'Technical Discussion',
         'AI Application Discussion',
@@ -485,11 +451,11 @@ export type Language = 'zh' | 'en';
 // 获取翻译文本的辅助函数
 export const getTranslation = (lang: Language, path: string, defaultValue: string = ''): string => {
   const keys = path.split('.');
-  let value: any = translations[lang];
-  
+  let value: unknown = translations[lang];
+
   for (const key of keys) {
     if (value && typeof value === 'object' && key in value) {
-      value = value[key];
+      value = (value as Record<string, unknown>)[key];
     } else {
       return defaultValue;
     }

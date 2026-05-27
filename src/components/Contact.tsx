@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, Calendar, CheckCircle, X } from 'lucide-react';
+import { Mail, MapPin, Github, MessageCircle, Calendar, X } from 'lucide-react';
 import { ossAsset } from '../data/oss';
 import { useLanguage, translations } from '../i18n';
 
@@ -13,47 +13,7 @@ const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
 const Contact = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [showWechatModal, setShowWechatModal] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // 模拟表单提交
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // 重置表单
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-    }, 3000);
-  };
 
   const contactInfo = [
     {
@@ -100,14 +60,6 @@ const Contact = () => {
       external: false,
       onClick: () => setShowWechatModal(true)
     }
-  ];
-
-  const subjectOptions = language === 'zh' ? t.contact.subjectOptions : [
-    'Portfolio Review',
-    'Project Collaboration',
-    'Technical Discussion',
-    'AI Application Discussion',
-    'Other'
   ];
 
   return (
