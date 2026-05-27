@@ -31,17 +31,17 @@ const Projects = () => {
       title: 'Research on Vertical Domain Financial Large Models for Overseas Information Processing with Multi-Agent Technology',
       description: 'As a university technical leader collaborating with top brokers and financial media, conducting large model fine-tuning research, exploring AI applications in finance',
       technologies: ['Large Model Fine-tuning', 'JupyterLab Cloud Development', 'Data Processing', 'Python'],
-      achievements: ['Project received China Securities Association key project approval', 'Large models assist in high-quality information annotation'],
+      achievements: ['Recognized as a 2025 Outstanding Research Project by the Securities Association of China', 'Large models assist in high-quality information annotation'],
       team: 'Industry-University-Research Cooperation',
       company: 'The Chinese University of Hong Kong, Shenzhen'
     },
     4: {
-      title: 'Financial Institution ESG Information Extraction Workbench',
-      description: 'Building a full-stack ESG information extraction workbench for school and research institute, covering nearly a decade of annual reports and sustainability reports of domestic listed financial institutions, promoting standardization of ESG information disclosure.',
+      title: 'China Financial Institution ESG Intelligent Analysis Platform',
+      description: 'Full-stack ESG intelligent analysis platform covering report parsing, metric standardization, ranking analysis, and AI report generation for listed financial institutions in China.',
       technologies: ['Full-stack Development', 'Prompt Engineering', 'Database', 'Cybersecurity'],
       achievements: ['2200+ reports, 70000+ metrics, high-quality ESG database', 'Reusable and scalable AI intelligent information extraction system'],
       team: 'Full-Stack Development • Featured Project',
-      company: 'Shenzhen Digital Economy Research Institute'
+      company: 'The Chinese University of Hong Kong, Shenzhen × Shenzhen Digital Economy Research Institute'
     },
     5: {
       title: 'Financial Product Query Tool',
@@ -138,20 +138,20 @@ const Projects = () => {
       image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
       technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
-        '课题获中证协重点立项',
+        '课题获中证协2025年度优秀课题',
         '大模型协助资讯高质量打标'
       ],
-      period: '2025.08 - 进行中',
+      period: '2025.08 - 2026.05',
       team: '产学研合作项目',
       company: '香港中文大学（深圳）',
-      status: 'in-progress',
-      link: 'https://mp.weixin.qq.com/s/7s_2hkXQMYPSjGCnhfVYqQ'
+      status: 'completed',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzI4MTU2OTM1MQ==&mid=2247522871&idx=1&sn=57da402bda0c39bf494055bfa7b6a159&chksm=eac2567e1c5ec97d4f78c4942f1027e5492010399d461ea3483afb7c1a449576c489b78f4d39&mpshare=1&scene=1&srcid=0527NRQyYkjNsW8U6FxhgszW&sharer_shareinfo=10d346f3bddbac3e81c6011534a3e7a7&sharer_shareinfo_first=10d346f3bddbac3e81c6011534a3e7a7#rd'
     },
     {
       id: 4,
-      title: '金融机构ESG信息提取工作台',
+      title: '中国金融机构ESG信息智能分析平台',
       category: ['ai', 'web'],
-      description: '为学校以及研究院打造全栈金融机构ESG信息提取工作台，涵盖国内上市金融机构近十年的年报、可持续发展报告等，助力国内ESG信息披露公开化规范化。',
+      description: '为香港中文大学（深圳）与深圳数据经济研究院打造全栈ESG智能分析平台，覆盖报告解析、指标标准化、分析排名和AI报告生成。',
       image: ossAsset('/images/ESG.png'),
       technologies: ['全栈开发', '提示词工程', '数据库', '网络安全'],
       achievements: [
@@ -160,9 +160,9 @@ const Projects = () => {
       ],
       period: '2025.09 - 进行中',
       team: '全栈开发·明星课题',
-      company: '深圳数据经济研究院',
+      company: '香港中文大学（深圳）× 深圳数据经济研究院',
       status: 'in-progress',
-      link: 'https://esg.chenggao.top/dashboards/esg-dashboard-modern.html'
+      link: 'https://side-esg.cuhk.edu.cn/'
     },
     {
       id: 5,
