@@ -224,7 +224,7 @@ const Projects = () => {
       title: 'A股产业图谱',
       category: ['ai', 'fintech'],
       description: '赋能打标业务的A股产业图谱，集成企业生态链、行业上下游链、市场热点链和常驻概念链，赋能事件因子到底层资产的传导。',
-      image: '/images/a-share-industry-map.png',
+      image: ossAsset('/images/a-share-industry-map.png'),
       technologies: ['AI', '股票', '产业链研究', '数据可视化'],
       achievements: [
         '母项目获中证协2025年度优秀课题',
@@ -275,7 +275,7 @@ const Projects = () => {
       title: 'BetaPlus 网页',
       category: ['fintech', 'web'],
       description: '《因子投资》一书的配套网站。同步更新公众号「川总写量化」和「因子动物园」的相关推文，沉淀多因子模型与异象研究内容。',
-      image: '/images/betaplus-factor-site.png',
+      image: ossAsset('/images/betaplus-factor-site.png'),
       technologies: ['内容平台', '金融', '因子投资', 'WordPress'],
       achievements: [
         '《因子投资》配套网站',
@@ -292,7 +292,7 @@ const Projects = () => {
       title: '简单的金融资产配置模拟器',
       category: ['web', 'research'],
       description: '用于港中深金融工程相关课程演示，主要面向大学低年级学生以及高中生，帮助理解资产配置权重、历史收益和风险变化。',
-      image: '/images/asset-allocation-simulator.png',
+      image: ossAsset('/images/asset-allocation-simulator.png'),
       technologies: ['Web开发', '金融教育', '数据可视化', '模拟器'],
       achievements: [
         '面向课堂演示的资产配置历史模拟',
