@@ -3,6 +3,7 @@ import { Calendar, Users, TrendingUp, ExternalLink } from 'lucide-react';
 import { EXTERNAL_LINKS } from '../data/links';
 import { ossAsset } from '../data/oss';
 import { useLanguage, translations } from '../i18n';
+import SectionHeading from './ui/SectionHeading';
 
 const scrollRestoreKey = 'career-home:project-return-scroll';
 const scrollRestoreMaxAge = 30 * 60 * 1000;
@@ -421,10 +422,10 @@ const Projects = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-100 text-green-800';
-      case 'in-progress': return 'bg-blue-100 text-blue-800';
-      case 'planning': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'completed': return 'bg-forest/10 text-forest';
+      case 'in-progress': return 'bg-amber-brand/15 text-amber-muted';
+      case 'planning': return 'bg-slate-brand/10 text-slate-brand';
+      default: return 'bg-paper text-ink-muted';
     }
   };
 
@@ -438,27 +439,23 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-paper-elevated border-y border-warm-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {t.projects.title}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t.projects.subtitle}
-          </p>
-        </div>
+        <SectionHeading
+          label={language === 'zh' ? '精选作品' : 'Selected Work'}
+          title={t.projects.title}
+          description={t.projects.subtitle}
+        />
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-forest text-paper shadow-editorial'
+                  : 'bg-white border border-warm-border text-ink-soft hover:border-forest/40'
               }`}
             >
               {category.label}
@@ -466,12 +463,11 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="card-editorial overflow-hidden"
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
@@ -489,14 +485,14 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                <h3 className="font-display text-xl font-semibold text-ink-deep mb-2 line-clamp-2">
                   {project.link && project.link !== '#' ? (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={saveProjectScrollPosition}
-                      className="flex items-center gap-2 hover:text-blue-600 transition-colors"
+                      className="flex items-center gap-2 hover:text-forest transition-colors"
                     >
                       {getProjectData(project.id, 'title', project.title)}
                       <ExternalLink size={16} className="flex-shrink-0" />
@@ -506,12 +502,12 @@ const Projects = () => {
                   )}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
+                <p className="text-ink-muted mb-4 text-sm leading-relaxed line-clamp-3">
                   {getProjectData(project.id, 'description', project.description)}
                 </p>
 
                 {/* Project Meta */}
-                <div className="space-y-2 mb-4 text-xs text-gray-500">
+                <div className="space-y-2 mb-4 text-xs text-ink-soft">
                   <div className="flex items-center gap-2">
                     <Calendar size={14} />
                     <span>{project.period}</span>
@@ -522,8 +518,8 @@ const Projects = () => {
                   </div>
                   {project.company && (
                     <div className="flex items-center gap-2">
-                      <span className="w-3.5 h-3.5 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                      <span className="w-3.5 h-3.5 bg-forest/10 rounded-sm flex items-center justify-center">
+                        <span className="w-1.5 h-1.5 bg-forest rounded-sm"></span>
                       </span>
                       <span>{getProjectData(project.id, 'company', project.company)}</span>
                     </div>
@@ -539,14 +535,14 @@ const Projects = () => {
                     return techs.slice(0, 3).map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium"
+                        className="px-2 py-1 bg-forest/10 text-forest rounded-md text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ));
                   })()}
                   {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-50 text-gray-500 rounded-md text-xs">
+                    <span className="px-2 py-1 bg-paper text-ink-soft rounded-md text-xs">
                       +{project.technologies.length - 3}
                     </span>
                   )}
@@ -554,8 +550,8 @@ const Projects = () => {
 
                 {/* Key Achievements */}
                 <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2 text-sm flex items-center gap-2">
-                    <TrendingUp size={14} className="text-green-500" />
+                  <h4 className="font-semibold text-ink-deep mb-2 text-sm flex items-center gap-2">
+                    <TrendingUp size={14} className="text-amber-brand" />
                     {t.projects.coreAchievements}
                   </h4>
                   <ul className="space-y-1">
@@ -564,8 +560,8 @@ const Projects = () => {
                         ? projectTranslations[project.id as keyof typeof projectTranslations].achievements
                         : project.achievements;
                       return achievements.slice(0, 2).map((achievement, index) => (
-                        <li key={index} className="text-xs text-gray-600 flex items-start gap-2">
-                          <span className="w-1 h-1 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                        <li key={index} className="text-xs text-ink-muted flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-amber-brand rounded-sm mt-1.5 flex-shrink-0"></span>
                           <span className="line-clamp-1">{achievement}</span>
                         </li>
                       ));

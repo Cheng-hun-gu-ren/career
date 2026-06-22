@@ -14,16 +14,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[100svh] md:min-h-screen flex items-start md:items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden pt-28 pb-14 md:py-0">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.1%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+    <section className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 md:pt-28">
+      <div className="absolute inset-0 grid-finance opacity-60" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Profile Image */}
-        <div className="mb-8">
-          <div className="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 overflow-hidden">
+        <div className="mb-8 animate-fade-in">
+          <div className="w-32 h-32 mx-auto rounded-full border-[3px] border-amber-brand/60 overflow-hidden shadow-editorial bg-paper-elevated">
             <img
               src={ossAsset('/images/头像.png')}
               alt="Gary Cheng 的头像"
@@ -32,64 +28,58 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Main Content */}
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+        <p className="section-label mb-4 animate-fade-in">Portfolio</p>
+
+        <h1 className="font-display text-4xl md:text-6xl font-semibold text-ink-deep mb-4 animate-fade-in">
           {t.hero.name}
-          <span className="block text-xl md:text-2xl font-normal mt-2 text-blue-100">
+          <span className="block text-xl md:text-2xl font-normal mt-3 text-ink-muted font-sans">
             {t.hero.subtitle}
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-ink-muted mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in">
           {t.hero.description}
         </p>
 
-        {/* Key Info */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12 text-sm md:text-base">
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-            <Briefcase size={16} />
+        <div className="flex flex-wrap justify-center gap-4 mb-12 text-sm md:text-base">
+          <div className="pill-info">
+            <Briefcase size={16} className="text-forest" />
             <span>{t.hero.company}</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-            <MapPin size={16} />
+          <div className="pill-info">
+            <MapPin size={16} className="text-forest" />
             <span>{t.hero.location}</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-            <Calendar size={16} />
+          <div className="pill-info">
+            <Calendar size={16} className="text-forest" />
             <span>{t.hero.status}</span>
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <button
-            onClick={() => scrollToNext()}
-            className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+          <button onClick={scrollToNext} className="btn-primary">
             {t.hero.learnMore}
           </button>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:scale-105"
+            className="btn-secondary"
           >
             {t.hero.contact}
           </button>
         </div>
 
-        {/* Scroll Indicator */}
-        <button
-          onClick={scrollToNext}
-          className="animate-bounce hover:text-blue-200 transition-colors duration-300"
-          aria-label="向下滚动"
-        >
-          <ChevronDown size={32} />
-        </button>
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-16 h-px bg-warm-border" />
+          <button
+            onClick={scrollToNext}
+            className="text-ink-soft hover:text-forest transition-colors duration-300 flex flex-col items-center gap-1"
+            aria-label="向下滚动"
+          >
+            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <ChevronDown size={20} />
+          </button>
+        </div>
       </div>
-
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-white/5 rounded-full animate-float-delayed"></div>
-      <div className="absolute top-1/2 left-20 w-12 h-12 bg-white/5 rounded-full animate-float-slow"></div>
     </section>
   );
 };

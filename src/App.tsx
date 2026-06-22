@@ -11,7 +11,8 @@ function App() {
   return (
     <LanguageProvider>
       <VisibilityGate>
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-paper text-ink">
+          <div className="fixed inset-x-0 top-0 z-[60] h-1 bg-gradient-to-r from-forest via-amber-brand to-slate-brand" />
           <Header />
           <main>
             <Hero />

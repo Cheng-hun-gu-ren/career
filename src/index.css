@@ -2,56 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-sans antialiased text-ink bg-paper;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-sm font-semibold uppercase tracking-[0.22em] text-amber-muted;
+  }
+
+  .card-editorial {
+    @apply bg-paper-elevated border border-warm-border rounded-xl shadow-editorial transition-all duration-300;
+  }
+
+  .card-editorial:hover {
+    @apply border-forest/30 shadow-editorial-lg;
+  }
+
+  .btn-primary {
+    @apply bg-forest text-paper px-8 py-3 rounded-lg font-semibold hover:bg-forest-light transition-colors duration-300;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-forest text-forest px-8 py-3 rounded-lg font-semibold hover:bg-forest hover:text-paper transition-colors duration-300;
+  }
+
+  .pill-info {
+    @apply flex items-center gap-2 border border-warm-border bg-white/70 rounded-full px-4 py-2 text-sm text-ink-soft;
+  }
+
+  .grid-finance {
+    background-image:
+      linear-gradient(rgba(23, 63, 53, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 63, 53, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
 /* Hide scrollbar */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Safari and Chrome */
-}
-
-/* Custom range slider styles */
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #3b82f6;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 2px solid white;
-  transition: all 0.2s ease;
-}
-
-.slider::-webkit-slider-thumb:hover {
-  background: #2563eb;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
-}
-
-.slider::-moz-range-thumb {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #3b82f6;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 2px solid white;
-  transition: all 0.2s ease;
-}
-
-.slider::-moz-range-thumb:hover {
-  background: #2563eb;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transform: scale(1.1);
+  display: none;
 }
 
 /* Custom animations */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -59,49 +62,8 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes float-delayed {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 .animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 8s ease-in-out infinite;
-  animation-delay: 2s;
-}
-
-.animate-float-slow {
-  animation: float-slow 10s ease-in-out infinite;
-  animation-delay: 4s;
+  animation: fade-in 0.8s ease-out;
 }
 
 /* Line clamp utilities */
@@ -137,14 +99,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f3f0e8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #cfc7b8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: #173f35;
 }
