@@ -29,7 +29,7 @@ export const EXTERNAL_LINKS = {
   
   // 学术和研究
   academic: {
-    cuhkEmail: 'mailto:224040166@link.cuhk.edu.cn',
+    cuhkEmail: 'mailto:chenggao@cuhk.edu.cn',
     researchPapers: '#', // 学术论文集合
     competitionResults: 'modal:competition-results', // 竞赛成果展示 - 弹窗展示
   },

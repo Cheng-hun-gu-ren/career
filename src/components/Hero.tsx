@@ -22,7 +22,7 @@ const Hero = () => {
           <div className="w-32 h-32 mx-auto rounded-full border-[3px] border-amber-brand/60 overflow-hidden shadow-editorial bg-paper-elevated">
             <img
               src={ossAsset('/images/头像.png')}
-              alt="Gary Cheng 的头像"
+              alt="Gary Chen 的头像"
               className="w-full h-full object-cover"
             />
           </div>

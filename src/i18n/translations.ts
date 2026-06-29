@@ -12,12 +12,12 @@ export const translations = {
 
     // 头部
     header: {
-      name: 'Gary Cheng'
+      name: 'Gary Chen'
     },
 
     // 英雄区块
     hero: {
-      name: 'Gary Cheng',
+      name: 'Gary Chen',
       subtitle: 'AI工程师 · 全栈开发工程师',
       description: '任职于深圳数据经济研究院，聚焦金融科技、AI工程化与数据产品建设，把业务理解、模型能力和全栈开发落到可运行的系统与可交付的项目。\n这里集中呈现我长期维护的项目案例、产品作品与技术实践。',
       company: '深圳数据经济研究院',
@@ -189,16 +189,16 @@ export const translations = {
 
     // 页脚
     footer: {
-      brand: 'Gary Cheng',
+      brand: 'Gary Chen',
       tagline: 'AI工程师 · 全栈开发工程师',
       motto: '任职于深圳数据经济研究院，聚焦金融科技、AI工程化与数据产品建设。',
       quickLinks: '快速导航',
       contactInfo: '联系信息',
-      email: '📧 224040166@link.cuhk.edu.cn',
+      email: '📧 chenggao@cuhk.edu.cn',
       location: '📍 深圳市',
       organization: '🏢 深圳数据经济研究院',
       personalSite: '个人生活网站 →',
-      copyright: '© {{year}} Gary Cheng. Made with',
+      copyright: '© {{year}} Gary Chen. Made with',
       motto2: '怕什么真理无穷，进一步有一步的惊喜',
       icp: '备案号：粤ICP备2025459432号'
     }
@@ -216,12 +216,12 @@ export const translations = {
 
     // Header
     header: {
-      name: 'Gary Cheng'
+      name: 'Gary Chen'
     },
 
     // Hero Section
     hero: {
-      name: 'Gary Cheng',
+      name: 'Gary Chen',
       subtitle: 'AI Engineer · Full-Stack Developer',
       description: 'Working at Shenzhen Digital Economy Research Institute, focused on fintech, AI engineering, and data product development. I turn domain insight, model capabilities, and full-stack engineering into working systems and delivered projects.\nThis site collects project cases, product work, and technical practice I continue to maintain.',
       company: 'Shenzhen Digital Economy Research Institute',
@@ -430,16 +430,16 @@ export const translations = {
 
     // Footer
     footer: {
-      brand: 'Gary Cheng',
+      brand: 'Gary Chen',
       tagline: 'AI Engineer · Full-Stack Developer',
       motto: 'Working at Shenzhen Digital Economy Research Institute, focused on fintech, AI engineering, and data products.',
       quickLinks: 'Quick Links',
       contactInfo: 'Contact Info',
-      email: '📧 224040166@link.cuhk.edu.cn',
+      email: '📧 chenggao@cuhk.edu.cn',
       location: '📍 Shenzhen',
       organization: '🏢 Shenzhen Digital Economy Research Institute',
       personalSite: 'Personal Website →',
-      copyright: '© {{year}} Gary Cheng. Made with',
+      copyright: '© {{year}} Gary Chen. Made with',
       motto2: 'Fear nothing about infinite truth; each step forward brings a pleasant surprise',
       icp: 'License: 粤ICP备2025459432号'
     }

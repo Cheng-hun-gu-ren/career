@@ -19,8 +19,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: t.contact.contactItems.email,
-      value: '224040166@link.cuhk.edu.cn',
-      href: 'mailto:224040166@link.cuhk.edu.cn',
+      value: 'chenggao@cuhk.edu.cn',
+      href: 'mailto:chenggao@cuhk.edu.cn',
     },
     {
       icon: MapPin,
@@ -145,7 +145,7 @@ const Contact = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="mailto:224040166@link.cuhk.edu.cn"
+                  href="mailto:chenggao@cuhk.edu.cn"
                   className="inline-flex items-center gap-2 btn-primary px-6 py-3"
                 >
                   <Mail size={18} />
