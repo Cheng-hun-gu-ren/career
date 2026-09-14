@@ -2,9 +2,11 @@
 
 > **🌐 在线访问**: [https://chenggao.top](https://chenggao.top) ✅ **部署成功**
 
-一个现代化的个人作品集主页，集中展示金融科技、AI应用开发、全栈项目和公开作品。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到自定义域名。
+一个现代化的个人作品集主页，集中展示金融科技、AI应用开发、全栈项目和公开作品。基于 React + TypeScript + Tailwind CSS 构建，通过 GitHub Actions 自动部署到 GitHub Pages 自定义域名。
 
 页面展示受 `https://career.chenhun.me/settings` 中的公开展示开关控制。站点启动时会先读取 `https://career.chenhun.me/api/public/career-home-visibility`，关闭或接口失败时显示 `网站主关闭了作品集展示`，不渲染完整主页内容。
+
+当前页面代码由 GitHub Pages 托管；有效图片资源统一通过 `src/data/oss.ts` 的 `ossAsset()` 加载阿里云 OSS 原始域名 `https://personl-website.oss-cn-shenzhen.aliyuncs.com/life-images-upload`。`public/images/` 和 `oss-resources/` 仍保留本地素材副本或历史迁移资料，但不是主页图片的主加载来源。后续如接入 CDN，优先只替换 `OSS_BASE_URL`。
 
 ## ⚠️ 重要说明
 
@@ -58,26 +60,23 @@ project/
 │   │   ├── Header.tsx      # 网站头部
 │   │   ├── Hero.tsx        # 英雄区块
 │   │   ├── VisibilityGate.tsx # 中控台展示开关校验
-│   │   ├── Portfolio.tsx   # 作品集展示
 │   │   ├── Projects.tsx    # 项目展示
 │   │   ├── Education.tsx   # 教育背景
 │   │   ├── Internships.tsx # 实习经历
 │   │   ├── Contact.tsx     # 联系信息
-│   │   ├── Footer.tsx      # 网站底部
-│   │   └── ImageModal.tsx  # 图片弹窗组件
+│   │   └── Footer.tsx      # 网站底部
 │   ├── data/              # 数据配置
+│   │   ├── oss.ts          # OSS 图片基础地址和拼接工具
 │   │   ├── links.ts        # 外链配置
 │   │   ├── portfolio-images.ts # 作品集图片配置
 │   │   └── 职业基础信息0804.md # 原始信息文档
 │   ├── App.tsx            # 主应用组件
 │   ├── main.tsx           # 应用入口
 │   └── index.css          # 全局样式
-├── public/                # 静态资源
+├── public/                # 静态资源和本地图片留存；主页有效图片优先走 OSS
 │   └── images/
-│       └── portfolio/     # 作品集图片
-│           ├── academic-drawings/     # 学术绘图
-│           ├── data-visualization/    # 数据可视化
-│           └── competition-results/   # 竞赛成果
+│       └── portfolio/     # 本地作品集图片副本 / 历史兜底
+├── oss-resources/         # OSS 迁移素材和资源清单留存
 ├── package.json           # 项目配置
 ├── vite.config.ts         # Vite配置
 ├── tailwind.config.js     # Tailwind配置
@@ -124,16 +123,16 @@ export const EXTERNAL_LINKS = {
 
 ### 弹窗系统使用方法
 
-1. **添加图片资源**：
+1. **上传图片资源到 OSS**：
    ```bash
-   # 把图片放到对应文件夹
-   public/images/portfolio/academic-drawings/     # 学术绘图PNG文件
-   public/images/portfolio/data-visualization/    # 数据报告PDF文件
-   public/images/portfolio/competition-results/   # 竞赛证书图片
+   # 建议对象路径，实际上传流程参考工作区根目录 docs/oss-upload-guide.md
+   life-images-upload/images/portfolio/academic-drawings/
+   life-images-upload/images/portfolio/data-visualization/
+   life-images-upload/images/portfolio/competition-results/
    ```
 
 2. **更新图片配置**：
-   编辑 `src/data/portfolio-images.ts` 添加新的图片信息
+   编辑 `src/data/portfolio-images.ts` 或对应组件，使用 `ossAsset('/images/...')` 添加新的图片信息，不要直接把新主页图片写成 `/images/...`。
 
 3. **链接格式**：
    - 弹窗展示：`modal:category-name`
@@ -166,20 +165,21 @@ export const EXTERNAL_LINKS = {
 ## 🚀 部署配置
 
 ### 目标域名
-- **主域名**: career.chenggao.top
+- **主访问域名**: chenggao.top
+- **仓库 CNAME**: career.chenggao.top
 - **现有参考**: 
   - life.chenggao.top (个人生活主页)
   - portfolio.chgr-cuhksz-gao.cn (学术页面)
 
 ### 推荐部署方案
 
-#### 方案一：GitHub Pages + Cloudflare
+#### 方案一：GitHub Pages + Cloudflare（当前方案）
 ```bash
 # 1. 构建项目
 npm run build
 
-# 2. 推送 dist 内容到 gh-pages 分支
-# 3. 在 Cloudflare 配置域名加速
+# 2. 提交并推送 master/main
+# 3. GitHub Actions 会构建 dist 并通过 GitHub Pages 发布
 ```
 
 #### 方案二：阿里云服务器 + Nginx
@@ -203,36 +203,61 @@ server {
 ```
 
 ### 自动化部署
-创建 `.github/workflows/deploy.yml`：
+当前仓库已使用 `.github/workflows/deploy.yml`：
 
 ```yaml
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
         
-    - name: Install and Build
-      run: |
-        npm install
-        npm run build
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
         
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 ```
 
 ## 📊 SEO 优化
@@ -262,9 +287,9 @@ jobs:
 这是前端渲染层展示控制，不是 GitHub Pages 静态资源强鉴权。
 
 ### 添加新的作品项目
-1. 在 `src/components/Portfolio.tsx` 的 `portfolioItems` 数组中添加新项目
+1. 在 `src/components/Projects.tsx` 的 `projects` 数组中添加新项目
 2. 配置项目链接在 `src/data/links.ts`
-3. 如需弹窗展示，在 `src/data/portfolio-images.ts` 添加图片配置
+3. 图片优先上传到 OSS，并通过 `ossAsset('/images/...')` 引用；如需弹窗展示，在 `src/data/portfolio-images.ts` 添加图片配置
 
 ### 修改个人信息
 1. 编辑 `src/data/职业基础信息0804.md` 更新基础信息
@@ -317,7 +342,7 @@ npm run type-check
 ## 🚀 部署成功记录
 
 ### **✅ v1.0.0 部署里程碑** (2025-01-06)
-- ✅ **网站上线**: [https://career.chenggao.top](https://career.chenggao.top)
+- ✅ **网站上线**: 主访问域名 [https://chenggao.top](https://chenggao.top)，仓库 CNAME 为 [https://career.chenggao.top](https://career.chenggao.top)
 - ✅ **GitHub Pages部署**: 自动化CI/CD流程
 - ✅ **自定义域名配置**: DNS解析成功
 - ✅ **HTTPS支持**: SSL证书自动配置
@@ -326,9 +351,9 @@ npm run type-check
 ### **🔧 技术实现亮点**
 - **现代化技术栈**: React 18 + TypeScript + Vite
 - **自动化部署**: GitHub Actions工作流
-- **本地化图片**: 避免外部CDN依赖
+- **OSS 图片资源**: 主页有效图片统一通过阿里云 OSS 加载，后续可在 `src/data/oss.ts` 切换 CDN 域名
 - **性能优化**: Vite构建优化，资源压缩
-- **交互体验**: AI工具箱横向滑动，微信二维码弹窗
+- **交互体验**: AI工具箱横向滑动
 
 ## 📈 未来优化计划
 
@@ -352,8 +377,6 @@ npm run type-check
 - ✅ 简历PDF下载功能
 - ✅ 竞赛成果展示
 - ✅ 移动端优化体验
-- ✅ 微信二维码弹窗
-- ✅ 社交媒体链接更新
 - ✅ AI工具箱横向滑动展示
 
 ---
