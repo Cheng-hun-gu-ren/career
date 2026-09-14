@@ -221,21 +221,21 @@ const Projects = () => {
       visible: false
     },
     {
-      id: 8,
-      title: 'A股产业图谱',
-      category: ['ai', 'fintech'],
-      description: '赋能打标业务的A股产业图谱，集成企业生态链、行业上下游链、市场热点链和常驻概念链，赋能事件因子到底层资产的传导。',
-      image: ossAsset('/images/a-share-industry-map.png'),
-      technologies: ['AI', '股票', '产业链研究', '数据可视化'],
+      id: 3,
+      title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
+      category: ['ai', 'research'],
+      description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
+      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
+      technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
       achievements: [
-        '母项目获中证协2025年度优秀课题',
-        '企业生态链/行业链/热点链/常驻概念链集成'
+        '课题获中证协2025年度优秀课题',
+        '大模型协助资讯高质量打标'
       ],
-      period: '2026.04 - 建设中',
-      team: '产品开发',
-      company: '深圳数据经济研究院',
-      status: 'in-progress',
-      link: 'https://industrymap.chenhun.me/'
+      period: '2025.08 - 2026.05',
+      team: '产学研合作项目',
+      company: '香港中文大学（深圳）',
+      status: 'completed',
+      link: 'https://mp.weixin.qq.com/s?__biz=MzI4MTU2OTM1MQ==&mid=2247522871&idx=1&sn=57da402bda0c39bf494055bfa7b6a159&chksm=eac2567e1c5ec97d4f78c4942f1027e5492010399d461ea3483afb7c1a449576c489b78f4d39&mpshare=1&scene=1&srcid=0527NRQyYkjNsW8U6FxhgszW&sharer_shareinfo=10d346f3bddbac3e81c6011534a3e7a7&sharer_shareinfo_first=10d346f3bddbac3e81c6011534a3e7a7#rd'
     },
     {
       id: 4,
@@ -255,21 +255,21 @@ const Projects = () => {
       link: 'https://side-esg.cuhk.edu.cn/'
     },
     {
-      id: 3,
-      title: '基于垂直领域金融大模型的海外资讯智能处理与多Agent技术应用研究',
-      category: ['ai', 'research'],
-      description: '作为高校技术骨干与头部券商、头部财经媒体合作，进行大模型微调研究，探索AI在金融领域的应用',
-      image: ossAsset('/images/阿里通义千问大模型微调项目.png'),
-      technologies: ['大模型微调', 'JupyterLab云开发', '数据处理', 'Python'],
+      id: 8,
+      title: 'A股产业图谱',
+      category: ['ai', 'fintech'],
+      description: '赋能打标业务的A股产业图谱，集成企业生态链、行业上下游链、市场热点链和常驻概念链，赋能事件因子到底层资产的传导。',
+      image: ossAsset('/images/a-share-industry-map.png'),
+      technologies: ['AI', '股票', '产业链研究', '数据可视化'],
       achievements: [
-        '课题获中证协2025年度优秀课题',
-        '大模型协助资讯高质量打标'
+        '母项目获中证协2025年度优秀课题',
+        '企业生态链/行业链/热点链/常驻概念链集成'
       ],
-      period: '2025.08 - 2026.05',
-      team: '产学研合作项目',
-      company: '香港中文大学（深圳）',
-      status: 'completed',
-      link: 'https://mp.weixin.qq.com/s?__biz=MzI4MTU2OTM1MQ==&mid=2247522871&idx=1&sn=57da402bda0c39bf494055bfa7b6a159&chksm=eac2567e1c5ec97d4f78c4942f1027e5492010399d461ea3483afb7c1a449576c489b78f4d39&mpshare=1&scene=1&srcid=0527NRQyYkjNsW8U6FxhgszW&sharer_shareinfo=10d346f3bddbac3e81c6011534a3e7a7&sharer_shareinfo_first=10d346f3bddbac3e81c6011534a3e7a7#rd'
+      period: '2026.04 - 建设中',
+      team: '产品开发',
+      company: '深圳数据经济研究院',
+      status: 'in-progress',
+      link: 'https://industrymap.chenhun.me/'
     },
     {
       id: 9,

@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Github, MessageCircle, Calendar, X } from 'lucide-react';
-import { ossAsset } from '../data/oss';
+import React from 'react';
+import { Mail, MapPin, Calendar } from 'lucide-react';
 import { useLanguage, translations } from '../i18n';
 import SectionHeading from './ui/SectionHeading';
-
-const TwitterXIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
 
 const Contact = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const [showWechatModal, setShowWechatModal] = useState(false);
 
   const contactInfo = [
     {
@@ -25,34 +17,12 @@ const Contact = () => {
     {
       icon: MapPin,
       label: t.contact.contactItems.location,
-      value: language === 'zh' ? t.contact.contactItems.locationValue : t.contact.contactItems.locationValue,
+      value: t.contact.contactItems.locationValue,
     },
     {
       icon: Calendar,
       label: t.contact.contactItems.available,
-      value: language === 'zh' ? t.contact.contactItems.availableValue : t.contact.contactItems.availableValue,
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/Cheng-hun-gu-ren',
-      external: true
-    },
-    {
-      icon: TwitterXIcon,
-      label: 'X (Twitter)',
-      href: 'https://x.com/Gary_Chen9527',
-      external: true
-    },
-    {
-      icon: MessageCircle,
-      label: t.contact.socialWeChat,
-      href: '#',
-      external: false,
-      onClick: () => setShowWechatModal(true)
+      value: t.contact.contactItems.availableValue,
     }
   ];
 
@@ -99,43 +69,6 @@ const Contact = () => {
               </div>
             </div>
 
-            <div>
-              <h4 className="text-lg font-semibold text-ink-deep mb-4">
-                {t.contact.social}
-              </h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-
-                  if (social.external) {
-                    return (
-                      <a
-                        key={index}
-                        href={social.href}
-                        className="w-12 h-12 bg-paper-elevated border border-warm-border rounded-lg flex items-center justify-center text-ink-soft hover:text-forest hover:border-forest/40 transition-all duration-200"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.label}
-                      >
-                        <IconComponent size={20} />
-                      </a>
-                    );
-                  }
-
-                  return (
-                    <button
-                      key={index}
-                      onClick={social.onClick}
-                      className="w-12 h-12 bg-paper-elevated border border-warm-border rounded-lg flex items-center justify-center text-ink-soft hover:text-forest hover:border-forest/40 transition-all duration-200"
-                      aria-label={social.label}
-                    >
-                      <IconComponent size={20} />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             <div className="bg-gradient-to-r from-forest/5 to-amber-brand/5 border border-warm-border rounded-xl p-6">
               <h4 className="text-lg font-semibold text-ink-deep mb-3">
                 {t.contact.quick}
@@ -166,40 +99,6 @@ const Contact = () => {
             </p>
           </div>
         </div>
-
-        {showWechatModal && (
-          <div className="fixed inset-0 bg-ink-deep/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-paper rounded-xl p-8 max-w-sm w-full mx-auto relative border border-warm-border shadow-editorial-lg">
-              <button
-                onClick={() => setShowWechatModal(false)}
-                className="absolute top-4 right-4 text-ink-soft hover:text-forest transition-colors"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="text-center">
-                <h3 className="font-display text-xl font-semibold text-ink-deep mb-6">
-                  {t.contact.wechat}
-                </h3>
-
-                <div className="mb-6">
-                  <img
-                    src={ossAsset('/images/wechat.png')}
-                    alt="WeChat QR Code"
-                    className="w-64 h-64 mx-auto rounded-lg border border-warm-border"
-                  />
-                </div>
-
-                <p className="text-ink-muted text-sm mb-4">
-                  {t.contact.wechatTip}
-                </p>
-                <p className="text-ink-soft text-xs">
-                  {t.contact.wechatNote}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

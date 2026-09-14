@@ -19,7 +19,7 @@ export const translations = {
     hero: {
       name: 'Gary Chen',
       subtitle: 'AI工程师 · 全栈开发工程师',
-      description: '任职于香港中文大学（深圳）数据经济研究院，聚焦金融科技、AI工程化与数据产品建设，把业务理解、模型能力和全栈开发落到可运行的系统与可交付的项目。\n这里集中呈现我长期维护的项目案例、产品作品与技术实践。',
+      description: '哈尔滨工业大学学士，香港中文大学（深圳）理学硕士。任职于香港中文大学（深圳）数据经济研究院，聚焦金融科技、AI工程化与数据产品建设，把业务理解、模型能力和全栈开发落到可运行的系统与可交付的项目。\n这里集中呈现我长期维护的项目案例、产品作品与技术实践。',
       company: '香港中文大学（深圳）数据经济研究院',
       location: '深圳',
       status: '在职 · 项目交付中',
@@ -223,7 +223,7 @@ export const translations = {
     hero: {
       name: 'Gary Chen',
       subtitle: 'AI Engineer · Full-Stack Developer',
-      description: 'Working at the Institute of Data Economy, The Chinese University of Hong Kong (Shenzhen), focused on fintech, AI engineering, and data product development. I turn domain insight, model capabilities, and full-stack engineering into working systems and delivered projects.\nThis site collects project cases, product work, and technical practice I continue to maintain.',
+      description: 'Bachelor of Harbin Institute of Technology; Master of Science, The Chinese University of Hong Kong (Shenzhen). Working at the Institute of Data Economy, The Chinese University of Hong Kong (Shenzhen), focused on fintech, AI engineering, and data product development. I turn domain insight, model capabilities, and full-stack engineering into working systems and delivered projects.\nThis site collects project cases, product work, and technical practice I continue to maintain.',
       company: 'Institute of Data Economy, CUHK-Shenzhen',
       location: 'Shenzhen',
       status: 'Employed · Delivering Projects',
